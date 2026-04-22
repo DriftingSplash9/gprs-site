@@ -79,6 +79,7 @@ function gprs_render_volunteer_content() {
                             alt="Street view of GPRS Crystal Ridge duplexes — built by volunteers and community effort since 1987"
                             class="gprs-vol-why__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -89,6 +90,7 @@ function gprs_render_volunteer_content() {
                             alt="GPRS residential grounds with flowers and a tree"
                             class="gprs-vol-why__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />

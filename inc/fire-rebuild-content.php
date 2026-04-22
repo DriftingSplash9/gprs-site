@@ -187,6 +187,7 @@ function gprs_render_fire_rebuild_content() {
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg"
 				     alt="Aerial view of Margaret Edgson Manor under reconstruction showing new roof trusses and framing, winter 2026"
 				     loading="lazy"
+				     decoding="async"
 				     width="1200"
 				     height="800">
 				<figcaption class="gprs-fire__image-caption">
@@ -198,6 +199,7 @@ function gprs_render_fire_rebuild_content() {
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/03/E63A8547-331B-422B-8C44-02C5CA3B0DB9-scaled.jpeg"
 				     alt="Looking south from Seargent House at Margaret Edgson Manor under reconstruction showing new roof trusses and framing, winter 2026"
 				     loading="lazy"
+				     decoding="async"
 				     width="1200"
 				     height="800">
 				<figcaption class="gprs-fire__image-caption"

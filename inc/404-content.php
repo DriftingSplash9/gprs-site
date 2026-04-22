@@ -57,7 +57,9 @@ function gprs_404_render_hero() {
 		<img class="gprs-img-hero"
 		     src="<?php echo esc_url( $uploads ); ?>/2025/12/IMG_0983-scaled-e1764562777634.jpg"
 		     alt=""
-		     loading="eager">
+		     loading="eager"
+		     decoding="async"
+		     fetchpriority="high">
 
 		<div class="hero-content hero-content--centered">
 			<div class="hero-stack">

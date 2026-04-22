@@ -87,6 +87,7 @@ function gprs_render_mem_content() {
                             alt="Margaret Edgson Manor exterior showing multi-storey apartment building with balconies, before the June 2025 fire"
                             class="mem-figure__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="512"
                         />
@@ -97,6 +98,7 @@ function gprs_render_mem_content() {
                             alt="Celebratory groundbreaking — Travis McNally unveils the building sign while supporters applaud"
                             class="mem-figure__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -187,6 +189,7 @@ function gprs_render_mem_content() {
                     alt="Margaret Edgson Manor front entrance — barrier-free design with covered portico"
                     class="mem-figure__img"
                     loading="lazy"
+                    decoding="async"
                     width="800"
                     height="533"
                 />
@@ -213,6 +216,7 @@ function gprs_render_mem_content() {
                     alt="Donor recognition plaque at Margaret Edgson Manor honouring contributors to Grande Prairie Residential Society, dated 2005"
                     class="mem-figure__img"
                     loading="lazy"
+                    decoding="async"
                     width="800"
                     height="533"
                 />

@@ -356,20 +356,16 @@ function gprs_enqueue_scripts() {
         );
     }
     
-	/* ── Quicklinks scrollspy — NOT ENQUEUED ──────────
-	   No pages currently use the quicklinks bar.
-	   When you add one, uncomment and set the condition:
-
-	   if ( is_page( 'accessible-housing' ) ) {
-	       wp_enqueue_script(
-	           'gprs-quicklinks-scrollspy',
-	           $uri . '/js/quicklinks-scrollspy.js',
-	           array(),
-	           $v,
-	           true
-	       );
-	   }
-	   ─────────────────────────────────────────────── */
+	// Quicklinks scrollspy — fire rebuild page (matches quicklinks markup in inc/fire-rebuild-content.php)
+	if ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {
+		wp_enqueue_script(
+			'gprs-quicklinks-scrollspy',
+			$uri . '/js/quicklinks-scrollspy.js',
+			array(),
+			$v,
+			array( 'in_footer' => true, 'strategy' => 'defer' )
+		);
+	}
 
 	// Timeline interactions — only on the timeline page
 	if ( is_page( 'timeline' ) ) {
