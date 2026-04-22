@@ -96,7 +96,7 @@ function gprs_render_apply_content() {
                 <h4 class="apply-form-card__title">GPRS Tenant Application</h4>
                 <p class="apply-form-card__desc">This fillable PDF covers everything we need to assess your application: your personal information, mobility and accessibility needs, equipment used, personal care and homemaking assistance, housing preferences, and references. It also includes our privacy notice and consent under Alberta's PIPA and POPA.</p>
                 <p class="apply-form-card__desc"><strong>4 pages.</strong> You can fill it out on your computer, phone, or tablet before printing, saving, or emailing it to us.</p>
-                <a href="<?php echo esc_url( $uploads . '/2026/03/GPRS_Application_Fillable_2026-3.pdf' ); ?>" class="apply-form-card__btn" target="_blank" rel="noopener noreferrer">
+                <a href="<?php echo esc_url( $uploads . '/2026/04/GPRS-TENANT-APPLICATION-2026-RevisionFillable.pdf' ); ?>" class="apply-form-card__btn" target="_blank" rel="noopener noreferrer">
                     Download Application (PDF)
                     <svg class="apply-form-card__btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <path d="M10 3v10m0 0l-3.5-3.5M10 13l3.5-3.5M4 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
