@@ -1,0 +1,519 @@
+/* ============================================================
+   22 — FAQ PAGE
+   ============================================================
+   Purpose:  Styles for the /faq/ page — accordion Q&As,
+             category headers with icons, CTA block
+   Depends:  01-Core Tokens, 00-Shared Components
+   Updated:  2026-03-31
+
+   Migrated from: inline <style> block in Gutenberg Custom HTML
+   CLASS PREFIX:  faq-  (page-scoped)
+
+   Shared classes used in faq-content.php:
+     .gprs-gradient-heading--plain  (category H2s)
+     .gprs-glass-card               (accordion items + CTA)
+     .gprs-tinted-text              (page wrapper)
+
+   TABLE OF CONTENTS:
+     1. Page Container
+     2. Intro Text
+     3. Category Headers (icon + title)
+     4. FAQ Items — Accordion Structure
+     5. Question Button (trigger)
+     6. Chevron
+     7. Answer Panel
+     8. Open State — Active Accent
+     9. CTA Block
+    10. Dark Mode Overrides
+    11. Responsive
+    12. Reduced Motion
+    13. High Contrast
+    14. Astra Content Gap Fix
+   ============================================================ */
+
+
+/* ============================================================
+   1. PAGE CONTAINER
+   ============================================================ */
+
+.faq-page {
+    width: 100%;
+    max-width: 920px;
+    margin: 75px auto 0;
+    padding: 2rem 1rem 4rem;
+    position: relative;
+    z-index: var(--z-base, 1);
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   2. INTRO TEXT
+   ============================================================ */
+
+.faq-intro {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    max-width: 720px;
+}
+
+.faq-intro p {
+    margin: 0 0 1rem;
+}
+
+.faq-intro a {
+    color: var(--gprs-text-accent, #0066CC);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--anim-fast, 0.18s ease);
+}
+
+.faq-intro a:hover {
+    color: var(--gprs-link-hover, #0051a3);
+}
+
+html.gprs-dark .faq-intro a:hover {
+    color: var(--gprs-link-hover, #a0d0ff);
+    text-shadow: 0 0 8px rgba(109, 179, 242, 0.3);
+}
+
+
+/* ============================================================
+   3. CATEGORY HEADERS — icon + title
+   ============================================================
+   The H2 uses .gprs-gradient-heading--plain from shared
+   components (gradient text, no underline). This section
+   only adds the icon box and category-level layout.
+   ============================================================ */
+
+.faq-category {
+    margin: 3rem 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+}
+
+.faq-category__icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 102, 204, 0.10);
+    border: 1px solid rgba(0, 102, 204, 0.20);
+    border-radius: var(--radius-sm, 8px);
+    transition: background var(--anim-medium, 0.3s ease),
+                border-color var(--anim-medium, 0.3s ease),
+                box-shadow var(--anim-medium, 0.3s ease);
+}
+
+.faq-category__icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--clr-accent, #0066CC);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Override shared heading margins for tighter category feel */
+.faq-category .gprs-gradient-heading {
+    margin: 0;
+    padding-bottom: 0;
+    font-size: 1.4rem;
+}
+
+/* Hover: icon gets subtle glow */
+.faq-category:hover .faq-category__icon {
+    background: rgba(0, 102, 204, 0.18);
+    border-color: rgba(0, 102, 204, 0.35);
+    box-shadow: 0 0 12px rgba(0, 102, 204, 0.15);
+}
+
+html.gprs-dark .faq-category__icon {
+    background: rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.25);
+}
+
+html.gprs-dark .faq-category:hover .faq-category__icon {
+    box-shadow: 0 0 16px rgba(0, 102, 204, 0.25);
+}
+
+
+/* ============================================================
+   4. FAQ ITEMS — Accordion Structure
+   ============================================================
+   Each .faq-item is also a .gprs-glass-card from shared
+   components (provides background, border, radius, dark-mode
+   backdrop-filter). This section adds accordion-specific
+   layout and the hover lift/glow.
+   ============================================================ */
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.faq-item {
+    overflow: hidden;
+    transition: transform var(--anim-medium, 0.3s ease),
+                box-shadow var(--anim-medium, 0.3s ease),
+                border-color var(--anim-medium, 0.3s ease);
+}
+
+/* Override shared card padding for accordion items */
+.faq-item.gprs-glass-card {
+    padding: 0;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 102, 204, 0.25);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12),
+                0 0 14px rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark .faq-item:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.30),
+                0 0 18px rgba(0, 102, 204, 0.18);
+}
+
+
+/* ============================================================
+   5. QUESTION BUTTON (trigger)
+   ============================================================ */
+
+.faq-item__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.125rem 1.375rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--clr-text-heading, #000000);
+    line-height: 1.5;
+    transition: color var(--anim-fast, 0.18s ease);
+}
+
+.faq-item__question:hover {
+    color: var(--clr-accent, #0066CC);
+}
+
+html.gprs-dark .faq-item__question {
+    color: var(--clr-text-heading, #ffffff);
+}
+
+html.gprs-dark .faq-item__question:hover {
+    color: var(--gprs-text-accent, #6db3f2);
+}
+
+
+/* ============================================================
+   6. CHEVRON
+   ============================================================ */
+
+.faq-item__chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-item__chevron svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--gprs-text-soft, rgba(0, 0, 0, 0.5));
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.faq-item[data-open="true"] .faq-item__chevron {
+    transform: rotate(180deg);
+}
+
+.faq-item[data-open="true"] .faq-item__chevron svg {
+    stroke: var(--clr-accent, #0066CC);
+}
+
+html.gprs-dark .faq-item[data-open="true"] .faq-item__chevron svg {
+    stroke: var(--gprs-text-accent, #6db3f2);
+}
+
+
+/* ============================================================
+   7. ANSWER PANEL
+   ============================================================ */
+
+.faq-item__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                padding 0.3s ease;
+    padding: 0 1.375rem;
+}
+
+.faq-item[data-open="true"] .faq-item__answer {
+    max-height: 600px;
+    padding: 0 1.375rem 1.25rem;
+}
+
+.faq-item__answer p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0 0 0.5rem;
+}
+
+.faq-item__answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-item__answer a {
+    color: var(--gprs-text-accent, #0066CC);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--anim-fast, 0.18s ease);
+}
+
+.faq-item__answer a:hover {
+    text-decoration-color: currentColor;
+}
+
+html.gprs-dark .faq-item__answer a {
+    color: var(--gprs-text-accent, #6db3f2);
+}
+
+
+/* ============================================================
+   8. OPEN STATE — active accent border
+   ============================================================ */
+
+.faq-item[data-open="true"] {
+    border-left: 3px solid var(--clr-accent, #0066CC);
+}
+
+html.gprs-dark .faq-item[data-open="true"] {
+    border-left-color: var(--gprs-text-accent, #6db3f2);
+}
+
+
+/* ============================================================
+   9. CTA BLOCK — bottom of page
+   ============================================================
+   Uses .gprs-glass-card from shared components for surface.
+   ============================================================ */
+
+.faq-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 3rem 0 0;
+    transition: transform var(--anim-medium, 0.3s ease),
+                box-shadow var(--anim-medium, 0.3s ease),
+                border-color var(--anim-medium, 0.3s ease);
+}
+
+.faq-cta:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 102, 204, 0.25);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15),
+                0 0 14px rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark .faq-cta:hover {
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35),
+                0 0 18px rgba(0, 102, 204, 0.18);
+}
+
+/* Override shared heading margins for CTA context */
+.faq-cta .gprs-gradient-heading {
+    margin-bottom: 0.5rem;
+}
+
+.faq-cta p {
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem;
+    line-height: 1.7;
+}
+
+.faq-cta p a {
+    color: var(--gprs-text-accent, #0066CC);
+    font-weight: 600;
+}
+
+html.gprs-dark .faq-cta p a {
+    color: var(--gprs-text-accent, #6db3f2);
+}
+
+.faq-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+/* ============================================================
+   10. DARK MODE OVERRIDES
+   ============================================================
+   Most dark-mode is handled by shared component classes
+   (.gprs-glass-card, .gprs-tinted-text, .gprs-gradient-heading)
+   and the token overrides in 00-shared-components.css.
+   Only FAQ-specific structural overrides here.
+   ============================================================ */
+
+html.gprs-dark .faq-intro {
+    max-width: 720px;
+}
+
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .faq-page {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .faq-category {
+        margin: 2.5rem 0 1.25rem;
+        gap: 10px;
+    }
+
+    .faq-category .gprs-gradient-heading {
+        font-size: 1.2rem;
+    }
+
+    .faq-category__icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .faq-category__icon svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .faq-item__question {
+        padding: 1rem 1.125rem;
+        font-size: 0.95rem;
+    }
+
+    .faq-item__answer {
+        padding: 0 1.125rem;
+    }
+
+    .faq-item[data-open="true"] .faq-item__answer {
+        padding: 0 1.125rem 1rem;
+    }
+
+    .faq-cta {
+        padding: 2rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-page {
+        padding: 1.25rem 0.75rem 2.5rem;
+    }
+
+    .faq-category .gprs-gradient-heading {
+        font-size: 1.1rem;
+    }
+
+    .faq-item__question {
+        padding: 0.875rem 1rem;
+        font-size: 0.92rem;
+    }
+
+    .faq-cta {
+        padding: 1.5rem 1rem;
+        margin: 2rem 0 0;
+    }
+}
+
+
+/* ============================================================
+   12. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-item,
+    .faq-item:hover,
+    .faq-cta,
+    .faq-cta:hover {
+        transform: none;
+        transition: none;
+    }
+
+    .faq-item__chevron {
+        transition: none;
+    }
+
+    .faq-item__answer {
+        transition: none;
+    }
+
+    .faq-category__icon {
+        transition: none;
+    }
+}
+
+
+/* ============================================================
+   13. HIGH CONTRAST
+   ============================================================ */
+
+@media (prefers-contrast: more) {
+    .faq-item.gprs-glass-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--clr-bg-main, #ffffff);
+        border: 2px solid var(--clr-text-body, #111827);
+    }
+
+    .faq-item__question {
+        font-weight: 700;
+    }
+
+    .faq-category__icon {
+        border-width: 2px;
+    }
+}
+
+
+/* ============================================================
+   14. ASTRA CONTENT GAP FIX
+   ============================================================
+   Same pattern as fire-rebuild and other PHP-include pages.
+   Collapses the empty Astra article wrapper that sits below
+   the PHP-injected content.
+   ============================================================ */
+
+.page-template-default.page-id-2538 .ast-separate-container .ast-article-single,
+.page-template-default .ast-separate-container .ast-article-single {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.page-template-default.page-id-2538 .ast-separate-container .entry-content,
+.page-template-default .ast-separate-container .entry-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}

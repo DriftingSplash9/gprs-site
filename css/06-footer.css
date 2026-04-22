@@ -1,0 +1,531 @@
+/* ============================================================
+   FOOTER — GPRS (REDESIGNED & FINAL)
+   Purpose: Cohesive, modern footer that connects with site design
+   
+   ⚠️ FOCUS: All focus-visible rules now use gold glow
+   matching 02-Base global standard. No blue outlines.
+============================================================ */
+
+/* ============================================================
+   1. DISABLE ASTRA / WP DEFAULT FOOTERS
+============================================================ */
+footer.site-footer,
+#colophon,
+.site-primary-footer-wrap,
+.ast-footer-bar,
+.ast-below-footer-wrap,
+.ast-footer-overlay,
+.ast-small-footer,
+.footer-sml-layout,
+.ast-footer-wrap,
+.site-footer-section {
+	display: none !important;
+}
+
+/* ============================================================
+   2. FOOTER WRAPPER — LIGHTER, MORE CONNECTED
+============================================================ */
+.gprs-footer {
+	width: 100%;
+	min-height: 70vh;
+	margin-top: 0;
+	color: #1e293b;
+	border-top: 3px solid #0369a1;
+	display: flex;
+	flex-direction: column;
+}
+
+html:not(.gprs-dark) .gprs-footer {
+	background: linear-gradient(
+		180deg,
+		#bfdbfe 0%,
+		#cbd5e1 60%,
+		#b8c8d8 100%
+	);
+}
+
+html.gprs-dark .gprs-footer {
+	background: linear-gradient(
+		180deg,
+		#1e293b 0%,
+		#0f172a 50%,
+		#000000 100%
+	);
+	color: #f1f5f9;
+	border-top-color: #0ea5e9;
+}
+
+/* ============================================================
+   3. MISSION STRIP — COMPACT
+============================================================ */
+.footer-mission {
+	text-align: center;
+	padding: 1rem 1rem 0.85rem;
+	font-size: 1rem;
+	letter-spacing: 0.01em;
+	line-height: 1.5;
+	font-weight: 500;
+}
+
+html:not(.gprs-dark) .footer-mission {
+	background: rgba(3, 105, 161, 0.08);
+	color: #334155;
+}
+
+html.gprs-dark .footer-mission {
+	background: rgba(14, 165, 233, 0.08);
+	color: #e2e8f0;
+}
+
+.footer-mission p {
+	margin: 0;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+/* ============================================================
+   4. FOOTER GRID — 3 COLUMNS
+============================================================ */
+.footer-inner {
+	flex: 1;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 2rem 1.5rem;
+	display: grid;
+	grid-template-columns: 1.2fr 1fr 1.1fr;
+	gap: 3.5rem;
+	align-items: start;
+}
+
+/* ============================================================
+   5. FOOTER COLUMNS
+============================================================ */
+.footer-col {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	align-self: start;
+}
+/* ============================================================
+   6. BRANDING
+============================================================ */
+.footer-logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1.25rem;
+}
+
+.footer-logo img {
+	height: 60px;
+	width: auto;
+}
+
+.footer-org-name {
+	display: none;
+}
+
+.footer-text {
+	font-size: 0.95rem;
+	line-height: 1.7;
+	margin-bottom: 1rem;
+	opacity: 1;
+}
+
+html.gprs-dark .footer-text {
+	opacity: 0.95;
+}
+
+/* ============================================================
+   7. FOOTER HEADINGS — WITH COLOR IN DARK MODE
+============================================================ */
+.footer-heading {
+	margin: 0 0 1rem;
+	padding-bottom: 0.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	border-bottom: 2px solid currentColor;
+	width: 100%;
+}
+
+html:not(.gprs-dark) .footer-heading {
+	color: #334155;
+}
+
+html.gprs-dark .footer-heading {
+	color: #0ea5e9;
+	border-bottom-color: rgba(14, 165, 233, 0.4);
+}
+
+/* ============================================================
+   8. LISTS
+============================================================ */
+.footer-links,
+.footer-list-bullets {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-links li,
+.footer-list-bullets li {
+	margin: 0.6rem 0;
+	line-height: 1.5;
+}
+
+.footer-list-bullets {
+	list-style: disc;
+	margin-left: 1.2rem;
+	margin-bottom: 1rem;
+}
+
+html.gprs-dark .footer-list-bullets li {
+	color: #e2e8f0;
+}
+
+/* ============================================================
+   9. FOOTER LINKS — CLEAR HIERARCHY
+============================================================ */
+
+/* Light mode text links */
+html:not(.gprs-dark) .gprs-footer a {
+	color: #0369a1;
+	font-weight: 500;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: all 0.2s ease;
+	display: inline;
+}
+
+html:not(.gprs-dark) .gprs-footer a:hover,
+html:not(.gprs-dark) .gprs-footer a:focus-visible {
+	color: #0284c7;
+	border-bottom-color: currentColor;
+}
+
+/* Focus — gold glow (matches 02-Base global standard) */
+html:not(.gprs-dark) .gprs-footer a:focus-visible {
+	outline: 2px solid rgba(255, 215, 0, 0.80);
+	outline-offset: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 14px 4px rgba(255, 215, 0, 0.35);
+}
+
+/* Dark mode text links — WITH COLOR AND UNDERLINE */
+html.gprs-dark .gprs-footer a {
+	color: #67e8f9;
+	font-weight: 500;
+	text-decoration: underline;
+	text-decoration-color: rgba(125, 211, 252, 0.4);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: all 0.2s ease;
+	display: inline;
+}
+
+html.gprs-dark .gprs-footer a:hover,
+html.gprs-dark .gprs-footer a:focus-visible {
+	color: #bae6fd;
+	text-decoration-color: currentColor;
+}
+
+/* Focus — gold glow (dark mode) */
+html.gprs-dark .gprs-footer a:focus-visible {
+	outline: 2px solid rgba(255, 215, 0, 0.80);
+	outline-offset: 2px;
+	border-radius: 2px;
+	box-shadow: 0 0 14px 4px rgba(255, 215, 0, 0.35);
+}
+
+/* Plain footer links (like "Learn more →") */
+.footer-link-plain {
+	font-size: 0.9rem;
+	margin-top: 0.5rem;
+	display: inline-block;
+}
+
+/* ============================================================
+   10. CTA BUTTONS — MATCHING HERO STYLE
+============================================================ */
+.footer-cta-band {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1.75rem 1rem;
+	background: rgba(3, 105, 161, 0.05);
+}
+
+html.gprs-dark .footer-cta-band {
+	background: rgba(14, 165, 233, 0.06);
+}
+
+/* Button base styles - MATCHING HERO */
+.footer-cta-band a {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	text-decoration: none !important;
+	border-radius: 50px;
+	border: 2px solid transparent !important;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	min-width: 180px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	line-height: 1;
+	height: 48px;
+	padding: 0 1.5rem;
+}
+
+/* PRIMARY BUTTON — Bright blue (Apply for Housing) */
+.footer-cta-band .btn-primary {
+	background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+	color: #ffffff !important;
+	border-color: transparent !important;
+}
+
+.footer-cta-band .btn-primary:hover {
+	background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%) !important;
+	color: #ffffff !important;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* PRIMARY ALT BUTTON — Vibrant teal/cyan (Donate) */
+.footer-cta-band .btn-primary-alt {
+	background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+	color: #ffffff !important;
+	border-color: transparent !important;
+	font-weight: 600;
+}
+
+.footer-cta-band .btn-primary-alt:hover {
+	background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%) !important;
+	color: #ffffff !important;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* SECONDARY BUTTON — Glass morphism outline (Contact Us) */
+.footer-cta-band .btn-outline {
+	background: rgba(255, 255, 255, 0.1) !important;
+	color: #0369a1 !important;
+	border: 2px solid rgba(3, 105, 161, 0.6) !important;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+.footer-cta-band .btn-outline:hover {
+	background: rgba(3, 105, 161, 0.15) !important;
+	border-color: #0369a1 !important;
+	color: #075985 !important;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(3, 105, 161, 0.25);
+}
+
+/* Dark mode buttons */
+html.gprs-dark .footer-cta-band .btn-primary {
+	background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%) !important;
+	color: #0f172a !important;
+}
+
+html.gprs-dark .footer-cta-band .btn-primary:hover {
+	background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%) !important;
+	box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+}
+
+html.gprs-dark .footer-cta-band .btn-primary-alt {
+	background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%) !important;
+	color: #0f172a !important;
+}
+
+html.gprs-dark .footer-cta-band .btn-primary-alt:hover {
+	background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%) !important;
+	box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+}
+
+html.gprs-dark .footer-cta-band .btn-outline {
+	background: rgba(255, 255, 255, 0.08) !important;
+	color: #7dd3fc !important;
+	border-color: rgba(125, 211, 252, 0.4) !important;
+}
+
+html.gprs-dark .footer-cta-band .btn-outline:hover {
+	background: rgba(14, 165, 233, 0.15) !important;
+	border-color: #7dd3fc !important;
+	color: #bae6fd !important;
+	box-shadow: 0 6px 20px rgba(125, 211, 252, 0.25);
+}
+
+/* Focus states for CTA buttons — gold glow */
+.footer-cta-band a:focus-visible {
+	outline: 2px solid rgba(255, 215, 0, 0.80) !important;
+	outline-offset: 3px;
+	box-shadow: 0 0 14px 4px rgba(255, 215, 0, 0.35) !important;
+}
+
+/* ============================================================
+   11. FOOTER BOTTOM — SIMPLIFIED
+============================================================ */
+.footer-bottom {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 1.25rem 2rem 1.25rem;
+	text-align: center;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+html.gprs-dark .footer-bottom {
+	border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Copyright */
+.footer-copy {
+	font-size: 0.82rem;
+	opacity: 0.6;
+	margin: 0;
+}
+
+html.gprs-dark .footer-copy {
+	opacity: 0.8;
+}
+
+/* Legal links row */
+.footer-legal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.6rem;
+	margin-bottom: 0.6rem;
+	flex-wrap: wrap;
+}
+
+.footer-legal a {
+	font-size: 0.82rem;
+	color: var(--clr-link, #0066cc);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+	text-decoration: underline;
+}
+
+html.gprs-dark .footer-legal a {
+	color: var(--clr-link-dark, #8ab4f8);
+}
+
+.footer-legal-sep {
+	color: rgba(0, 0, 0, 0.25);
+	font-size: 0.82rem;
+	user-select: none;
+}
+
+html.gprs-dark .footer-legal-sep {
+	color: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================================
+   12. RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+	.footer-inner {
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+	
+	/* Branding spans full width */
+	.footer-branding {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 768px) {
+	.footer-inner {
+		grid-template-columns: 1fr 1fr;
+		padding: 2rem 1.5rem;
+		gap: 2rem;
+	}
+	
+	.footer-branding {
+		grid-column: 1 / -1;
+	}
+	
+	.footer-cta-band {
+		flex-direction: column;
+		padding: 2rem 1rem;
+		gap: 1rem;
+	}
+	
+	.footer-cta-band a {
+		width: 100%;
+		max-width: 300px;
+		font-size: 0.95rem;
+		letter-spacing: 0.03em;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-mission {
+		font-size: 0.95rem;
+		padding: 1rem 0.75rem;
+	}
+	
+	.footer-inner {
+		grid-template-columns: 1fr;
+		padding: 1.5rem 1rem;
+		gap: 1.75rem;
+	}
+	
+	.footer-branding {
+		grid-column: auto;
+	}
+	
+	.footer-cta-band a {
+		padding: 0.85rem 1.5rem;
+		font-size: 0.9rem;
+	}
+	
+	.footer-logo {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+	
+	.footer-logo img {
+		height: 50px;
+	}
+	
+	.footer-org-name {
+		font-size: 1.1rem;
+	}
+	
+	.footer-bottom {
+		padding: 1.25rem 1rem;
+	}
+}
+@media (max-width: 600px) {
+	.footer-cta-band a {
+		font-size: 0.85rem;
+		height: 44px;
+	}
+}
+
+.footer-charity {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted, rgba(255,255,255,0.5));
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+html:not(.gprs-dark) .footer-charity {
+  color: rgba(0, 0, 0, 0.45);
+}

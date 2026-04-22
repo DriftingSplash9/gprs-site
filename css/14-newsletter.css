@@ -1,0 +1,821 @@
+/* ============================================================
+   14 — NEWSLETTER SIGNUP (BREVO FORM)
+   ============================================================
+   Purpose:  Restyle the Brevo/Sendinblue embedded form to
+             match GPRS visual identity using design tokens
+   Depends:  01-Core Tokens & Base Layout
+   Updated:  2026-03-28
+
+   TABLE OF CONTENTS:
+     1.  Wrapper Reset (override Brevo inline styles)
+     2.  Glass Container
+     3.  Header Image (when shown)
+     4.  Title
+     5.  Dividers
+     6.  Description Text
+     7.  Email Input
+     8.  Input Label & Helper Text
+     9.  Privacy Policy Checkbox
+     10. Submit Button (matches .btn-primary)
+     11. Success / Error Messages
+     12. reCAPTCHA Container
+     13. Dark Mode Overrides
+     14. Light Mode Overrides
+     15. Donate Page Integration
+     16. Responsive
+   ============================================================ */
+
+
+/* ============================================================
+   1. WRAPPER RESET — Override Brevo inline styles
+   ============================================================
+   Brevo sets inline background-color on .sib-form.
+   !important is REQUIRED to override inline styles.
+============================================================ */
+
+.gprs-newsletter .sib-form {
+	background-color: transparent !important;
+	text-align: center;
+}
+
+.gprs-newsletter #sib-form-container {
+	max-width: 540px;
+	margin: 0 auto;
+}
+
+
+/* ============================================================
+   2. GLASS CONTAINER
+   ============================================================
+   Clean glass panel that integrates with GPRS design system.
+   Simplified from previous version — less edge noise,
+   stronger glass effect, tighter padding.
+============================================================ */
+
+.gprs-newsletter #sib-container {
+	/* Override Brevo inline styles */
+	background-color: transparent !important;
+	border: none !important;
+	border-radius: var(--radius-lg, 20px) !important;
+	direction: ltr;
+	text-align: center;
+	max-width: 540px !important;
+
+	/* Glass face */
+	background:
+		linear-gradient(
+			160deg,
+			rgba(255,255,255,0.08) 0%,
+			rgba(255,255,255,0.02) 100%
+		) !important;
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+
+	/* Single clean border */
+	border: 1px solid rgba(255,255,255,0.12) !important;
+
+	/* Depth */
+	box-shadow:
+		0 8px 32px rgba(0,0,0,0.25),
+		inset 0 1px 0 rgba(255,255,255,0.12) !important;
+
+	padding: 2.5rem 2rem 2rem !important;
+	position: relative;
+	overflow: hidden;
+
+	transition:
+		transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		border-color 0.35s ease;
+}
+
+/* Accent bar — top edge only, clean and simple */
+.gprs-newsletter #sib-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 2rem;
+	right: 2rem;
+	height: 2px;
+	pointer-events: none;
+	z-index: 10;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--clr-accent, #0066CC) 20%,
+		var(--clr-accent, #0066CC) 80%,
+		transparent 100%
+	);
+	opacity: 0.6;
+	transition: opacity 0.35s ease;
+}
+
+/* No ::after pseudo needed — keep it clean */
+.gprs-newsletter #sib-container::after {
+	display: none;
+}
+
+/* Hover lift */
+.gprs-newsletter #sib-container:hover {
+	transform: translateY(-4px);
+	border-color: rgba(0, 102, 204, 0.25) !important;
+	box-shadow:
+		0 16px 48px rgba(0,0,0,0.3),
+		0 0 20px rgba(0, 102, 204, 0.1),
+		inset 0 1px 0 rgba(255,255,255,0.15) !important;
+}
+
+.gprs-newsletter #sib-container:hover::before {
+	opacity: 1;
+}
+
+
+/* ============================================================
+   3. HEADER IMAGE (when shown via show_image="1")
+============================================================ */
+
+.gprs-newsletter .sib-image-form-block img {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius-sm, 8px);
+}
+
+
+/* ============================================================
+   4. TITLE
+============================================================ */
+
+.gprs-newsletter .sib-form-block p {
+	color: var(--clr-text-heading, #fff) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+/* Target the title block specifically (font-size:32px inline) */
+.gprs-newsletter .sib-form-block[style*="font-size:32px"] {
+	text-align: center !important;
+}
+
+.gprs-newsletter .sib-form-block[style*="font-size:32px"] p {
+	font-size: 1.5rem !important;
+	font-weight: 700 !important;
+	color: var(--clr-text-heading, #ffffff) !important;
+	letter-spacing: -0.01em;
+	margin: 0;
+}
+
+
+/* ============================================================
+   5. DIVIDERS
+============================================================ */
+
+.gprs-newsletter .sib-divider-form-block div {
+	border-bottom-color: var(--clr-accent, #0066CC) !important;
+	opacity: 0.3;
+}
+
+
+/* ============================================================
+   6. DESCRIPTION TEXT
+============================================================ */
+
+.gprs-newsletter .sib-text-form-block p {
+	font-size: 0.95rem !important;
+	color: var(--clr-text-muted, rgba(255,255,255,0.7)) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	text-align: center !important;
+	line-height: 1.6;
+	margin: 0;
+}
+
+
+/* ============================================================
+   7. EMAIL INPUT
+============================================================ */
+
+.gprs-newsletter .sib-input .input {
+	width: 100%;
+	padding: 0.85rem 1.1rem !important;
+	border: 1px solid rgba(255,255,255,0.18) !important;
+	border-radius: var(--radius-sm, 8px) !important;
+	background-color: rgba(255,255,255,0.06) !important;
+	color: #ffffff !important;
+	font-size: 1rem !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	transition:
+		border-color 0.25s ease,
+		background-color 0.25s ease,
+		box-shadow 0.25s ease;
+	box-sizing: border-box;
+}
+
+.gprs-newsletter .sib-input .input::placeholder {
+	color: rgba(255,255,255,0.35) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	text-transform: none;
+	font-size: 0.95rem !important;
+}
+
+.gprs-newsletter .sib-input .input:focus {
+	border-color: var(--clr-accent, #0066CC) !important;
+	background-color: rgba(0,102,204,0.08) !important;
+	box-shadow: 0 0 0 3px rgba(0,102,204,0.2);
+	outline: none;
+}
+
+
+/* ============================================================
+   8. INPUT LABEL & HELPER TEXT
+============================================================ */
+
+.gprs-newsletter .entry__label {
+	color: var(--clr-text-heading, #ffffff) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	font-size: 0.9rem !important;
+	font-weight: 600 !important;
+	text-align: left !important;
+	display: block !important;
+	margin-bottom: 0.5rem;
+}
+
+.gprs-newsletter .entry__specification {
+	color: rgba(255,255,255,0.40) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	font-size: 0.8rem !important;
+	text-align: left !important;
+	display: block;
+	margin-top: 0.35rem;
+}
+
+/* Error label */
+.gprs-newsletter .entry__error {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	border-radius: var(--radius-sm, 8px) !important;
+	font-size: 0.85rem !important;
+	margin-top: 0.35rem;
+}
+
+
+/* ============================================================
+   9. PRIVACY POLICY CHECKBOX
+   ============================================================
+   Clean checkbox row — no decorative icons, just a well-styled
+   interactive element that respects the glass aesthetic.
+============================================================ */
+
+.gprs-privacy-consent {
+	text-align: left;
+}
+
+.gprs-privacy-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	padding: 0.7rem 0.9rem;
+	border-radius: var(--radius-sm, 8px);
+	border: 1px solid transparent;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.gprs-privacy-row:hover {
+	background: rgba(255,255,255,0.04);
+	border-color: rgba(255,255,255,0.08);
+}
+
+.gprs-privacy-row:focus-within {
+	background: rgba(0,102,204,0.08);
+	border-color: rgba(0,102,204,0.3);
+}
+
+/* Checkbox input */
+.gprs-privacy-row input[type="checkbox"] {
+	margin: 0;
+	margin-top: 0.15rem;
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+	accent-color: var(--clr-accent, #0066CC);
+	border-radius: 4px;
+}
+
+/* Label text */
+.gprs-privacy-row label {
+	color: rgba(255,255,255,0.75);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+	font-size: 0.88rem;
+	line-height: 1.45;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Privacy policy link */
+.gprs-privacy-row label a {
+	color: var(--clr-accent-light, #64b5f6) !important;
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-underline-offset: 2px;
+	font-weight: 600;
+	transition: text-decoration-color 0.2s ease;
+}
+
+.gprs-privacy-row label a:hover {
+	text-decoration-color: currentColor;
+}
+
+/* Required asterisk */
+.gprs-required-asterisk {
+	color: #f87171;
+	font-weight: 700;
+	margin-left: 0.1rem;
+}
+
+/* Validation error message */
+.gprs-privacy-error {
+	display: none;
+	margin-top: 0.4rem;
+	padding: 0.45rem 0.85rem;
+	font-size: 0.85rem;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+	color: #f87171;
+	background-color: rgba(248, 113, 113, 0.1);
+	border-radius: var(--radius-sm, 8px);
+	border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+
+/* ============================================================
+   10. SUBMIT BUTTON — matches .btn-primary
+============================================================ */
+
+.gprs-newsletter .sib-form-block__button {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+
+	padding: 0.85rem 1.5rem !important;
+	min-height: 48px;
+	border-radius: var(--radius-pill, 9999px) !important;
+
+	font-weight: 700 !important;
+	font-size: 0.95rem !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	line-height: 1;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+
+	cursor: pointer;
+	text-decoration: none;
+	white-space: nowrap;
+	box-sizing: border-box;
+	border: 1px solid rgba(255,255,255,0.15) !important;
+
+	/* GPRS primary gradient */
+	background: linear-gradient(
+		135deg,
+		#0a6bff 0%,
+		#0066cc 45%,
+		#004a9f 100%
+	) !important;
+
+	color: #ffffff !important;
+
+	box-shadow:
+		0 4px 14px rgba(0,0,0,0.3),
+		inset 0 1px 0 rgba(255,255,255,0.2) !important;
+
+	transition:
+		filter 0.25s ease,
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+}
+
+.gprs-newsletter .sib-form-block__button:hover {
+	filter: brightness(1.1);
+	transform: translateY(-2px);
+	box-shadow:
+		0 8px 24px rgba(0,0,0,0.35),
+		0 0 16px rgba(0, 102, 204, 0.2),
+		inset 0 1px 0 rgba(255,255,255,0.25) !important;
+}
+
+.gprs-newsletter .sib-form-block__button:active {
+	transform: translateY(0);
+	filter: brightness(0.95);
+	box-shadow:
+		0 2px 8px rgba(0,0,0,0.3),
+		inset 0 2px 6px rgba(0,0,0,0.2) !important;
+}
+
+/* Loading spinner icon inside button */
+.gprs-newsletter .sib-form-block__button svg {
+	fill: #ffffff;
+	width: 18px;
+	height: 18px;
+}
+
+
+/* ============================================================
+   11. SUCCESS / ERROR MESSAGES
+   ============================================================
+   Functional feedback — clean, no decorative icons added.
+   Brevo's built-in SVG icons are kept for clarity.
+============================================================ */
+
+.gprs-newsletter .sib-form-message-panel {
+	border-radius: var(--radius-sm, 8px) !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+	max-width: 100% !important;
+	margin-bottom: 1rem;
+	border-width: 1px !important;
+	border-style: solid !important;
+	padding: 0.85rem 1rem !important;
+}
+
+/* Success */
+.gprs-newsletter #success-message {
+	background-color: rgba(16, 185, 129, 0.1) !important;
+	border-color: rgba(16, 185, 129, 0.3) !important;
+	color: #10b981 !important;
+}
+
+.gprs-newsletter #success-message .sib-form-message-panel__inner-text {
+	color: #10b981 !important;
+	font-size: 0.92rem;
+}
+
+/* Error */
+.gprs-newsletter #error-message {
+	background-color: rgba(248, 113, 113, 0.1) !important;
+	border-color: rgba(248, 113, 113, 0.3) !important;
+	color: #f87171 !important;
+}
+
+.gprs-newsletter #error-message .sib-form-message-panel__inner-text {
+	color: #f87171 !important;
+	font-size: 0.92rem;
+}
+
+/* SVG icons in messages — kept for functional feedback */
+.gprs-newsletter .sib-notification__icon {
+	width: 18px;
+	height: 18px;
+	margin-right: 0.5rem;
+	flex-shrink: 0;
+}
+
+.gprs-newsletter #success-message .sib-notification__icon {
+	fill: #10b981;
+}
+
+.gprs-newsletter #error-message .sib-notification__icon {
+	fill: #f87171;
+}
+
+
+/* ============================================================
+   12. reCAPTCHA CONTAINER
+============================================================ */
+
+.gprs-newsletter .sib-captcha {
+	display: flex;
+	justify-content: center;
+}
+
+.gprs-newsletter .g-recaptcha {
+	transform-origin: center;
+}
+
+
+/* ============================================================
+   13. DARK MODE OVERRIDES
+============================================================ */
+
+html.gprs-dark .gprs-newsletter #sib-container {
+	background:
+		linear-gradient(
+			160deg,
+			rgba(255,255,255,0.10) 0%,
+			rgba(255,255,255,0.03) 100%
+		) !important;
+
+	box-shadow:
+		0 12px 40px rgba(0,0,0,0.45),
+		0 0 24px rgba(0, 102, 204, 0.08),
+		inset 0 1px 0 rgba(255,255,255,0.10) !important;
+
+	border-color: rgba(255,255,255,0.10) !important;
+}
+
+html.gprs-dark .gprs-newsletter #sib-container:hover {
+	box-shadow:
+		0 20px 56px rgba(0,0,0,0.55),
+		0 0 32px rgba(0, 102, 204, 0.15),
+		inset 0 1px 0 rgba(255,255,255,0.14) !important;
+	border-color: rgba(0, 102, 204, 0.3) !important;
+}
+
+html.gprs-dark .gprs-newsletter #sib-container::before {
+	opacity: 0.5;
+}
+
+html.gprs-dark .gprs-newsletter #sib-container:hover::before {
+	opacity: 0.9;
+}
+
+/* Dark mode text — inherits from dark tokens */
+html.gprs-dark .gprs-privacy-row label {
+	color: rgba(255,255,255,0.75);
+}
+
+html.gprs-dark .gprs-privacy-row label a {
+	color: var(--clr-accent-light, #64b5f6) !important;
+}
+
+html.gprs-dark .gprs-required-asterisk {
+	color: #f87171;
+}
+
+
+/* ============================================================
+   14. LIGHT MODE OVERRIDES
+============================================================ */
+
+html:not(.gprs-dark) .gprs-newsletter #sib-container {
+	background:
+		linear-gradient(
+			160deg,
+			rgba(255,255,255,0.75) 0%,
+			rgba(255,255,255,0.50) 100%
+		) !important;
+
+	box-shadow:
+		0 8px 28px rgba(0,0,0,0.12),
+		inset 0 1px 0 rgba(255,255,255,0.70) !important;
+
+	border-color: rgba(0,0,0,0.08) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter #sib-container:hover {
+	box-shadow:
+		0 14px 40px rgba(0,0,0,0.15),
+		0 0 16px rgba(0, 102, 204, 0.08),
+		inset 0 1px 0 rgba(255,255,255,0.80) !important;
+	border-color: rgba(0, 102, 204, 0.2) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter #sib-container::before {
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		var(--clr-accent, #0066CC) 20%,
+		var(--clr-accent, #0066CC) 80%,
+		transparent 100%
+	);
+	opacity: 0.4;
+}
+
+html:not(.gprs-dark) .gprs-newsletter #sib-container:hover::before {
+	opacity: 0.8;
+}
+
+/* Light mode text colors */
+html:not(.gprs-dark) .gprs-newsletter .sib-form-block[style*="font-size:32px"] p {
+	color: var(--clr-text-heading, #111) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .sib-text-form-block p {
+	color: var(--clr-text-muted, #555) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .entry__label {
+	color: var(--clr-text-body, #222) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .entry__specification {
+	color: rgba(0,0,0,0.45) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .sib-input .input {
+	background-color: rgba(0,0,0,0.04) !important;
+	color: var(--clr-text-body, #111) !important;
+	border-color: rgba(0,0,0,0.12) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .sib-input .input::placeholder {
+	color: rgba(0,0,0,0.35) !important;
+}
+
+html:not(.gprs-dark) .gprs-newsletter .sib-input .input:focus {
+	border-color: var(--clr-accent, #0066CC) !important;
+	background-color: rgba(0,102,204,0.04) !important;
+	box-shadow: 0 0 0 3px rgba(0,102,204,0.15);
+}
+
+html:not(.gprs-dark) .gprs-newsletter .sib-divider-form-block div {
+	border-bottom-color: var(--clr-accent, #0066CC) !important;
+	opacity: 0.25;
+}
+
+/* Light mode privacy checkbox */
+html:not(.gprs-dark) .gprs-privacy-row label {
+	color: var(--clr-text-body, #222) !important;
+}
+
+html:not(.gprs-dark) .gprs-privacy-row label a {
+	color: var(--clr-accent, #0066CC) !important;
+}
+
+html:not(.gprs-dark) .gprs-privacy-row:hover {
+	background: rgba(0,0,0,0.03);
+	border-color: rgba(0,0,0,0.06);
+}
+
+html:not(.gprs-dark) .gprs-privacy-row:focus-within {
+	background: rgba(0,102,204,0.04);
+	border-color: rgba(0,102,204,0.2);
+}
+
+html:not(.gprs-dark) .gprs-required-asterisk {
+	color: #dc2626;
+}
+
+/* Light mode button border */
+html:not(.gprs-dark) .gprs-newsletter .sib-form-block__button {
+	border-color: rgba(0,0,0,0.08) !important;
+}
+
+
+/* ============================================================
+   15. DONATE PAGE INTEGRATION
+   ============================================================
+   When the newsletter appears on the donate page (via
+   gprs_append_newsletter_to_donate), it sits inside
+   .donate-newsletter-wrap which provides contextual spacing
+   and inherits the donate page's section heading style.
+============================================================ */
+
+.donate-newsletter-wrap {
+	max-width: 920px;
+	margin: 0 auto;
+	padding: 0 var(--space-md, 1rem);
+	box-sizing: border-box;
+}
+
+/* The section heading inside the wrapper uses .donate-section-head
+   which is already styled by the donate page CSS. We just add
+   bottom spacing specific to this context. */
+.donate-newsletter-wrap .donate-section-head {
+	margin-bottom: var(--space-lg, 2rem);
+}
+
+/* Tighter max-width for the form on the donate page — keeps it
+   visually contained within the narrower content column */
+.donate-newsletter-wrap .gprs-newsletter #sib-form-container {
+	max-width: 480px;
+}
+
+/* Add bottom breathing room before the page footer */
+.donate-newsletter-wrap {
+	margin-bottom: var(--space-xl, 4rem);
+}
+
+
+/* ============================================================
+   16. RESPONSIVE
+============================================================ */
+
+@media (max-width: 768px) {
+	.gprs-newsletter #sib-container {
+		padding: 2rem 1.5rem 1.5rem !important;
+		border-radius: var(--radius-md, 14px) !important;
+	}
+
+	.gprs-newsletter #sib-container::before {
+		left: 1.5rem;
+		right: 1.5rem;
+	}
+
+	.gprs-newsletter .sib-image-form-block img {
+		max-width: 280px;
+	}
+
+	.gprs-newsletter .sib-form-block[style*="font-size:32px"] p {
+		font-size: 1.3rem !important;
+	}
+
+	/* Scale reCAPTCHA on small screens */
+	.gprs-newsletter .g-recaptcha {
+		transform: scale(0.9);
+	}
+
+	.donate-newsletter-wrap {
+		padding: 0 var(--space-sm, 0.5rem);
+	}
+}
+
+@media (max-width: 480px) {
+	.gprs-newsletter #sib-container {
+		padding: 1.75rem 1.25rem 1.25rem !important;
+		border-radius: 12px !important;
+	}
+
+	.gprs-newsletter #sib-container::before {
+		left: 1.25rem;
+		right: 1.25rem;
+	}
+
+	.gprs-newsletter .sib-form-block[style*="font-size:32px"] p {
+		font-size: 1.15rem !important;
+	}
+
+	.gprs-newsletter .g-recaptcha {
+		transform: scale(0.77);
+		transform-origin: center;
+	}
+
+	.gprs-newsletter .sib-form-block__button {
+		padding: 0.75rem 1.25rem !important;
+		font-size: 0.9rem !important;
+	}
+}
+/* ============================================================
+   ADD THIS TO THE BOTTOM OF 14-newsletter.css
+   (after the existing section 16 — Responsive)
+   ============================================================ */
+
+
+/* ============================================================
+   17. SECTION HEAD BASE STYLES (for non-donate pages)
+   ============================================================
+   On the donate page, .donate-section-head is styled by the
+   inline v6 CSS. On other pages (fire rebuild, etc.), these
+   base styles provide the blue bar accent heading so the
+   newsletter wrapper looks consistent everywhere.
+   
+   These won't conflict with the donate page because the
+   donate page's inline styles have equal specificity and
+   load later in the document.
+============================================================ */
+
+.donate-newsletter-wrap .donate-section-head {
+    margin: var(--space-xl, 4rem) 0 var(--space-lg, 2rem);
+    padding-left: 20px;
+    position: relative;
+}
+
+.donate-newsletter-wrap .donate-section-head::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: var(--clr-accent, #0066CC);
+    border-radius: 2px;
+}
+
+.donate-newsletter-wrap .donate-section-head h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: var(--clr-text-heading, #000);
+}
+
+.donate-newsletter-wrap .donate-section-head p {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    margin: 0;
+}
+
+
+/* ============================================================
+   18. ASTRA EMPTY CONTENT AREA — GAP FIX
+   ============================================================
+   Pages like the fire rebuild render their content via PHP
+   hooks (astra_primary_content_top), leaving Astra's default
+   .entry-content area nearly empty (only the newsletter lives
+   there via the_content filter). This removes Astra's default
+   article/entry spacing so there's no visible gap between
+   the PHP-rendered content and the newsletter/footer.
+============================================================ */
+
+/* Remove Astra's default bottom margin on the article wrapper */
+.site-main > article:last-child {
+    margin-bottom: 0;
+}
+
+/* Collapse any default entry-content padding when newsletter
+   is the only child */
+.donate-newsletter-wrap:first-child:last-child {
+    padding-top: 0;
+}
+
+/* Ensure the newsletter wrapper doesn't add excessive top space
+   when it directly follows PHP-rendered content */
+.entry-content > .donate-newsletter-wrap:first-child {
+    margin-top: 0;
+}

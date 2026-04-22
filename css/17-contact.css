@@ -1,0 +1,416 @@
+/**
+ * 17-contact.css
+ *
+ * Styles for /contact/ page.
+ * Loaded conditionally via gprs_enqueue_styles().
+ * Depends on 01-core-tokens-base.css for design tokens.
+ *
+ * Class prefix: gprs-contact-
+ *
+ * Sections:
+ *   1. Intro Text
+ *   2. Two-Column Layout
+ *   3. Form Wrapper
+ *   4. Contact Info Cards
+ *   5. Emergency Card
+ *   6. Quick Link Buttons
+ *   7. Responsive (≤1024px, ≤768px)
+ *   8. Reduced Motion
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. INTRO TEXT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-intro {
+    padding: 2rem 1rem 0.5rem;
+}
+
+.gprs-contact-intro__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-contact-intro__text {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--clr-text-body);
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.85;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. TWO-COLUMN LAYOUT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-main {
+    padding: 2rem 1rem 3rem;
+}
+
+.gprs-contact-main__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-contact-main__layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. FORM WRAPPER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-form-wrap {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+html.gprs-dark .gprs-contact-form-wrap {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.gprs-contact-form-wrap__heading {
+    font-size: 1.4rem;
+    color: var(--clr-text-heading);
+    margin: 0 0 1.25rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   4. CONTACT INFO CARDS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-main__info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.gprs-contact-card {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+html.gprs-dark .gprs-contact-card {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.gprs-contact-card__heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-text-heading);
+    margin: 0 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gprs-contact-card__icon {
+    flex-shrink: 0;
+    color: var(--clr-accent);
+}
+
+.gprs-contact-card__icon--alert {
+    color: #d97706;
+}
+
+html.gprs-dark .gprs-contact-card__icon--alert {
+    color: #fbbf24;
+}
+
+/* Definition list for email/phone */
+.gprs-contact-card__list {
+    margin: 0;
+    padding: 0;
+}
+
+.gprs-contact-card__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+html.gprs-dark .gprs-contact-card__item {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.gprs-contact-card__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.gprs-contact-card__label {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--clr-accent);
+    flex: 0 0 90px;
+    padding-top: 0.1rem;
+}
+
+.gprs-contact-card__value {
+    flex: 1;
+    margin: 0;
+}
+
+.gprs-contact-card__value a {
+    color: var(--clr-text-body);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--anim-fast);
+}
+
+.gprs-contact-card__value a:hover {
+    color: var(--clr-accent);
+    text-decoration: underline;
+}
+
+.gprs-contact-card__value a:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+/* Address */
+.gprs-contact-card__address {
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--clr-text-body);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   5. EMERGENCY CARD
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-card--emergency {
+    background: rgba(217, 119, 6, 0.06);
+    border-color: rgba(217, 119, 6, 0.2);
+}
+
+html.gprs-dark .gprs-contact-card--emergency {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: rgba(251, 191, 36, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.gprs-contact-card__emergency-text {
+    font-size: 0.9rem;
+    color: var(--clr-text-body);
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+}
+
+.gprs-contact-card__emergency-phone {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #d97706;
+    text-decoration: none;
+    margin-bottom: 0.35rem;
+    transition: color var(--anim-fast);
+}
+
+html.gprs-dark .gprs-contact-card__emergency-phone {
+    color: #fbbf24;
+}
+
+.gprs-contact-card__emergency-phone:hover {
+    text-decoration: underline;
+}
+
+.gprs-contact-card__emergency-phone:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.gprs-contact-card__emergency-note {
+    font-size: 0.8rem;
+    color: var(--clr-text-body);
+    opacity: 0.65;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. QUICK LINK BUTTONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-card__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gprs-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--clr-accent);
+    transition: background var(--anim-fast), color var(--anim-fast),
+                transform var(--anim-fast);
+}
+
+.gprs-contact-btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.gprs-contact-btn--secondary {
+    background: transparent;
+    color: var(--clr-accent);
+}
+
+.gprs-contact-btn--secondary:hover {
+    background: var(--clr-accent);
+    color: var(--clr-text-light);
+    transform: translateX(2px);
+}
+
+.gprs-contact-btn__arrow {
+    flex-shrink: 0;
+    transition: transform var(--anim-fast);
+}
+
+.gprs-contact-btn:hover .gprs-contact-btn__arrow {
+    transform: translateX(3px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   7. RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet: ≤ 1024px ── */
+@media (max-width: 1024px) {
+
+    .gprs-contact-main__layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* On tablet/mobile, put contact info ABOVE the form */
+    .gprs-contact-main__info-col {
+        order: -1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .gprs-contact-main__form-col {
+        order: 1;
+    }
+
+    /* Emergency card spans full width on tablet */
+    .gprs-contact-card--emergency {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── Mobile: ≤ 768px ── */
+@media (max-width: 768px) {
+
+    .gprs-contact-main__info-col {
+        grid-template-columns: 1fr;
+    }
+
+    .gprs-contact-intro__text {
+        font-size: 1rem;
+    }
+
+    .gprs-contact-form-wrap {
+        padding: 1.25rem;
+    }
+
+    .gprs-contact-form-wrap__heading {
+        font-size: 1.2rem;
+    }
+
+    .gprs-contact-card__label {
+        flex: 0 0 70px;
+    }
+
+    .gprs-contact-card__emergency-phone {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WPFORMS SUBMIT BUTTON (contact page only)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-contact-form-wrap .wpforms-submit {
+    padding: 0.85rem 2.25rem !important;
+    background: var(--clr-accent) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--anim-fast), transform var(--anim-fast);
+}
+
+.gprs-contact-form-wrap .wpforms-submit:hover {
+    background: var(--clr-accent-hover) !important;
+    transform: translateY(-1px);
+}
+
+.gprs-contact-form-wrap .wpforms-submit:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+/* ═══════════════════════════════════════════════════════════════════════
+   8. REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gprs-contact-btn,
+    .gprs-contact-card__value a,
+    .gprs-contact-card__emergency-phone {
+        transition: none;
+    }
+
+    .gprs-contact-btn:hover,
+    .gprs-contact-btn--secondary:hover {
+        transform: none;
+    }
+
+    .gprs-contact-btn:hover .gprs-contact-btn__arrow {
+        transform: none;
+    }
+}

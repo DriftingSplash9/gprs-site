@@ -1,0 +1,1042 @@
+/**
+ * 15-accessible-housing.css
+ *
+ * Styles for /accessible-housing/ page.
+ * Loaded conditionally via gprs_enqueue_styles().
+ * Depends on 01-core-tokens-base.css for design tokens.
+ *
+ * Class prefix: gprs-housing-
+ *
+ * Sections:
+ *   1. Quicklinks Bar
+ *   2. At a Glance Strip
+ *   3. Eligibility Criteria
+ *   4. Phase Sections (shared)
+ *   5. Facts Definition List
+ *   6. Features List
+ *   7. Blockquote
+ *   8. Rebuild Cross-Link Banner
+ *   9. Buttons
+ *  10. Photo Galleries
+ *  11. Lightbox
+ *  12. Responsive (≤1024px, ≤768px)
+ *  13. Reduced Motion
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   1. QUICKLINKS BAR
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-quicklinks {
+    position: sticky;
+    top: 75px;
+    z-index: 90;
+    background: var(--clr-bg-main);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 1rem;
+    transition: background var(--anim-normal), border-color var(--anim-normal);
+}
+
+html.gprs-dark .gprs-housing-quicklinks {
+    background: rgba(10, 26, 12, 0.85);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom-color: var(--glass-border);
+}
+
+.gprs-housing-quicklinks__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.gprs-housing-quicklinks__label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--clr-text-body);
+    margin-right: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+}
+
+.gprs-housing-quicklinks__link {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--clr-accent);
+    text-decoration: none;
+    border: 1px solid var(--clr-accent);
+    transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.gprs-housing-quicklinks__link:hover,
+.gprs-housing-quicklinks__link:focus-visible {
+    background: var(--clr-accent);
+    color: var(--clr-text-light);
+}
+
+.gprs-housing-quicklinks__link:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   2. AT A GLANCE STRIP
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-glance {
+    padding: 2.5rem 1rem 2rem;
+}
+
+.gprs-housing-glance__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-housing-glance__heading {
+    font-size: 1.5rem;
+    color: var(--clr-text-heading);
+    margin: 0 0 1.25rem;
+    text-align: center;
+}
+
+.gprs-housing-glance__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.gprs-housing-glance__card {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .gprs-housing-glance__card {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.gprs-housing-glance__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.gprs-housing-glance__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--clr-accent);
+    margin-bottom: 0.35rem;
+}
+
+.gprs-housing-glance__value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--clr-text-heading);
+    line-height: 1.35;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   3. ELIGIBILITY CRITERIA
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-eligibility {
+    padding: 2rem 1rem 2.5rem;
+}
+
+.gprs-housing-eligibility__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-housing-eligibility__heading {
+    font-size: 1.5rem;
+    color: var(--clr-text-heading);
+    margin: 0 0 1.5rem;
+    text-align: center;
+}
+
+.gprs-housing-eligibility__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.gprs-housing-eligibility__card {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .gprs-housing-eligibility__card {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.gprs-housing-eligibility__card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.gprs-housing-eligibility__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .gprs-housing-eligibility__icon {
+    background: rgba(0, 102, 204, 0.2);
+}
+
+.gprs-housing-eligibility__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--clr-text-heading);
+    margin: 0 0 0.5rem;
+}
+
+.gprs-housing-eligibility__text {
+    font-size: 0.95rem;
+    color: var(--clr-text-body);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.gprs-housing-eligibility__cta {
+    text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   4. PHASE SECTIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-phase {
+    padding: 3rem 1rem;
+    scroll-margin-top: 145px;
+}
+
+.gprs-housing-phase__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-housing-phase__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.gprs-housing-phase__badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clr-text-light);
+    background: var(--clr-accent);
+    margin-bottom: 0.75rem;
+}
+
+.gprs-housing-phase__title {
+    font-size: 2rem;
+    color: var(--clr-text-heading);
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+}
+
+.gprs-housing-phase__subtitle {
+    font-size: 1.05rem;
+    color: var(--clr-text-body);
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* Two-column layout */
+.gprs-housing-phase__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.gprs-housing-phase__layout--reverse {
+    direction: rtl;
+}
+
+.gprs-housing-phase__layout--reverse > * {
+    direction: ltr;
+}
+
+/* Images column */
+.gprs-housing-phase__images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gprs-housing-phase__figure {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.gprs-housing-phase__figure--secondary {
+    box-shadow: var(--shadow-sm);
+}
+
+.gprs-housing-phase__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Content column */
+.gprs-housing-phase__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.gprs-housing-phase__narrative p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--clr-text-body);
+    margin: 0 0 0.75rem;
+}
+
+.gprs-housing-phase__narrative p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   5. FACTS DEFINITION LIST
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-facts {
+    margin: 0;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+html.gprs-dark .gprs-housing-facts {
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.gprs-housing-facts__item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+html.gprs-dark .gprs-housing-facts__item {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.gprs-housing-facts__item:last-child {
+    border-bottom: none;
+}
+
+.gprs-housing-facts__label {
+    flex: 0 0 110px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--clr-accent);
+    padding-top: 0.1rem;
+}
+
+.gprs-housing-facts__value {
+    flex: 1;
+    font-size: 0.95rem;
+    color: var(--clr-text-body);
+    line-height: 1.45;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   6. FEATURES LIST
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-features__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-text-heading);
+    margin: 0 0 0.6rem;
+}
+
+.gprs-housing-features__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 1rem;
+}
+
+.gprs-housing-features__list li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--clr-text-body);
+}
+
+.gprs-housing-features__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    opacity: 0.6;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   7. BLOCKQUOTE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-quote {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.04);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+html.gprs-dark .gprs-housing-quote {
+    background: rgba(0, 102, 204, 0.08);
+}
+
+.gprs-housing-quote__text {
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--clr-text-body);
+    margin: 0 0 0.5rem;
+}
+
+.gprs-housing-quote__footer {
+    font-size: 0.85rem;
+    color: var(--clr-text-body);
+    opacity: 0.7;
+}
+
+.gprs-housing-quote__footer cite {
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   8. REBUILD CROSS-LINK BANNER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-rebuild-banner {
+    margin-top: 2.5rem;
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    background: rgba(0, 102, 204, 0.06);
+    border: 1px solid rgba(0, 102, 204, 0.15);
+    text-align: center;
+}
+
+html.gprs-dark .gprs-housing-rebuild-banner {
+    background: rgba(0, 102, 204, 0.1);
+    border-color: rgba(0, 102, 204, 0.25);
+}
+
+.gprs-housing-rebuild-banner__text {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--clr-text-heading);
+    margin: 0 0 1.25rem;
+    line-height: 1.5;
+}
+
+.gprs-housing-rebuild-banner__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   9. BUTTONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background var(--anim-fast), color var(--anim-fast),
+                border-color var(--anim-fast), transform var(--anim-fast);
+}
+
+.gprs-housing-btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.gprs-housing-btn--primary {
+    background: var(--clr-accent);
+    color: var(--clr-text-light);
+    border-color: var(--clr-accent);
+}
+
+.gprs-housing-btn--primary:hover {
+    background: var(--clr-accent-hover);
+    border-color: var(--clr-accent-hover);
+    transform: translateY(-1px);
+}
+
+.gprs-housing-btn--secondary {
+    background: transparent;
+    color: var(--clr-accent);
+    border-color: var(--clr-accent);
+}
+
+.gprs-housing-btn--secondary:hover {
+    background: var(--clr-accent);
+    color: var(--clr-text-light);
+    transform: translateY(-1px);
+}
+
+.gprs-housing-btn__arrow {
+    flex-shrink: 0;
+    transition: transform var(--anim-fast);
+}
+
+.gprs-housing-btn:hover .gprs-housing-btn__arrow {
+    transform: translateX(3px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   10. PHOTO GALLERIES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-galleries {
+    padding: 3rem 1rem;
+    scroll-margin-top: 145px;
+}
+
+.gprs-housing-galleries__inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.gprs-housing-galleries__heading {
+    font-size: 2rem;
+    color: var(--clr-text-heading);
+    text-align: center;
+    margin: 0 0 2.5rem;
+}
+
+.gprs-housing-gallery {
+    margin-bottom: 2.5rem;
+}
+
+.gprs-housing-gallery:last-child {
+    margin-bottom: 0;
+}
+
+.gprs-housing-gallery__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--clr-text-heading);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--clr-accent);
+    display: inline-block;
+}
+
+.gprs-housing-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.75rem;
+}
+
+.gprs-housing-gallery__thumb {
+    display: block;
+    position: relative;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    aspect-ratio: 4 / 3;
+    transition: border-color var(--anim-fast), transform var(--anim-fast),
+                box-shadow var(--anim-fast);
+}
+
+.gprs-housing-gallery__thumb:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--clr-accent);
+}
+
+.gprs-housing-gallery__thumb:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.gprs-housing-gallery__thumb-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   11. LIGHTBOX
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.gprs-housing-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gprs-housing-lightbox[hidden] {
+    display: none;
+}
+
+/* Blurred background */
+.gprs-housing-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.gprs-housing-lightbox__backdrop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(40px) brightness(0.3);
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.gprs-housing-lightbox__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Container */
+.gprs-housing-lightbox__container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: calc(var(--header-height, 72px) + 1rem) 3.5rem 3rem;
+}
+
+/* Close button */
+.gprs-housing-lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--anim-fast);
+}
+
+.gprs-housing-lightbox__close:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.gprs-housing-lightbox__close:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+/* Arrows */
+.gprs-housing-lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--anim-fast), transform var(--anim-fast);
+}
+
+.gprs-housing-lightbox__arrow--prev {
+    left: 0.75rem;
+}
+
+.gprs-housing-lightbox__arrow--next {
+    right: 0.75rem;
+}
+
+.gprs-housing-lightbox__arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.gprs-housing-lightbox__arrow:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+.gprs-housing-lightbox__arrow[hidden] {
+    display: none;
+}
+
+/* Main image figure */
+.gprs-housing-lightbox__figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 75vh;
+    margin: 0;
+}
+
+.gprs-housing-lightbox__img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    transition: opacity var(--anim-normal);
+}
+
+.gprs-housing-lightbox__img.is-loading {
+    opacity: 0.3;
+}
+
+/* Caption */
+.gprs-housing-lightbox__caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+.gprs-housing-lightbox__gallery-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--clr-accent);
+    margin-bottom: 0.25rem;
+}
+
+.gprs-housing-lightbox__alt-text {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+
+/* Dot navigation + counter */
+.gprs-housing-lightbox__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.gprs-housing-lightbox__counter {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    order: 1; /* push counter below dots */
+}
+
+.gprs-housing-lightbox__dots {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 280px;
+}
+
+.gprs-housing-lightbox__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition: background var(--anim-fast), border-color var(--anim-fast);
+}
+
+.gprs-housing-lightbox__dot:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.gprs-housing-lightbox__dot.is-active {
+    background: var(--clr-accent);
+    border-color: var(--clr-accent);
+}
+
+.gprs-housing-lightbox__dot:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   12. RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet: ≤ 1024px ── */
+@media (max-width: 1024px) {
+
+    .gprs-housing-phase__layout,
+    .gprs-housing-phase__layout--reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .gprs-housing-phase__layout--reverse > * {
+        direction: ltr;
+    }
+
+    .gprs-housing-phase__images {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .gprs-housing-phase__figure {
+        flex: 1 1 280px;
+    }
+
+    .gprs-housing-features__list {
+        grid-template-columns: 1fr;
+    }
+
+    .gprs-housing-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .gprs-housing-lightbox__container {
+        padding: calc(var(--header-height, 72px) + 0.75rem) 3rem 2.5rem;
+    }
+}
+
+/* ── Mobile: ≤ 768px ── */
+@media (max-width: 768px) {
+
+    .gprs-housing-quicklinks__inner {
+        justify-content: center;
+    }
+
+    .gprs-housing-quicklinks__label {
+        width: 100%;
+        text-align: center;
+    }
+
+    .gprs-housing-glance__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gprs-housing-eligibility__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gprs-housing-phase {
+        padding: 2rem 1rem;
+    }
+
+    .gprs-housing-phase__title {
+        font-size: 1.5rem;
+    }
+
+    .gprs-housing-phase__images {
+        flex-direction: column;
+    }
+
+    .gprs-housing-phase__figure {
+        flex: 1 1 auto;
+    }
+
+    .gprs-housing-facts__item {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .gprs-housing-facts__label {
+        flex: none;
+    }
+
+    .gprs-housing-rebuild-banner__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gprs-housing-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .gprs-housing-galleries__heading {
+        font-size: 1.5rem;
+    }
+
+    /* Lightbox mobile */
+    .gprs-housing-lightbox__container {
+        padding: calc(var(--header-height, 65px) + 0.5rem) 0.5rem 1rem;
+    }
+
+    .gprs-housing-lightbox__arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gprs-housing-lightbox__arrow--prev {
+        left: 0.25rem;
+    }
+
+    .gprs-housing-lightbox__arrow--next {
+        right: 0.25rem;
+    }
+
+    .gprs-housing-lightbox__img {
+        max-height: 60vh;
+    }
+
+    .gprs-housing-lightbox__dots {
+        max-width: 200px;
+    }
+
+    .gprs-housing-lightbox__dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .gprs-housing-btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ── Small mobile: ≤ 480px ── */
+@media (max-width: 480px) {
+
+    .gprs-housing-glance__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gprs-housing-gallery__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   13. REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .gprs-housing-glance__card,
+    .gprs-housing-eligibility__card,
+    .gprs-housing-gallery__thumb,
+    .gprs-housing-btn,
+    .gprs-housing-lightbox__img,
+    .gprs-housing-lightbox__close,
+    .gprs-housing-lightbox__arrow,
+    .gprs-housing-lightbox__dot,
+    .gprs-housing-quicklinks__link {
+        transition: none;
+    }
+
+    .gprs-housing-glance__card:hover,
+    .gprs-housing-eligibility__card:hover,
+    .gprs-housing-gallery__thumb:hover,
+    .gprs-housing-btn:hover,
+    .gprs-housing-btn--primary:hover,
+    .gprs-housing-btn--secondary:hover {
+        transform: none;
+    }
+
+    .gprs-housing-btn:hover .gprs-housing-btn__arrow {
+        transform: none;
+    }
+}

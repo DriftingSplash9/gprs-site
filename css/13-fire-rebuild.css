@@ -1,0 +1,743 @@
+/* ============================================================
+   13 — FIRE REBUILD PAGE
+   ============================================================
+   Purpose:  Styles for the /margaret-edgson-manor-rebuild-efforts/
+             page — hero variant, content sections, milestone
+             cards, image tiles, progress grid, and CTA cards
+   Depends:  01-Core Tokens, 00-Shared Components
+   Updated:  2026-03-31 — Step 2: Pruned heading/body/quote color
+             declarations now handled by 00-shared-components.css
+             (.gprs-gradient-heading, .gprs-gradient-subheading,
+              .gprs-tinted-text, .gprs-blockquote)
+   Slug:     margaret-edgson-manor-rebuild-efforts
+
+   CLASS PREFIX:  gprs-fire-  (page-scoped)
+
+   WHAT WAS REMOVED:
+     - .gprs-fire__heading { color: ... }
+       → Now uses .gprs-gradient-heading
+     - .gprs-fire__subheading { color: ... }
+       → Now uses .gprs-gradient-subheading
+     - .gprs-fire__body p { color: ... }
+       → Now uses .gprs-tinted-text on article wrapper
+     - .gprs-fire__quote p/cite { color: ... }
+       → Now uses .gprs-blockquote
+     - All corresponding html.gprs-dark overrides for the above
+
+   WHAT WAS KEPT:
+     - All card systems (milestone, feature, CTA) with scoped
+       custom properties — these are self-contained and work well
+     - Image tiles with hover lift
+     - Contact footer bar
+     - Section dividers
+     - Hero variant (70vh)
+     - All responsive breakpoints
+     - Astra content gap fix
+
+   TABLE OF CONTENTS:
+     1.  Hero Variant (70vh desktop)
+     2.  Article Container
+     3.  Section Spacing
+     4.  Headings (H2 + H3) — sizing/spacing only
+     5.  Body Text — sizing/spacing only
+     6.  Blockquotes — structure/background only
+     7.  Section Dividers
+     8.  Milestone Cards (progress timeline)
+     9.  Feature / Vision Cards
+     10. Image Tiles (with hover lift)
+     11. CTA Cards (Donate / Volunteer / In-Kind)
+     12. Contact Footer Bar
+     13. Dark Mode Overrides (structural only)
+     14. Responsive (Tablet + Mobile)
+     15. Astra Content Gap Fix
+   ============================================================ */
+
+
+/* ============================================================
+   1. HERO VARIANT — 70vh DESKTOP
+   ============================================================
+   Overrides the default 62vh / 50vh for this page only.
+   Mobile breakpoints handled in responsive section below.
+============================================================ */
+
+.hero--fire-rebuild {
+	min-height: 70vh;
+	align-items: center;
+}
+
+
+/* ============================================================
+   2. ARTICLE CONTAINER
+============================================================ */
+
+.gprs-fire {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2.5rem 2rem 3rem;
+}
+
+
+/* ============================================================
+   3. SECTION SPACING
+============================================================ */
+
+.gprs-fire__section {
+	margin-bottom: 1.5rem;
+}
+
+
+/* ============================================================
+   4. HEADINGS — sizing & spacing only
+   ──────────────────────────────────────────────────────────────
+   Color is now handled by .gprs-gradient-heading and
+   .gprs-gradient-subheading from 00-shared-components.css.
+============================================================ */
+
+.gprs-fire__heading {
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0 0 1.25rem 0;
+}
+
+.gprs-fire__subheading {
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1.35;
+	margin: 1.75rem 0 0.75rem 0;
+}
+
+
+/* ============================================================
+   5. BODY TEXT — sizing & spacing only
+   ──────────────────────────────────────────────────────────────
+   Color is now handled by .gprs-tinted-text on the article
+   wrapper from 00-shared-components.css.
+============================================================ */
+
+.gprs-fire__body p {
+	font-size: 1.05rem;
+	line-height: 1.8;
+	margin: 0 0 1.1rem 0;
+}
+
+.gprs-fire__body p:last-child {
+	margin-bottom: 0;
+}
+
+.gprs-fire__body strong {
+	font-weight: 700;
+}
+
+.gprs-fire__body em {
+	font-style: italic;
+	font-weight: 600;
+}
+
+
+/* ============================================================
+   6. BLOCKQUOTES — structure & background only
+   ──────────────────────────────────────────────────────────────
+   Text color, cite color, and border-left color are now
+   handled by .gprs-blockquote from 00-shared-components.css.
+============================================================ */
+
+.gprs-fire__quote {
+	position: relative;
+	margin: 1.75rem 0 1.5rem 0;
+	padding: 1.5rem 1.75rem;
+
+	background: var(--gprs-glass-bg-light, rgba(255,255,255,0.88));
+	border-radius: 0 var(--radius-sm, 8px) var(--radius-sm, 8px) 0;
+
+	box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.gprs-fire__quote p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin: 0 0 0.5rem 0;
+}
+
+.gprs-fire__quote p:last-of-type {
+	margin-bottom: 0.5rem;
+}
+
+.gprs-fire__quote cite {
+	font-weight: 600;
+}
+
+
+/* ============================================================
+   7. SECTION DIVIDERS
+============================================================ */
+
+.gprs-fire__divider {
+	border: none;
+	height: 1px;
+	margin: 2rem 0;
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--gprs-underline-from, rgba(0,102,204,0.35)),
+		transparent
+	);
+}
+
+
+/* ============================================================
+   8. MILESTONE CARDS (rebuild progress)
+   ============================================================
+   Grid of cards showing rebuild milestones with check icons.
+   Cards lift on hover with subtle shadow increase.
+   Dark mode: frosted glass with blue glow on hover.
+============================================================ */
+
+.gprs-fire__milestones {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.gprs-fire__milestone {
+	--fire-card-bg:           #ffffff;
+	--fire-card-border:       rgba(0, 102, 204, 0.12);
+	--fire-card-shadow:       0 2px 12px rgba(0, 0, 0, 0.06);
+	--fire-card-shadow-hover:
+		0 12px 32px rgba(0, 102, 204, 0.18),
+		0 2px 8px rgba(0, 0, 0, 0.08);
+	--fire-card-blur:         none;
+
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.85rem;
+
+	background: var(--fire-card-bg);
+	border: 1px solid var(--fire-card-border);
+	border-radius: var(--radius-md, 14px);
+	padding: 1.25rem 1.25rem;
+
+	box-shadow: var(--fire-card-shadow);
+	backdrop-filter: var(--fire-card-blur);
+	-webkit-backdrop-filter: var(--fire-card-blur);
+
+	transition:
+		transform    var(--anim-medium, 0.3s ease),
+		box-shadow   var(--anim-medium, 0.3s ease),
+		border-color var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__milestone:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--fire-card-shadow-hover);
+}
+
+.gprs-fire__milestone-icon {
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #0a6bff, #004a9f);
+	color: #ffffff;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1;
+	box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.gprs-fire__milestone-text {
+	font-size: 0.95rem;
+	line-height: 1.55;
+	color: var(--clr-text-body, #111827);
+}
+
+
+/* ============================================================
+   9. FEATURE / VISION CARDS
+   ============================================================
+   Used for "Our vision for the renewed MEM" items.
+   Each card has an emoji icon, title, and description.
+   Full card hover with lift and glow.
+============================================================ */
+
+.gprs-fire__features {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.gprs-fire__feature {
+	--fire-feat-bg:            #ffffff;
+	--fire-feat-border:        rgba(0, 102, 204, 0.10);
+	--fire-feat-shadow:        0 2px 12px rgba(0, 0, 0, 0.05);
+	--fire-feat-shadow-hover:
+		0 14px 36px rgba(0, 102, 204, 0.16),
+		0 2px 8px rgba(0, 0, 0, 0.06);
+	--fire-feat-blur:          none;
+
+	display: flex;
+	flex-direction: column;
+	background: var(--fire-feat-bg);
+	border: 1px solid var(--fire-feat-border);
+	border-radius: var(--radius-md, 14px);
+	padding: 1.5rem 1.35rem;
+
+	box-shadow: var(--fire-feat-shadow);
+	backdrop-filter: var(--fire-feat-blur);
+	-webkit-backdrop-filter: var(--fire-feat-blur);
+
+	transition:
+		transform    var(--anim-medium, 0.3s ease),
+		box-shadow   var(--anim-medium, 0.3s ease),
+		border-color var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__feature:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--fire-feat-shadow-hover);
+}
+
+.gprs-fire__feature-icon {
+	font-size: 1.8rem;
+	margin-bottom: 0.6rem;
+	line-height: 1;
+}
+
+.gprs-fire__feature-title {
+	font-size: 1.05rem;
+	font-weight: 700;
+	color: #003366;
+	margin: 0 0 0.4rem 0;
+	line-height: 1.3;
+}
+
+.gprs-fire__feature-text {
+	font-size: 0.92rem;
+	line-height: 1.6;
+	color: var(--clr-text-body, #111827);
+	margin: 0;
+}
+
+
+/* ============================================================
+   10. IMAGE TILES (with hover lift + shadow)
+============================================================ */
+
+.gprs-fire__images {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.gprs-fire__image-tile {
+	position: relative;
+	border-radius: var(--radius-md, 14px);
+	overflow: hidden;
+
+	box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+
+	transition:
+		transform    var(--anim-medium, 0.3s ease),
+		box-shadow   var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__image-tile:hover {
+	transform: translateY(-5px);
+	box-shadow:
+		0 16px 40px rgba(0,0,0,0.22),
+		0 2px 8px rgba(0,0,0,0.08);
+}
+
+.gprs-fire__image-tile img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	transition: filter var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__image-tile:hover img {
+	filter: brightness(1.05);
+}
+
+.gprs-fire__image-caption {
+	padding: 0.75rem 1rem;
+	font-size: 0.85rem;
+	line-height: 1.45;
+	color: var(--clr-text-body, #111827);
+	background: #ffffff;
+	border-top: 1px solid rgba(0, 102, 204, 0.08);
+}
+
+
+/* ============================================================
+   11. CTA CARDS (Donate / Volunteer / In-Kind)
+============================================================ */
+
+.gprs-fire__ctas {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.gprs-fire__cta-card {
+	--fire-cta-bg:            #ffffff;
+	--fire-cta-border:        rgba(0, 102, 204, 0.12);
+	--fire-cta-shadow:        0 2px 14px rgba(0, 0, 0, 0.06);
+	--fire-cta-shadow-hover:
+		0 14px 36px rgba(0, 102, 204, 0.18),
+		0 2px 8px rgba(0, 0, 0, 0.08);
+	--fire-cta-blur:          none;
+
+	display: flex;
+	flex-direction: column;
+	background: var(--fire-cta-bg);
+	border: 1px solid var(--fire-cta-border);
+	border-radius: var(--radius-md, 14px);
+	padding: 1.75rem 1.5rem;
+
+	box-shadow: var(--fire-cta-shadow);
+	backdrop-filter: var(--fire-cta-blur);
+	-webkit-backdrop-filter: var(--fire-cta-blur);
+
+	transition:
+		transform    var(--anim-medium, 0.3s ease),
+		box-shadow   var(--anim-medium, 0.3s ease),
+		border-color var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__cta-card:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--fire-cta-shadow-hover);
+}
+
+.gprs-fire__cta-icon {
+	font-size: 2rem;
+	margin-bottom: 0.65rem;
+	line-height: 1;
+}
+
+.gprs-fire__cta-title {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #003366;
+	margin: 0 0 0.5rem 0;
+	line-height: 1.3;
+}
+
+.gprs-fire__cta-text {
+	font-size: 0.92rem;
+	line-height: 1.6;
+	color: var(--clr-text-body, #111827);
+	margin: 0 0 1rem 0;
+	flex: 1;
+}
+
+.gprs-fire__cta-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--clr-accent, #0066CC);
+	text-decoration: none;
+	transition: gap var(--anim-fast, 0.18s ease);
+}
+
+.gprs-fire__cta-link::after {
+	content: "\2192";
+	font-size: 1.1em;
+	transition: transform var(--anim-fast, 0.18s ease);
+}
+
+.gprs-fire__cta-card:hover .gprs-fire__cta-link {
+	gap: 0.65rem;
+}
+
+.gprs-fire__cta-card:hover .gprs-fire__cta-link::after {
+	transform: translateX(3px);
+}
+
+
+/* ============================================================
+   12. CONTACT FOOTER BAR
+============================================================ */
+
+.gprs-fire__contact {
+	margin-top: 2rem;
+	padding: 1.5rem 1.75rem;
+
+	background: var(--gprs-glass-bg-light, rgba(255,255,255,0.88));
+	border: 1px solid var(--gprs-glass-border-light, rgba(0,102,204,0.35));
+	border-radius: var(--radius-md, 14px);
+	box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+
+	text-align: center;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: var(--clr-text-body, #111827);
+}
+
+.gprs-fire__contact strong {
+	font-weight: 700;
+}
+
+.gprs-fire__contact a {
+	color: var(--clr-accent, #0066CC);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.gprs-fire__contact a:hover {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+
+/* ============================================================
+   13. DARK MODE OVERRIDES — structural only
+   ──────────────────────────────────────────────────────────────
+   Heading and body text COLOR overrides have been removed —
+   now handled globally by .gprs-gradient-heading,
+   .gprs-gradient-subheading, and .gprs-tinted-text.
+
+   Blockquote text/cite COLOR overrides have been removed —
+   now handled by .gprs-blockquote.
+
+   Card systems, image tiles, contact bar, and divider
+   dark-mode rules remain as they use scoped custom properties.
+============================================================ */
+
+/* ── Blockquote background & shadow ── */
+html.gprs-dark .gprs-fire__quote {
+	background: var(--gprs-glass-bg-dark, rgba(255,255,255,0.08));
+	box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+/* ── Dividers ── */
+html.gprs-dark .gprs-fire__divider {
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--gprs-section-border, rgba(255,255,255,0.12)),
+		transparent
+	);
+}
+
+/* ── Milestone Cards ── */
+html.gprs-dark .gprs-fire__milestone {
+	--fire-card-bg:           rgba(255, 255, 255, 0.08);
+	--fire-card-border:       rgba(255, 255, 255, 0.15);
+	--fire-card-shadow:       0 2px 12px rgba(0, 0, 0, 0.25);
+	--fire-card-shadow-hover:
+		0 12px 32px rgba(0, 102, 204, 0.30),
+		0 0 18px rgba(0, 102, 204, 0.12),
+		0 2px 8px rgba(0, 0, 0, 0.30);
+	--fire-card-blur:         blur(12px);
+}
+
+html.gprs-dark .gprs-fire__milestone:hover {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Feature / Vision Cards ── */
+html.gprs-dark .gprs-fire__feature {
+	--fire-feat-bg:           rgba(255, 255, 255, 0.08);
+	--fire-feat-border:       rgba(255, 255, 255, 0.15);
+	--fire-feat-shadow:       0 2px 12px rgba(0, 0, 0, 0.25);
+	--fire-feat-shadow-hover:
+		0 14px 36px rgba(0, 102, 204, 0.30),
+		0 0 18px rgba(0, 102, 204, 0.12),
+		0 2px 8px rgba(0, 0, 0, 0.30);
+	--fire-feat-blur:         blur(12px);
+}
+
+html.gprs-dark .gprs-fire__feature:hover {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+
+html.gprs-dark .gprs-fire__feature-title {
+	color: var(--clr-accent, #0066CC);
+}
+
+/* ── Image Tiles ── */
+html.gprs-dark .gprs-fire__image-tile {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+html.gprs-dark .gprs-fire__image-tile:hover {
+	box-shadow:
+		0 16px 40px rgba(0,0,0,0.50),
+		0 0 20px rgba(0, 102, 204, 0.15),
+		0 2px 8px rgba(0,0,0,0.20);
+}
+
+html.gprs-dark .gprs-fire__image-caption {
+	background: rgba(255,255,255,0.08);
+	border-top-color: rgba(255,255,255,0.10);
+	color: rgba(255,255,255,0.88);
+}
+
+/* ── CTA Cards ── */
+html.gprs-dark .gprs-fire__cta-card {
+	--fire-cta-bg:           rgba(255, 255, 255, 0.08);
+	--fire-cta-border:       rgba(255, 255, 255, 0.15);
+	--fire-cta-shadow:       0 2px 14px rgba(0, 0, 0, 0.25);
+	--fire-cta-shadow-hover:
+		0 14px 36px rgba(0, 102, 204, 0.30),
+		0 0 18px rgba(0, 102, 204, 0.12),
+		0 2px 8px rgba(0, 0, 0, 0.30);
+	--fire-cta-blur:         blur(12px);
+}
+
+html.gprs-dark .gprs-fire__cta-card:hover {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+
+html.gprs-dark .gprs-fire__cta-title {
+	color: var(--clr-accent, #0066CC);
+}
+
+/* ── Contact Bar ── */
+html.gprs-dark .gprs-fire__contact {
+	background: var(--gprs-glass-bg-dark, rgba(255,255,255,0.08));
+	border-color: var(--gprs-glass-border-dark, rgba(255,255,255,0.22));
+	box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+	color: rgba(255,255,255,0.92);
+}
+
+
+/* ============================================================
+   14. RESPONSIVE — TABLET (≤1024px)
+============================================================ */
+
+@media (max-width: 1024px) {
+	.gprs-fire {
+		padding: 2rem 1.5rem 2.5rem;
+	}
+
+	.gprs-fire__heading {
+		font-size: 1.55rem;
+	}
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — MOBILE (≤768px)
+============================================================ */
+
+@media (max-width: 768px) {
+	/* Hero drops to match other inner pages on mobile */
+	.hero--fire-rebuild {
+		min-height: 55vh;
+	}
+
+	.gprs-fire {
+		padding: 1.5rem 1.25rem 2rem;
+	}
+
+	.gprs-fire__heading {
+		font-size: 1.4rem;
+	}
+
+	.gprs-fire__subheading {
+		font-size: 1.1rem;
+	}
+
+	.gprs-fire__body p {
+		font-size: 1rem;
+	}
+
+	.gprs-fire__milestones,
+	.gprs-fire__features,
+	.gprs-fire__ctas {
+		grid-template-columns: 1fr;
+	}
+
+	.gprs-fire__images {
+		grid-template-columns: 1fr;
+	}
+
+	.gprs-fire__quote {
+		padding: 1.25rem 1.25rem;
+	}
+}
+
+
+/* ============================================================
+   16. RESPONSIVE — SMALL MOBILE (≤480px)
+============================================================ */
+
+@media (max-width: 480px) {
+	.hero--fire-rebuild {
+		min-height: 50vh;
+	}
+
+	.gprs-fire {
+		padding: 1.25rem 1rem 1.75rem;
+	}
+
+	.gprs-fire__heading {
+		font-size: 1.3rem;
+	}
+
+	.gprs-fire__milestone {
+		padding: 1rem 1rem;
+	}
+
+	.gprs-fire__feature {
+		padding: 1.25rem 1.1rem;
+	}
+
+	.gprs-fire__cta-card {
+		padding: 1.25rem 1.1rem;
+	}
+}
+
+
+/* ============================================================
+   17. ASTRA CONTENT GAP FIX
+============================================================ */
+
+/* Collapse Astra's default article spacing */
+.ast-separate-container .ast-article-single {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove Astra container padding around the content area */
+.ast-separate-container .site-main > article {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Remove entry-content default padding */
+.ast-separate-container .entry-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* If Astra uses non-separate container layout */
+.site-main > article {
+    margin-bottom: 0;
+}
+
+.site-main > article > .entry-content {
+    padding: 0;
+}
+
+/* Give the newsletter wrapper proper spacing from the
+   fire rebuild content above it */
+.entry-content > .donate-newsletter-wrap {
+    padding-top: var(--space-xl, 4rem);
+    padding-bottom: var(--space-lg, 2rem);
+}

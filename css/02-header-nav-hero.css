@@ -1,0 +1,985 @@
+/* ============================================================
+   02 — HEADER, NAVIGATION & HERO
+   ============================================================
+   Purpose:  Fixed header bar, desktop/mobile nav, submenu,
+             theme toggle, donate CTA, hero system (all pages)
+   Depends:  01-Core Tokens & Base Layout
+   Updated:  2026-03-18
+   Merged:   04-HEADER + 05-COMPONENTS (Hero) into single snippet
+
+   TABLE OF CONTENTS:
+   PART A — HEADER & NAVIGATION
+     1.  Astra Override
+     2.  Header Bar — Animated Gradient
+     3.  Header Inner Layout
+     4.  Logo
+     5.  Desktop Nav Links
+     6.  Nav Hover & Active States
+     7.  Keyboard Focus Enhancements
+     8.  Donate CTA Button
+     9.  Submenu Dropdowns (About, Housing, etc.)
+     10. Theme Toggle
+     11. Header Controls
+     12. Header Search Bar
+     13. Mobile Toggle
+     14. Admin Bar Compensation
+     15. Responsive Breakpoints
+
+   PART B — HERO SYSTEM
+     15. Base Hero Structure
+     16. Hero Background Image
+     17. Hero Dark Overlay
+     18. Hero Content Wrapper
+     19. Hero Title (glassmorphic box)
+     20. Hero Heading Group
+     21. Hero Mission Text
+     22. Hero Quote
+     23. Hero Buttons
+     24. Hero Variant Heights
+     25. Hero Variant Alignment
+     26. Content Clearance
+     27. Admin Bar Compensation (Hero)
+     28. Responsive — Tablet
+     29. Responsive — Mobile
+     30. Responsive — Small Mobile
+     31. Short Screen Safety
+   ============================================================ */
+
+
+/* ************************************************************
+   PART A — HEADER & NAVIGATION
+   ************************************************************ */
+
+/* ============================================================
+   1. ASTRA OVERRIDE
+============================================================ */
+header.site-header {
+	display: none !important;
+}
+
+/* ============================================================
+   2. HEADER BAR — ANIMATED GRADIENT
+============================================================ */
+.gprs-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--header-height);
+	z-index: var(--z-header);
+	padding: 0.5rem 0;
+
+	background: linear-gradient(
+		115deg,
+		rgba(10, 102, 204, 0.45),
+		rgba(15, 70, 255, 0.50),
+		rgba(70, 30, 180, 0.45),
+		rgba(15, 70, 255, 0.50),
+		rgba(10, 102, 204, 0.45)
+	);
+	background-size: 400% 400%;
+
+	border-bottom: 1px solid var(--clr-header-border);
+	backdrop-filter: blur(10px) saturate(140%);
+	-webkit-backdrop-filter: blur(10px) saturate(140%);
+	box-shadow: var(--shadow-header);
+
+	animation: headerGradient 33s ease infinite;
+}
+
+@keyframes headerGradient {
+	0%   { background-position: 0% 50%; }
+	50%  { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gprs-header {
+		animation: none;
+		background-size: 100% 100%;
+	}
+}
+
+/* ============================================================
+   3. HEADER INNER LAYOUT
+============================================================ */
+.header-inner {
+	max-width: var(--max-content-width);
+	margin: 0 auto;
+	padding: 0 2rem;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+/* ============================================================
+   4. LOGO
+============================================================ */
+.logo {
+	display: flex;
+	align-items: center;
+	max-height: var(--header-height);
+	flex-shrink: 0;
+}
+
+.logo img {
+	height: var(--header-logo-height);
+	width: auto;
+	display: block;
+}
+
+.logo-text {
+	position: absolute !important;
+	left: -9999px !important;
+}
+
+/* ============================================================
+   5. DESKTOP NAV LINKS — TIGHTENED FOR 7 ITEMS + MORE + DONATE
+============================================================ */
+.header-nav-controls {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.nav-desktop {
+	display: flex;
+	gap: 0.15rem;
+	align-items: center;
+}
+
+/* Base link style */
+.nav-desktop a:not(.nav-cta-donate),
+.nav-link-submenu {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 0.55rem 0.7rem;
+	border-radius: var(--radius-sm);
+	background: transparent;
+	color: var(--clr-nav-btn-text) !important;
+	font-weight: 500;
+	font-size: 0.92rem;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	transition:
+		background var(--anim-fast),
+		color var(--anim-fast);
+	text-decoration: none;
+}
+
+/* Underline indicator — slides in from left on hover */
+.nav-desktop a:not(.nav-cta-donate)::after,
+.nav-link-submenu::after {
+	content: '';
+	position: absolute;
+	bottom: 4px;
+	left: 0.7rem;
+	right: 0.7rem;
+	height: 2px;
+	background: #ffffff;
+	border-radius: 1px;
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   6. NAV HOVER & ACTIVE STATES
+============================================================ */
+.nav-desktop a:not(.nav-cta-donate):hover,
+.nav-link-submenu:hover {
+	background: rgba(255, 255, 255, 0.10);
+}
+
+.nav-desktop a:not(.nav-cta-donate):hover::after,
+.nav-link-submenu:hover::after {
+	transform: scaleX(1);
+}
+
+/* Current page */
+.nav-desktop a[aria-current="page"]:not(.nav-cta-donate) {
+	background: rgba(255, 255, 255, 0.08);
+	font-weight: 600;
+}
+
+.nav-desktop a[aria-current="page"]:not(.nav-cta-donate)::after {
+	transform: scaleX(1);
+	background: #FFD700;
+}
+
+/* Active parent (submenu page is current) */
+.has-submenu.active-parent > .nav-link-submenu {
+	background: rgba(255, 255, 255, 0.08);
+	font-weight: 600;
+}
+
+.has-submenu.active-parent > .nav-link-submenu::after {
+	transform: scaleX(1);
+	background: #FFD700;
+}
+
+/* ============================================================
+   7. KEYBOARD FOCUS ENHANCEMENTS
+   Gold outline + glow handled globally by 02-Base.
+   Here we ONLY add background tint so nav links
+   feel highlighted in context.
+============================================================ */
+.nav-desktop a:not(.nav-cta-donate):focus-visible,
+.nav-link-submenu:focus-visible {
+	background: rgba(255, 255, 255, 0.10) !important;
+}
+
+.submenu a:focus-visible {
+	background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ============================================================
+   8. DONATE CTA — ALWAYS-VISIBLE ACTION BUTTON
+============================================================ */
+.nav-cta-donate {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 1.4rem;
+	margin-left: 0.35rem;
+	border-radius: 10px;
+	background: rgba(140, 200, 255, 0.18);
+	backdrop-filter: blur(12px) saturate(140%);
+	-webkit-backdrop-filter: blur(12px) saturate(140%);
+	border: 1.5px solid rgba(160, 210, 255, 0.45);
+	color: #ffffff !important;
+	font-weight: 700;
+	font-size: 0.92rem;
+	letter-spacing: 0.02em;
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background var(--anim-fast),
+		border-color var(--anim-fast),
+		box-shadow var(--anim-fast),
+		transform var(--anim-fast);
+}
+
+.nav-cta-donate:hover {
+	background: rgba(140, 200, 255, 0.30);
+	border-color: rgba(170, 220, 255, 0.65);
+	box-shadow:
+		0 4px 16px rgba(0, 80, 180, 0.20),
+		0 0 12px rgba(140, 200, 255, 0.12);
+	transform: translateY(-1px);
+}
+
+.nav-cta-donate:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 8px rgba(0, 80, 180, 0.15);
+}
+
+.nav-cta-donate[aria-current="page"] {
+	background: rgba(140, 200, 255, 0.25);
+	border-color: rgba(170, 220, 255, 0.55);
+	box-shadow: 0 0 12px rgba(140, 200, 255, 0.15);
+}
+
+/* ============================================================
+   9. SUBMENU DROPDOWNS — FROSTED GLASS PANELS
+   Used by: About, Housing (and any future dropdown groups)
+============================================================ */
+.has-submenu {
+	position: relative;
+}
+
+.submenu-chevron {
+	transition: transform 0.25s ease;
+	flex-shrink: 0;
+}
+
+.has-submenu.open .submenu-chevron {
+	transform: rotate(180deg);
+}
+
+.submenu {
+	position: absolute !important;
+	top: calc(100% + 10px) !important;
+	right: 0 !important;
+	min-width: 220px !important;
+	padding: 6px !important;
+	border-radius: 12px !important;
+
+	background: rgba(15, 25, 45, 0.82) !important;
+	backdrop-filter: blur(24px) saturate(180%) !important;
+	-webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+
+	border: 1px solid rgba(255, 255, 255, 0.15) !important;
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.40),
+		inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+
+	opacity: 0 !important;
+	pointer-events: none !important;
+	visibility: hidden !important;
+	transform: translateY(8px) !important;
+	transition:
+		opacity var(--anim-medium),
+		transform var(--anim-medium),
+		visibility 0s linear 0.3s !important;
+}
+
+/* Invisible hover bridge — fills the 10px gap between the
+   nav button and the dropdown panel so the mouse doesn't
+   leave .has-submenu when moving down to the menu items. */
+.submenu::before {
+	content: '';
+	position: absolute;
+	top: -12px;
+	left: 0;
+	right: 0;
+	height: 12px;
+	background: transparent;
+}
+
+html:not(.gprs-dark) .submenu {
+	background: rgba(255, 255, 255, 0.90) !important;
+	backdrop-filter: blur(24px) saturate(180%) !important;
+	-webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+	border: 1px solid rgba(0, 0, 0, 0.08) !important;
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.12),
+		inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+/* OPEN STATE */
+.has-submenu.open .submenu {
+	opacity: 1 !important;
+	pointer-events: auto !important;
+	visibility: visible !important;
+	transform: translateY(0) !important;
+	transition:
+		opacity var(--anim-medium),
+		transform var(--anim-medium),
+		visibility 0s linear 0s !important;
+}
+
+.submenu a {
+	display: block;
+	width: 100%;
+	padding: 10px 14px;
+	border-radius: 8px;
+	color: var(--clr-nav-btn-text) !important;
+	font-weight: 500;
+	font-size: 0.9rem;
+	text-decoration: none;
+	transition:
+		background var(--anim-fast),
+		transform var(--anim-fast);
+	background: transparent;
+}
+
+.submenu a:hover {
+	background: rgba(255, 255, 255, 0.12);
+	transform: translateX(4px);
+}
+
+html:not(.gprs-dark) .submenu a {
+	color: #111827 !important;
+}
+
+html:not(.gprs-dark) .submenu a:hover {
+	background: rgba(0, 0, 0, 0.06);
+}
+
+.submenu a[aria-current="page"] {
+	background: rgba(255, 255, 255, 0.10);
+	font-weight: 600;
+}
+
+html:not(.gprs-dark) .submenu a[aria-current="page"] {
+	background: rgba(0, 102, 204, 0.08);
+}
+
+.submenu[role="menu"] {
+	outline: none;
+}
+
+/* ============================================================
+   10. ACCESSIBILITY TOGGLE BUTTON
+   Styles are in 12-accessibility-toolbar.css (loaded globally).
+   The .gprs-a11y-toggle button replaces the old .gprs-theme-toggle.
+============================================================ */
+
+
+/* ============================================================
+   11. HEADER CONTROLS WRAPPER
+============================================================ */
+.header-controls {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	flex-shrink: 0;
+}
+
+/* ============================================================
+   12. HEADER SEARCH BAR
+============================================================ */
+.header-search {
+	display: flex;
+	align-items: center;
+	position: relative;
+	flex-shrink: 0;
+}
+
+.header-search-input {
+	width: 160px;
+	min-width: 140px;
+	height: 36px;
+	padding: 0 2.2rem 0 0.75rem;
+	border-radius: var(--radius-sm, 8px);
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	background: rgba(255, 255, 255, 0.08);
+	color: #ffffff;
+	font-size: 0.88rem;
+	font-family: inherit;
+	outline: none;
+	transition:
+		width 0.25s ease,
+		background 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.header-search-input::placeholder {
+	color: rgba(123, 154, 196, 0.55);
+}
+
+.header-search-input:focus {
+	width: 220px;
+	background: rgba(255, 255, 255, 0.14);
+	border-color: rgba(255, 255, 255, 0.40);
+}
+
+.header-search-btn {
+	position: absolute;
+	right: 4px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	padding: 4px;
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: color 0.2s ease;
+	min-height: auto;
+}
+
+.header-search-btn:hover {
+	color: #ffffff;
+}
+
+/* Light mode search */
+html:not(.gprs-dark) .header-search-input {
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	background: rgba(155, 125, 145, 0.50) !important;
+	color: #111827;
+}
+
+html:not(.gprs-dark) .header-search-input::placeholder {
+	color: rgba(0, 0, 0, 0.40);
+}
+
+html:not(.gprs-dark) .header-search-input:focus {
+	background: rgba(255, 255, 255, 0.70);
+	border-color: rgba(0, 102, 204, 0.40);
+}
+
+html:not(.gprs-dark) .header-search-btn {
+	color: rgba(0, 0, 0, 0.45);
+}
+
+html:not(.gprs-dark) .header-search-btn:hover {
+	color: #111827;
+}
+
+/* ============================================================
+   13. MOBILE TOGGLE — BASE STYLES ONLY
+============================================================ */
+.mobile-toggle,
+#mobile-menu-toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 38px;
+	padding: 0;
+	border-radius: var(--radius-sm);
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	cursor: pointer;
+	transition:
+		background 0.2s ease,
+		border-color 0.2s ease;
+	color: #ffffff;
+	line-height: 1;
+}
+
+.mobile-toggle:hover,
+#mobile-menu-toggle:hover {
+	background: rgba(255, 255, 255, 0.15);
+	border-color: rgba(255, 255, 255, 0.30);
+}
+
+/* Hamburger → X animation */
+.mobile-toggle[aria-expanded="true"] .hamburger-top {
+	transform: translateY(7.75px) rotate(45deg);
+	transform-origin: center;
+	transition: transform 0.25s ease;
+}
+
+.mobile-toggle[aria-expanded="true"] .hamburger-mid {
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+
+.mobile-toggle[aria-expanded="true"] .hamburger-bot {
+	transform: translateY(-7.75px) rotate(-45deg);
+	transform-origin: center;
+	transition: transform 0.25s ease;
+}
+
+.hamburger-top,
+.hamburger-mid,
+.hamburger-bot {
+	transition: transform 0.25s ease, opacity 0.15s ease;
+}
+
+/* ============================================================
+   14. ADMIN BAR COMPENSATION
+============================================================ */
+.admin-bar .gprs-header {
+	top: 32px;
+}
+
+@media (max-width: 782px) {
+	.admin-bar .gprs-header {
+		top: 46px;
+	}
+}
+
+/* ============================================================
+   15. RESPONSIVE BREAKPOINTS
+============================================================ */
+@media (max-width: 1024px) {
+	.nav-desktop {
+		display: none;
+	}
+
+	.mobile-toggle,
+	#mobile-menu-toggle {
+		display: flex;
+	}
+
+	.header-inner {
+		padding: 0 1.5rem;
+	}
+}
+
+
+/* ************************************************************
+   PART B — HERO SYSTEM
+   ************************************************************ */
+
+/* ============================================================
+   1. BASE HERO STRUCTURE
+   ============================================================
+   The hero is a flex container that vertically and
+   horizontally centers its content. The fixed header
+   overlaps the top, so we add padding-top equal to
+   --header-height to push visible content below it.
+============================================================ */
+/* ============================================================
+   HERO VARIANT — ACCESSIBLE HOUSING (62vh)
+============================================================ */
+.hero--housing {
+	min-height: 62vh;
+}
+.hero {
+	position: relative;
+	width: 100%;
+
+	/* Default height — inner pages */
+	min-height: 62vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-align: center;
+	color: var(--clr-text-light, #ffffff);
+	overflow: hidden;
+	isolation: isolate;
+
+	/* KEY FIX: Account for fixed header so content centers
+	   within the VISIBLE area, not the full hero box.
+	   padding-top pushes the flex center point down by
+	   the header height, so the content appears visually
+	   centered below the header bar. */
+	padding-top: var(--header-height, 72px);
+	box-sizing: border-box;
+}
+
+
+/* ============================================================
+   2. HERO BACKGROUND IMAGE
+============================================================ */
+
+.hero img,
+.gprs-img-hero,
+.hero-bg-img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 30%;
+	z-index: 0;
+}
+
+
+/* ============================================================
+   3. HERO DARK OVERLAY
+============================================================ */
+
+.hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: rgba(0, 0, 0, 0.25);
+	pointer-events: none;
+}
+
+
+/* ============================================================
+   4. HERO CONTENT WRAPPER
+   ============================================================
+   Padding-top is intentionally SMALL here because the hero
+   itself already has padding-top for the header offset.
+   Do NOT add large padding-top values here — that was the
+   cause of the "content pushed to bottom" bug.
+============================================================ */
+
+.hero-content {
+	position: relative;
+	z-index: 2;
+
+	max-width: 900px;
+	width: calc(100% - 3rem);
+	margin-inline: auto;
+
+	/* Minimal internal padding — hero flex handles centering */
+	padding: 1.5rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.hero-content--centered {
+	justify-content: center;
+}
+
+
+/* ============================================================
+   5. HERO TITLE (glassmorphic box)
+============================================================ */
+
+.hero-title-box {
+	padding: 0.25rem 0.5rem;
+	margin: 0;
+
+	background: rgba(0, 102, 204, 0.1);
+	border-radius: var(--radius-lg, 20px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hero-title {
+    font-family: "Inter", "DM Sans", system-ui, sans-serif;
+    	align-items: center;
+    font-weight: 700;
+      font-size: clamp(2.5rem, 4.75vw, 3.5rem);
+    letter-spacing: -0.02em;
+    color: #E8F0FE;
+}
+
+
+/* ============================================================
+   6. HERO HEADING GROUP & STACK
+============================================================ */
+
+.hero-heading-group {
+	margin-bottom: 0.25rem;
+}
+
+.hero-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+
+/* ============================================================
+   7. HERO MISSION TEXT
+============================================================ */
+
+.hero-mission {
+    margin: 0.75rem 0 0.75rem;  /* was 1.5rem */
+	padding: 0.6rem 0.9rem;
+
+	background: rgba(0, 152, 255, 0.2);
+	border-radius: var(--radius-md, 14px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+	font-weight: 400;
+	line-height: 1.4;
+
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+
+/* ============================================================
+   8. HERO QUOTE
+============================================================ */
+
+.hero-quote {
+	margin-top: 0.5rem;
+	padding: 0.4rem 0.7rem;
+
+	background: rgba(30, 102, 102, 0.35);
+	border-radius: var(--radius-md, 14px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+	line-height: 1.15;
+	text-align: center;
+
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* ============================================================
+   9. HERO BUTTONS
+============================================================ */
+
+.hero-buttons {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 0.5rem;
+}
+
+
+/* ============================================================
+   10. HERO VARIANT HEIGHTS
+   ============================================================
+   Homepage gets full viewport. All inner pages get 62vh.
+   No max-height — that was causing content creep by
+   clipping the hero shorter than its content needed.
+============================================================ */
+
+.hero--home {
+	min-height: 100vh;
+
+}
+
+.hero--story,
+.hero--margaret-edgson-manor,
+.hero--fire-rebuild,
+.hero--volunteer,
+.hero--donate,
+.hero--default {
+	min-height: 50vh;
+		align-items: center;
+}
+
+
+/* ============================================================
+   12. CONTENT CLEARANCE (prevents creep below hero)
+   ============================================================
+   Page content sits directly after the hero <section>.
+   Without explicit stacking context and spacing, images
+   and content can visually overlap the hero bottom edge.
+   
+   The z-index: 3 ensures page content paints ABOVE the
+   hero's background image (z:0) and overlay (z:1).
+============================================================ */
+
+/* Ensure page content stacks above hero layers */
+.hero + *,
+.hero ~ #content,
+.hero ~ .site-content {
+	position: relative;
+	z-index: 3;
+}
+
+/* Breathing room between hero and first content block */
+.hero + div,
+.hero + section,
+.hero + main,
+.hero ~ #content {
+	margin-top: 0;
+}
+
+
+.hero-title-box {
+    max-width: fit-content;
+    margin-inline: auto;
+}
+
+/* Wider variant — homepage has a longer H1 */
+.hero-title-box--wide {
+    max-width: 780px;
+}
+
+/* ============================================================
+   13. ADMIN BAR COMPENSATION
+============================================================ */
+
+.admin-bar .hero {
+	padding-top: calc(var(--header-height, 72px) + 32px);
+}
+
+@media (max-width: 782px) {
+	.admin-bar .hero {
+		padding-top: calc(var(--header-height, 72px) + 46px);
+	}
+}
+
+
+/* ============================================================
+   14. RESPONSIVE — TABLET (≤1024px)
+============================================================ */
+
+@media (max-width: 1024px) {
+	.hero-title {
+		font-size: clamp(2.3rem, 5.25vw, 3rem);
+	}
+
+	.hero-mission {
+		font-size: clamp(1rem, 2.6vw, 1.35rem);
+	}
+
+	.hero-content {
+		width: calc(100% - 2.5rem);
+		padding: 1.25rem;
+	}
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — MOBILE (≤768px)
+============================================================ */
+
+@media (max-width: 768px) {
+	.hero {
+		min-height: 55vh;
+		padding-top: var(--header-height, 65px);
+	}
+
+	.hero--home {
+		min-height: calc(100vh - var(--header-height, 65px));
+		padding-top: var(--header-height, 65px);
+	}
+
+	.hero-content {
+		padding: 1rem;
+		width: calc(100% - 2rem);
+	}
+
+	.hero-title {
+		font-size: clamp(1.75rem, 6vw, 2.25rem);
+		line-height: 1.2;
+		
+	}
+
+	.hero-mission {
+		margin: 1rem 0;
+		font-size: clamp(0.95rem, 3.75vw, 1.125rem);
+	}
+
+	.hero-quote {
+		font-size: 0.875rem;
+		max-width: 85%;
+		margin-top: 0.5rem;
+	}
+
+	.hero-buttons {
+		gap: 0.75rem;
+	}
+}
+
+
+/* ============================================================
+   16. RESPONSIVE — SMALL MOBILE (≤480px)
+============================================================ */
+
+@media (max-width: 480px) {
+	.hero {
+		min-height: 50vh;
+		padding-top: var(--header-height, 60px);
+	}
+
+	.hero--home {
+		min-height: calc(85vh - var(--header-height, 60px));
+	}
+
+	.hero-content {
+		padding: 0.75rem;
+		width: calc(100% - 1.5rem);
+	}
+
+	.hero-title {
+		font-size: clamp(1.5rem, 7vw, 2rem);
+	}
+}
+
+
+/* ============================================================
+   17. SHORT SCREEN SAFETY
+   ============================================================
+   Landscape phones, small laptops, embedded browsers.
+============================================================ */
+
+@media (max-height: 700px) {
+	.hero-quote {
+		display: none;
+	}
+}
+
+@media (max-height: 600px) {
+	.hero-mission {
+		margin: 0.5rem 0;
+	}
+
+	.hero-content {
+		padding: 0.5rem;
+	}
+}

@@ -1,0 +1,565 @@
+/* ============================================================
+   00 — SHARED COMPONENTS
+   ============================================================
+   Purpose:  Unified design language layer — gradient headings,
+             glassmorphism cards, glow hovers, tinted body text,
+             accent links, section dividers, and blockquotes.
+
+             This file bridges the gap between Gen1 pages
+             (Our Story, Fire Rebuild, Accessible Housing) and
+             Gen2 pages (Donate, Apply, Contact, Volunteer, MEM)
+             by extracting the evolved dark-mode-first aesthetic
+             into reusable, opt-in utility classes.
+
+             It also DEFINES the --glass-* shorthand tokens that
+             Gen2 pages already reference but that were never
+             formally declared.
+
+   Depends:  01-core-tokens-base.css (loads immediately after)
+   Loads:    GLOBALLY on every page (Priority 2, after 01-core)
+   Updated:  2026-03-31
+
+   TABLE OF CONTENTS:
+     PART A — UNIFIED DESIGN TOKENS
+       1.  Glass Shorthand Tokens (fixing missing definitions)
+       2.  Heading Gradient Tokens (both modes)
+       3.  Body Text & Link Tokens (both modes)
+       4.  Card & Surface Tokens (both modes)
+       5.  Glow & Shadow Tokens
+       6.  Section Divider Tokens
+       7.  Blockquote Tokens
+
+     PART B — UTILITY CLASSES
+       8.  .gprs-gradient-heading (gradient text + partial underline)
+       9.  .gprs-gradient-heading--plain (gradient text, no underline)
+      10.  .gprs-gradient-subheading (smaller gradient heading)
+      11.  .gprs-glass-card (glassmorphism card surface)
+      12.  .gprs-glow-hover (glow-on-hover for dark mode)
+      13.  .gprs-tinted-text (blue-tinted body text wrapper)
+      14.  .gprs-accent-link (unified link treatment)
+      15.  .gprs-section-divider (section bottom border)
+      16.  .gprs-blockquote (styled pull-quote)
+      17.  .gprs-icon-circle (round icon container)
+
+     PART C — SAFETY
+      18.  Reduced Motion Overrides
+   ============================================================ */
+
+
+/* ************************************************************
+   PART A — UNIFIED DESIGN TOKENS
+   ************************************************************ */
+
+
+/* ============================================================
+   1. GLASS SHORTHAND TOKENS
+   ──────────────────────────────────────────────────────────────
+   These are the shorthand aliases that Gen2 pages already
+   reference (var(--glass-bg), var(--glass-blur), etc.) but
+   that were never formally defined. Mapping them to the
+   existing --gprs-glass-* tokens from 01-core plus adding
+   the missing blur value.
+   ============================================================ */
+
+:root {
+    /* Glass — light mode */
+    --glass-bg:      rgba(255, 255, 255, 0.60);
+    --glass-border:  rgba(0, 0, 0, 0.06);
+    --glass-blur:    blur(12px);
+}
+
+html.gprs-dark {
+    /* Glass — dark mode */
+    --glass-bg:      rgba(255, 255, 255, 0.06);
+    --glass-border:  rgba(255, 255, 255, 0.12);
+    --glass-blur:    blur(12px);
+}
+
+
+/* ============================================================
+   2. HEADING GRADIENT TOKENS
+   ──────────────────────────────────────────────────────────────
+   Matches the Donate (18-donate.css) evolved palette:
+   gradient in BOTH modes, not just dark.
+   Light = deep navy → brand blue
+   Dark  = white → bright blue
+   ============================================================ */
+
+:root {
+    --gprs-heading-from:     #1a365d;
+    --gprs-heading-to:       #0066CC;
+    --gprs-underline-from:   #0066CC;
+    --gprs-underline-to:     rgba(0, 102, 204, 0);
+}
+
+html.gprs-dark {
+    --gprs-heading-from:     #ffffff;
+    --gprs-heading-to:       #4da8ff;
+    --gprs-underline-from:   #4da8ff;
+    --gprs-underline-to:     rgba(77, 168, 255, 0);
+}
+
+
+/* ============================================================
+   3. BODY TEXT & LINK TOKENS
+   ──────────────────────────────────────────────────────────────
+   Light mode: warm grey body, brand blue links.
+   Dark mode:  blue-tinted body (#b0c4de), bright blue links.
+   ============================================================ */
+
+:root {
+    --gprs-text-soft:    #374151;
+    --gprs-text-accent:  #0066CC;
+    --gprs-link-hover:   #0051a3;
+}
+
+html.gprs-dark {
+    --gprs-text-soft:    #b0c4de;
+    --gprs-text-accent:  #6db3f2;
+    --gprs-link-hover:   #a0d0ff;
+}
+
+
+/* ============================================================
+   4. CARD & SURFACE TOKENS
+   ============================================================ */
+
+:root {
+    --gprs-card-bg:      rgba(255, 255, 255, 0.60);
+    --gprs-card-border:  rgba(0, 0, 0, 0.06);
+}
+
+html.gprs-dark {
+    --gprs-card-bg:      var(--glass-bg);
+    --gprs-card-border:  var(--glass-border);
+}
+
+
+/* ============================================================
+   5. GLOW & SHADOW TOKENS
+   ============================================================ */
+
+:root {
+    --gprs-glow-accent:  rgba(0, 102, 204, 0.25);
+    --gprs-glow-soft:    rgba(0, 102, 204, 0.10);
+    --gprs-shadow-md:    0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+html.gprs-dark {
+    --gprs-glow-accent:  rgba(0, 102, 204, 0.40);
+    --gprs-glow-soft:    rgba(0, 102, 204, 0.15);
+    --gprs-shadow-md:    0 4px 16px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ============================================================
+   6. SECTION DIVIDER TOKENS
+   ============================================================ */
+
+:root {
+    --gprs-section-border: rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark {
+    --gprs-section-border: rgba(255, 255, 255, 0.06);
+}
+
+
+/* ============================================================
+   7. BLOCKQUOTE TOKENS
+   ============================================================ */
+
+:root {
+    --gprs-quote-border:  #0066CC;
+    --gprs-quote-text:    #374151;
+    --gprs-quote-cite:    #6b7280;
+}
+
+html.gprs-dark {
+    --gprs-quote-border:  #4da8ff;
+    --gprs-quote-text:    rgba(255, 255, 255, 0.92);
+    --gprs-quote-cite:    #7eb8e8;
+}
+
+
+/* ************************************************************
+   PART B — UTILITY CLASSES
+   ************************************************************ */
+
+
+/* ============================================================
+   8. .gprs-gradient-heading
+   ──────────────────────────────────────────────────────────────
+   Gradient text in BOTH modes + partial 85% underline.
+   Use on H2 section headings across all pages.
+
+   Usage:
+     <h2 class="gprs-gradient-heading">Section Title</h2>
+
+   The gradient degrades gracefully: browsers that don't
+   support background-clip:text will see the fallback color
+   from --clr-accent.
+   ============================================================ */
+
+.gprs-gradient-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    position: relative;
+    display: inline-block;
+
+    /* Gradient text */
+    background: linear-gradient(135deg, var(--gprs-heading-from), var(--gprs-heading-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* Fallback for browsers without background-clip:text */
+    color: var(--clr-accent, #0066CC);
+}
+
+/* Partial underline — 85% width gradient fade */
+.gprs-gradient-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--gprs-underline-from), var(--gprs-underline-to));
+}
+
+
+/* ============================================================
+   9. .gprs-gradient-heading--plain
+   ──────────────────────────────────────────────────────────────
+   Gradient text WITHOUT the underline pseudo-element.
+   Use where the underline would be visually redundant
+   (e.g. inside cards, above bordered sections).
+
+   Usage:
+     <h2 class="gprs-gradient-heading gprs-gradient-heading--plain">Title</h2>
+   ============================================================ */
+
+.gprs-gradient-heading--plain::after {
+    display: none;
+}
+
+
+/* ============================================================
+   10. .gprs-gradient-subheading
+   ──────────────────────────────────────────────────────────────
+   Smaller gradient heading for H3/sub-section use.
+   No underline. Accent-colour gradient in light mode,
+   white-to-blue in dark mode.
+
+   Usage:
+     <h3 class="gprs-gradient-subheading">Sub-section</h3>
+   ============================================================ */
+
+.gprs-gradient-subheading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 2rem 0 0.75rem;
+
+    /* Gradient text — same as heading but smaller */
+    background: linear-gradient(135deg, var(--gprs-heading-from), var(--gprs-heading-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* Fallback */
+    color: var(--clr-accent, #0066CC);
+}
+
+
+/* ============================================================
+   11. .gprs-glass-card
+   ──────────────────────────────────────────────────────────────
+   Glassmorphism card surface.
+   Light mode: semi-transparent white with subtle border.
+   Dark mode:  frosted glass with backdrop-filter blur.
+
+   Usage:
+     <div class="gprs-glass-card">...</div>
+
+   Combine with .gprs-glow-hover for interactive cards.
+   ============================================================ */
+
+.gprs-glass-card {
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius-md, 14px);
+    background: var(--gprs-card-bg);
+    border: 1px solid var(--gprs-card-border);
+    transition: transform var(--anim-fast, 0.18s ease),
+                box-shadow var(--anim-fast, 0.18s ease),
+                border-color var(--anim-fast, 0.18s ease);
+}
+
+html.gprs-dark .gprs-glass-card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+
+/* ============================================================
+   12. .gprs-glow-hover
+   ──────────────────────────────────────────────────────────────
+   Adds hover interaction to cards/surfaces.
+   Light mode: subtle lift + shadow.
+   Dark mode:  blue glow + accent border.
+
+   Usage:
+     <div class="gprs-glass-card gprs-glow-hover">...</div>
+   ============================================================ */
+
+.gprs-glow-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--gprs-shadow-md);
+}
+
+html.gprs-dark .gprs-glow-hover:hover {
+    box-shadow: 0 0 22px var(--gprs-glow-accent),
+                0 0 6px var(--gprs-glow-soft);
+    border-color: rgba(0, 102, 204, 0.30);
+}
+
+
+/* ============================================================
+   13. .gprs-tinted-text
+   ──────────────────────────────────────────────────────────────
+   Blue-tinted body text wrapper.
+   Light mode: warm grey (#374151) for body text.
+   Dark mode:  blue-tinted (#b0c4de), not pure white.
+
+   Usage:
+     <div class="gprs-tinted-text">
+       <p>Body paragraph text...</p>
+     </div>
+
+   Or apply directly:
+     <p class="gprs-tinted-text">Single paragraph</p>
+   ============================================================ */
+
+.gprs-tinted-text,
+.gprs-tinted-text p,
+.gprs-tinted-text li,
+.gprs-tinted-text address {
+    color: var(--gprs-text-soft);
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   14. .gprs-accent-link
+   ──────────────────────────────────────────────────────────────
+   Unified link treatment — brand blue in light mode,
+   bright blue with glow-on-hover in dark mode.
+
+   Usage:
+     <a href="..." class="gprs-accent-link">Link text</a>
+
+   Or scope a container:
+     <div class="gprs-accent-links">
+       <a href="...">Link 1</a>
+       <a href="...">Link 2</a>
+     </div>
+   ============================================================ */
+
+.gprs-accent-link,
+.gprs-accent-links a {
+    color: var(--gprs-text-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--anim-fast, 0.18s ease),
+                text-shadow var(--anim-fast, 0.18s ease);
+}
+
+.gprs-accent-link:hover,
+.gprs-accent-links a:hover {
+    color: var(--gprs-link-hover);
+}
+
+html.gprs-dark .gprs-accent-link:hover,
+html.gprs-dark .gprs-accent-links a:hover {
+    color: var(--gprs-link-hover);
+    text-shadow: 0 0 8px rgba(109, 179, 242, 0.30);
+}
+
+
+/* ============================================================
+   15. .gprs-section-divider
+   ──────────────────────────────────────────────────────────────
+   Standardised section bottom border.
+
+   Usage:
+     <section class="gprs-section-divider">...</section>
+   ============================================================ */
+
+.gprs-section-divider {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--gprs-section-border);
+}
+
+.gprs-section-divider:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   16. .gprs-blockquote
+   ──────────────────────────────────────────────────────────────
+   Styled pull-quote with accent left border.
+   Dark mode: blue border, high-contrast text, blue cite.
+
+   Usage:
+     <blockquote class="gprs-blockquote">
+       <p>"Quote text here."</p>
+       <cite>— Attribution</cite>
+     </blockquote>
+   ============================================================ */
+
+.gprs-blockquote {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--gprs-quote-border);
+    background: transparent;
+    font-style: italic;
+}
+
+.gprs-blockquote p {
+    color: var(--gprs-quote-text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+}
+
+.gprs-blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--gprs-quote-cite);
+    margin-top: 0.5rem;
+}
+
+html.gprs-dark .gprs-blockquote {
+    border-left-color: var(--gprs-quote-border);
+}
+
+
+/* ============================================================
+   17. .gprs-icon-circle
+   ──────────────────────────────────────────────────────────────
+   Round icon container used in impact/feature cards.
+   Light mode: faint blue background, brand blue icon.
+   Dark mode:  deeper blue background, bright icon + subtle glow.
+
+   Usage:
+     <div class="gprs-icon-circle">
+       <svg>...</svg>
+     </div>
+   ============================================================ */
+
+.gprs-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--clr-accent, #0066CC);
+    margin-bottom: 0.75rem;
+    transition: box-shadow var(--anim-medium, 0.3s ease);
+}
+
+html.gprs-dark .gprs-icon-circle {
+    background: rgba(0, 102, 204, 0.15);
+    color: var(--gprs-text-accent);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.20);
+}
+
+
+/* ************************************************************
+   PART C — SAFETY
+   ************************************************************ */
+
+
+/* ============================================================
+   18. REDUCED MOTION OVERRIDES
+   ──────────────────────────────────────────────────────────────
+   The global safety net in 01-core already kills all
+   animation-duration and transition-duration. These rules
+   specifically neutralise glow and transform effects for
+   users who prefer reduced motion.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .gprs-glow-hover:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    html.gprs-dark .gprs-glow-hover:hover {
+        box-shadow: none;
+    }
+
+    .gprs-gradient-heading::after {
+        /* Still show the underline, just kill any future animation */
+        transition: none;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .gprs-gradient-heading {
+        font-size: 1.45rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .gprs-gradient-subheading {
+        font-size: 1.1rem;
+    }
+
+    .gprs-glass-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .gprs-section-divider {
+        margin-bottom: 2rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .gprs-blockquote {
+        padding: 1rem 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gprs-gradient-heading {
+        font-size: 1.3rem;
+    }
+
+    .gprs-gradient-subheading {
+        font-size: 1.05rem;
+    }
+
+    .gprs-glass-card {
+        padding: 1rem 0.85rem;
+    }
+
+    .gprs-blockquote {
+        margin: 1.5rem 0;
+        padding: 0.85rem 1rem;
+    }
+}

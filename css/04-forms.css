@@ -1,0 +1,258 @@
+/* ============================================================
+   GPRS — WPFORMS STYLING
+   Last validated: 2026-03-29
+   Owner: GPRS Website (Thomas)
+
+   Purpose:
+   - Form text colors for light/dark (targeted, no wildcard)
+   - Remove WPForms default list bullets
+   - Checkbox/radio usability & alignment
+   - Input field backgrounds per mode
+   - Submit button styling
+   - Links preserve accent color in both modes
+
+   ⚠️ !important is used where WPForms injects inline styles.
+============================================================ */
+
+/* ============================================================
+   1. TEXT COLOR BASELINE — targeted, NO wildcard
+   The old * wildcard killed links, buttons, and accent text.
+   These selectors target only the text elements WPForms generates.
+============================================================ */
+
+/* Light mode */
+.gprs-wpform label,
+.gprs-wpform legend,
+.gprs-wpform .wpforms-field-description,
+.gprs-wpform .wpforms-field-sublabel,
+.wpforms-form label,
+.wpforms-form legend,
+.wpforms-form .wpforms-field-description,
+.wpforms-form .wpforms-field-sublabel {
+  color: var(--clr-text-body);
+}
+
+/* Dark mode */
+html.gprs-dark .gprs-wpform label,
+html.gprs-dark .gprs-wpform legend,
+html.gprs-dark .gprs-wpform .wpforms-field-description,
+html.gprs-dark .gprs-wpform .wpforms-field-sublabel,
+html.gprs-dark .wpforms-form label,
+html.gprs-dark .wpforms-form legend,
+html.gprs-dark .wpforms-form .wpforms-field-description,
+html.gprs-dark .wpforms-form .wpforms-field-sublabel {
+  color: #ffffff !important;
+}
+
+/* Required field asterisk */
+.gprs-wpform .wpforms-required-label,
+.wpforms-form .wpforms-required-label {
+  color: #cc0000;
+}
+
+html.gprs-dark .gprs-wpform .wpforms-required-label,
+html.gprs-dark .wpforms-form .wpforms-required-label {
+  color: #ff6666 !important;
+}
+
+/* ============================================================
+   2. LINKS INSIDE FORMS — preserve accent color
+   The old wildcard was killing these to black/white.
+============================================================ */
+
+.gprs-wpform a,
+.wpforms-form a {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+.gprs-wpform a:hover,
+.wpforms-form a:hover {
+  color: var(--clr-accent-hover);
+}
+
+html.gprs-dark .gprs-wpform a,
+html.gprs-dark .wpforms-form a {
+  color: #6db3f2 !important;
+}
+
+html.gprs-dark .gprs-wpform a:hover,
+html.gprs-dark .wpforms-form a:hover {
+  color: #a0d0ff !important;
+}
+
+/* Privacy policy link (legacy class) */
+.gprs-wpform .gprs-policy-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+html.gprs-dark .gprs-wpform .gprs-policy-link {
+  color: #6db3f2 !important;
+}
+
+/* ============================================================
+   3. REMOVE DEFAULT LIST BULLETS (SAFE RESET)
+============================================================ */
+
+.wpforms-form .wpforms-field-checkbox ul,
+.wpforms-form .wpforms-field-radio ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.wpforms-form .wpforms-field-checkbox li,
+.wpforms-form .wpforms-field-radio li {
+  list-style: none !important;
+}
+
+/* ============================================================
+   4. CHECKBOX / RADIO ROW ENHANCEMENTS
+============================================================ */
+
+.wpforms-form .wpforms-field-checkbox li,
+.wpforms-form .wpforms-field-radio li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wpforms-form .wpforms-field-checkbox li:hover,
+.wpforms-form .wpforms-field-radio li:hover {
+  background: rgba(0,102,204,0.10);
+}
+
+.wpforms-form .wpforms-field-checkbox li:focus-within,
+.wpforms-form .wpforms-field-radio li:focus-within {
+  background: rgba(0,102,204,0.15);
+  box-shadow: 0 0 0 2px rgba(0,102,204,0.35);
+}
+
+.wpforms-form input[type="checkbox"],
+.wpforms-form input[type="radio"] {
+  margin: 0;
+  transform: translateY(1px);
+}
+
+/* Checkbox/radio label text — dark mode */
+html.gprs-dark .wpforms-form .wpforms-field-checkbox li label,
+html.gprs-dark .wpforms-form .wpforms-field-radio li label {
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   5. INPUT FIELD STYLING
+============================================================ */
+
+/* Light mode */
+.wpforms-form input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+.wpforms-form textarea,
+.wpforms-form select {
+  background-color: rgba(0, 102, 204, 0.06) !important;
+  border: 2px solid var(--clr-accent) !important;
+  color: #000000 !important;
+  border-radius: 8px;
+}
+
+.wpforms-form ::placeholder {
+  color: rgba(0,0,0,0.40);
+}
+
+/* Dark mode */
+html.gprs-dark .wpforms-form input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html.gprs-dark .wpforms-form textarea,
+html.gprs-dark .wpforms-form select {
+  background-color: rgba(0, 102, 204, 0.15) !important;
+  border-color: var(--clr-accent) !important;
+  color: #ffffff !important;
+}
+
+html.gprs-dark .wpforms-form ::placeholder {
+  color: rgba(255,255,255,0.50);
+}
+
+/* ============================================================
+   6. FOCUS-VISIBLE OUTLINE
+============================================================ */
+
+.gprs-wpform :focus-visible,
+.wpforms-form :focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   7. SUBMIT BUTTON
+   !important required — WPForms injects inline styles.
+   Targets every selector WPForms might render the button as.
+============================================================ */
+
+.wpforms-form button[type="submit"].wpforms-submit,
+.wpforms-form .wpforms-submit,
+.wpforms-form input[type="submit"],
+.wpforms-form button.wpforms-submit {
+  display: inline-block !important;
+  padding: 0.85rem 2.5rem !important;
+  background: var(--clr-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.wpforms-form button[type="submit"].wpforms-submit:hover,
+.wpforms-form .wpforms-submit:hover,
+.wpforms-form input[type="submit"]:hover,
+.wpforms-form button.wpforms-submit:hover {
+  background: var(--clr-accent-hover) !important;
+  transform: translateY(-2px);
+}
+
+.wpforms-form button[type="submit"].wpforms-submit:focus-visible,
+.wpforms-form .wpforms-submit:focus-visible,
+.wpforms-form input[type="submit"]:focus-visible,
+.wpforms-form button.wpforms-submit:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+/* Loading spinner icon inside button — keep white */
+.wpforms-form .wpforms-submit svg,
+.wpforms-form .wpforms-submit img {
+  filter: brightness(0) invert(1);
+}
+
+/* ============================================================
+   8. REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .wpforms-form .wpforms-field-checkbox li,
+  .wpforms-form .wpforms-field-radio li,
+  .wpforms-form button[type="submit"].wpforms-submit,
+  .wpforms-form .wpforms-submit,
+  .wpforms-form input[type="submit"],
+  .wpforms-form button.wpforms-submit {
+    transition: none;
+  }
+
+  .wpforms-form button[type="submit"].wpforms-submit:hover,
+  .wpforms-form .wpforms-submit:hover,
+  .wpforms-form input[type="submit"]:hover,
+  .wpforms-form button.wpforms-submit:hover {
+    transform: none;
+  }
+}

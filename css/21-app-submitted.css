@@ -1,0 +1,300 @@
+/* ============================================================
+   16-APP-SUBMITTED.CSS
+   ============================================================
+   Conditional: application submitted page only.
+   Depends on: 01-core-tokens-base.css.
+
+   Simple, warm confirmation page with step indicators and
+   evolved gradient heading treatment.
+
+   @package Astra Child – GPRS
+   @since   2026-03-30
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   LAYOUT
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted-page {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
+}
+
+.app-submitted {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 2rem;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   CONFIRMATION ICON
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	color: var(--clr-accent, #0066CC);
+	background: rgba(0, 102, 204, 0.08);
+}
+
+html.gprs-dark .app-submitted__icon {
+	color: var(--gprs-text-accent, #6db3f2);
+	background: rgba(91, 168, 255, 0.1);
+	box-shadow: 0 0 30px rgba(91, 168, 255, 0.12);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   HEADINGS — GRADIENT BOTH MODES + 85% UNDERLINE
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__heading {
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0;
+	background: linear-gradient(135deg, var(--clr-accent, #0066CC), var(--gprs-heading-to, #0066CC), var(--clr-accent, #0066CC));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: relative;
+	display: inline-block;
+}
+
+.app-submitted__heading::after {
+	content: '';
+	display: block;
+	width: 85%;
+	height: 3px;
+	margin: 0.4em auto 0;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--clr-accent, #0066CC), transparent);
+	opacity: 0.5;
+}
+
+html.gprs-dark .app-submitted__heading {
+	background: linear-gradient(135deg, var(--gprs-heading-from, #ffffff), var(--gprs-heading-to, #4da8ff), var(--gprs-heading-from, #ffffff));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
+	filter: drop-shadow(0 0 18px rgba(91, 168, 255, 0.25));
+}
+
+html.gprs-dark .app-submitted__heading::after {
+	background: linear-gradient(90deg, transparent, var(--gprs-underline-from, #4da8ff), transparent);
+	opacity: 0.4;
+}
+
+/* Subheading */
+.app-submitted__subheading {
+	font-size: clamp(1.15rem, 2vw, 1.4rem);
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0 0 1.5rem;
+	background: linear-gradient(135deg, var(--clr-accent, #0066CC), var(--gprs-heading-to, #0066CC));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+}
+
+html.gprs-dark .app-submitted__subheading {
+	background: linear-gradient(135deg, var(--gprs-heading-from, #ffffff), var(--gprs-heading-to, #4da8ff));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: none;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   MESSAGE TEXT
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__message {
+	font-size: 1.1rem;
+	line-height: 1.75;
+	color: var(--clr-text-body, #111827);
+	max-width: 600px;
+	margin: 0;
+}
+
+html.gprs-dark .app-submitted__message {
+	color: rgba(200, 215, 235, 0.9);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   WHAT HAPPENS NEXT — STEPS
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__next {
+	width: 100%;
+	max-width: 560px;
+	text-align: center;
+}
+
+.app-submitted__steps {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	text-align: left;
+}
+
+.app-submitted__step {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	border-radius: var(--gprs-radius-md, 12px);
+
+	/* Light mode */
+	background: rgba(255, 255, 255, 0.85);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark mode: glassmorphism */
+html.gprs-dark .app-submitted__step {
+	background: rgba(255, 255, 255, 0.04);
+	border-color: rgba(255, 255, 255, 0.08);
+	box-shadow:
+		0 4px 16px rgba(0, 0, 0, 0.25),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+/* Step number circle */
+.app-submitted__step-num {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: #fff;
+	background: var(--clr-accent, #0066CC);
+}
+
+html.gprs-dark .app-submitted__step-num {
+	background: var(--gprs-text-accent, #6db3f2);
+	color: #0d1117;
+	box-shadow: 0 0 12px rgba(91, 168, 255, 0.25);
+}
+
+/* Step text */
+.app-submitted__step-text strong {
+	display: block;
+	font-size: 1rem;
+	margin-bottom: 0.25rem;
+	color: var(--clr-text-body, #111827);
+}
+
+html.gprs-dark .app-submitted__step-text strong {
+	color: rgba(220, 230, 245, 0.95);
+}
+
+.app-submitted__step-text p {
+	font-size: 0.95rem;
+	line-height: 1.65;
+	color: var(--gprs-text-muted, #6b7280);
+	margin: 0;
+}
+
+html.gprs-dark .app-submitted__step-text p {
+	color: rgba(180, 195, 215, 0.75);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   CONTACT BLOCK
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__contact {
+	max-width: 560px;
+}
+
+.app-submitted__contact p {
+	font-size: 0.95rem;
+	line-height: 1.65;
+	color: var(--gprs-text-muted, #6b7280);
+	margin: 0;
+}
+
+html.gprs-dark .app-submitted__contact p {
+	color: rgba(180, 195, 215, 0.7);
+}
+
+.app-submitted__contact a {
+	color: var(--clr-accent, #0066CC);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: color 0.2s ease;
+}
+
+.app-submitted__contact a:hover,
+.app-submitted__contact a:focus-visible {
+	color: var(--gprs-text-accent, #6db3f2);
+}
+
+html.gprs-dark .app-submitted__contact a {
+	color: var(--gprs-text-accent, #6db3f2);
+}
+
+html.gprs-dark .app-submitted__contact a:hover,
+html.gprs-dark .app-submitted__contact a:focus-visible {
+	color: var(--gprs-text-accent, #6db3f2);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   CTA BUTTONS
+   ──────────────────────────────────────────────────────────── */
+
+.app-submitted__actions {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+	.app-submitted-page {
+		padding: 3rem 1rem;
+	}
+
+	.app-submitted__step {
+		gap: 1rem;
+		padding: 1rem;
+	}
+
+	.app-submitted__actions {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.app-submitted__actions .btn {
+		width: 100%;
+		text-align: center;
+	}
+}

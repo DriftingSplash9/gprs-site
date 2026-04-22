@@ -1,0 +1,580 @@
+/* ============================================================
+   12-404 — GPRS "Page Not Found" Styles
+   ============================================================
+   Purpose:  All styles for the custom 404 page: Astra override,
+             hero variant, animated logo video, search bar,
+             navigation cards, and contact fallback.
+   Depends:  01-Tokens (--clr-*, --radius-*, --max-content-width,
+             --anim-*, --header-height)
+             05-Components (hero base classes)
+             07-Buttons (.btn-primary)
+   Updated:  2026-03-12
+   Priority: 12
+
+   TABLE OF CONTENTS:
+   1.  Astra 404 Override
+   2.  Astra Container Reset (404 only)
+   3.  Hero Variant (--404)
+   4.  404 Body Wrapper
+   5.  Animated Logo Video
+   6.  Pause/Play Button
+   7.  Reassuring Message
+   8.  Search Bar
+   9.  Navigation Heading
+   10. Navigation Card Grid
+   11. Individual Cards
+   12. Contact Fallback
+   13. Dark Mode Overrides
+   14. Responsive — Tablet
+   15. Responsive — Mobile
+   16. Reduced Motion
+   ============================================================ */
+
+
+/* ============================================================
+   1. ASTRA 404 OVERRIDE
+   ============================================================
+   Astra's 404.php template outputs its own "It looks like the
+   link pointing here was faulty" message and search box inside
+   an <article>. We hide that entirely, same pattern as how
+   04-HEADER hides header.site-header and 08-FOOTER hides
+   footer.site-footer.
+   ============================================================ */
+.error404 #primary > article,
+.error404 .ast-404-layout-1,
+.error404 .entry-content.page-content,
+.error404 .page-content,
+.error404 .entry-header {
+	display: none !important;
+}
+
+
+/* ============================================================
+   2. ASTRA CONTAINER RESET (404 only)
+   ============================================================
+   On 404 pages, Astra wraps #primary in .ast-container which
+   constrains width. We need the body content area to breathe
+   so the card grid and search bar can use full
+   --max-content-width. The hero is injected BEFORE this
+   container (via astra_content_before hook) so it's already
+   full-width.
+   ============================================================ */
+.error404 .ast-container {
+	max-width: var(--max-content-width, 1400px);
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.error404 #primary {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.error404 #primary > .ast-row {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* ============================================================
+   3. HERO VARIANT (--404)
+   ============================================================
+   Shorter hero than homepage (50vh vs 100vh).
+   Uses existing hero base classes from 05-COMPONENTS;
+   this just overrides the height and tints the overlay darker
+   so the "Page Not Found" heading stands out clearly.
+   ============================================================ */
+.hero--404 {
+	min-height: 50vh;
+}
+
+.hero--404::after {
+	background: linear-gradient(
+		180deg,
+		rgba(0, 20, 60, 0.55) 0%,
+		rgba(0, 10, 40, 0.70) 100%
+	);
+}
+
+
+/* ============================================================
+   4. 404 BODY WRAPPER
+   ============================================================ */
+.gprs-404 {
+	max-width: var(--max-content-width, 1400px);
+	margin: 0 auto;
+	padding: 0 1.5rem 4rem;
+}
+
+
+/* ============================================================
+   5. ANIMATED LOGO VIDEO
+   ============================================================
+   Centered container with a subtle glow behind the video.
+   The video itself has rounded corners and a soft shadow
+   to lift it off the page. Capped at 420px wide so the
+   animated flag logo stays at a comfortable viewing size.
+   ============================================================ */
+.gprs-404__video-wrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 3rem auto 2.5rem;
+	max-width: 420px;
+}
+
+.gprs-404__video {
+	width: 100%;
+	max-width: 420px;
+	height: auto;
+	border-radius: var(--radius-md, 14px);
+	box-shadow:
+		0 8px 32px rgba(0, 102, 204, 0.15),
+		0 2px 8px rgba(0, 0, 0, 0.08);
+	background: transparent;
+}
+
+/* Light mode: subtle border around video */
+html:not(.gprs-dark) .gprs-404__video {
+	border: 1px solid rgba(0, 102, 204, 0.12);
+}
+
+/* Dark mode: glowing edge */
+html.gprs-dark .gprs-404__video {
+	border: 1px solid rgba(100, 180, 255, 0.20);
+	box-shadow:
+		0 8px 32px rgba(0, 80, 200, 0.25),
+		0 0 60px rgba(0, 102, 204, 0.10);
+}
+
+
+/* ============================================================
+   6. PAUSE / PLAY BUTTON
+   ============================================================
+   Small button in the bottom-right corner of the video
+   container. Allows users (especially those with motion
+   sensitivity) to stop the animation.
+   ============================================================ */
+.gprs-404__pause-btn {
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 36px;
+	height: 36px;
+	min-height: 36px;
+
+	border: 1px solid rgba(255, 255, 255, 0.30);
+	border-radius: var(--radius-sm, 8px);
+	background: rgba(0, 20, 60, 0.55);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	color: #ffffff;
+	cursor: pointer;
+
+	opacity: 0.7;
+	transition:
+		opacity var(--anim-fast, 0.18s ease),
+		background var(--anim-fast, 0.18s ease);
+}
+
+.gprs-404__pause-btn:hover,
+.gprs-404__pause-btn:focus-visible {
+	opacity: 1;
+	background: rgba(0, 20, 60, 0.80);
+}
+
+.gprs-404__pause-btn:focus-visible {
+	outline: 3px solid gold;
+	outline-offset: 2px;
+}
+
+
+/* ============================================================
+   7. REASSURING MESSAGE
+   ============================================================ */
+.gprs-404__message {
+	text-align: center;
+	max-width: 720px;
+	margin: 0 auto 2.5rem;
+}
+
+.gprs-404__heading {
+	font-size: 1.55rem;
+	font-weight: 700;
+	line-height: 1.35;
+	color: var(--clr-text-heading, #000000);
+	margin: 0 0 0.75rem 0;
+}
+
+.gprs-404__text {
+	font-size: 1.05rem;
+	line-height: 1.65;
+	color: var(--clr-text-body, #111827);
+	margin: 0;
+}
+
+
+/* ============================================================
+   8. SEARCH BAR
+   ============================================================
+   Glassmorphic search container matching the site aesthetic.
+   The input and button sit side-by-side on desktop and
+   stack on mobile.
+   ============================================================ */
+.gprs-404__search {
+	max-width: 640px;
+	margin: 0 auto 3rem;
+	scroll-margin-top: calc(var(--header-height, 72px) + 24px);
+}
+
+.gprs-404__search-form {
+	display: flex;
+	gap: 0.75rem;
+	padding: 1.25rem 1.5rem;
+
+	background: var(--gprs-glass-bg-light, rgba(255,255,255,0.88));
+	border: 1px solid var(--gprs-glass-border-light, rgba(0,102,204,0.35));
+	border-radius: var(--radius-md, 14px);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+html.gprs-dark .gprs-404__search-form {
+	background: var(--gprs-glass-bg-dark, rgba(255,255,255,0.08));
+	border-color: var(--gprs-glass-border-dark, rgba(255,255,255,0.22));
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.20);
+}
+
+.gprs-404__search-input {
+	flex: 1;
+	min-width: 0;
+	padding: 0.65rem 1rem;
+	min-height: 44px;
+	box-sizing: border-box;
+
+	font-size: 1rem;
+	font-family: inherit;
+	line-height: 1.4;
+
+	color: var(--clr-form-input-text, #000000);
+	background: var(--clr-form-input-bg, #ffffffee);
+	border: 1px solid rgba(0, 102, 204, 0.25);
+	border-radius: var(--radius-sm, 8px);
+
+	transition:
+		border-color var(--anim-fast, 0.18s ease),
+		box-shadow var(--anim-fast, 0.18s ease);
+}
+
+.gprs-404__search-input::placeholder {
+	color: #6b7280;
+	opacity: 1;
+}
+
+html.gprs-dark .gprs-404__search-input::placeholder {
+	color: #9ca3af;
+}
+
+.gprs-404__search-input:focus {
+	outline: none;
+	border-color: var(--clr-accent, #0066CC);
+	box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.20);
+}
+
+.gprs-404__search-btn {
+	flex-shrink: 0;
+	white-space: nowrap;
+}
+
+
+/* ============================================================
+   9. NAVIGATION HEADING
+   ============================================================ */
+.gprs-404__nav {
+	margin-bottom: 3rem;
+}
+
+.gprs-404__nav-heading {
+	text-align: center;
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: var(--clr-text-heading, #000000);
+	margin: 0 0 1.5rem 0;
+}
+
+
+/* ============================================================
+   10. NAVIGATION CARD GRID
+   ============================================================
+   4-column grid on desktop, 2-column tablet, 1-column mobile.
+   Uses the same auto-fit pattern as the homepage cards.
+   ============================================================ */
+.gprs-404__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+}
+
+
+/* ============================================================
+   11. INDIVIDUAL CARDS
+   ============================================================
+   Compact glassmorphic cards. Each is an <a> wrapping an icon,
+   title, and short description. Hover lifts the card.
+   ============================================================ */
+.gprs-404__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1.25rem 1.5rem;
+
+	text-decoration: none;
+	color: inherit;
+
+	border-radius: var(--radius-md, 14px);
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease,
+		border-color 0.25s ease;
+}
+
+/* Light mode card */
+html:not(.gprs-dark) .gprs-404__card {
+	background: #ffffff;
+	border: 1px solid rgba(0, 102, 204, 0.10);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode card */
+html.gprs-dark .gprs-404__card {
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gprs-404__card:hover {
+	transform: translateY(-3px);
+	box-shadow:
+		0 10px 28px rgba(0, 102, 204, 0.12),
+		0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+html.gprs-dark .gprs-404__card:hover {
+	border-color: rgba(100, 180, 255, 0.30);
+	box-shadow:
+		0 10px 28px rgba(0, 80, 200, 0.18),
+		0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.gprs-404__card:focus-visible {
+	outline: 3px solid gold;
+	outline-offset: 3px;
+}
+
+.gprs-404__card-icon {
+	font-size: 1.75rem;
+	line-height: 1;
+}
+
+.gprs-404__card-title {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: var(--clr-accent, #0066CC);
+	line-height: 1.3;
+}
+
+html:not(.gprs-dark) .gprs-404__card-title {
+	color: #003366;
+}
+
+.gprs-404__card-desc {
+	font-size: 0.88rem;
+	line-height: 1.5;
+	color: var(--clr-text-body, #111827);
+	opacity: 0.85;
+}
+
+
+/* ============================================================
+   12. CONTACT FALLBACK
+   ============================================================ */
+.gprs-404__contact {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 1.5rem 1.25rem;
+
+	border-radius: var(--radius-md, 14px);
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: var(--clr-text-body, #111827);
+}
+
+html:not(.gprs-dark) .gprs-404__contact {
+	background: rgba(0, 102, 204, 0.04);
+	border: 1px solid rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark .gprs-404__contact {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gprs-404__contact p {
+	margin: 0;
+}
+
+.gprs-404__contact a {
+	color: var(--clr-accent, #0066CC);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.gprs-404__contact a:hover {
+	text-decoration: underline;
+}
+
+.gprs-404__contact a:focus-visible {
+	outline: 3px solid gold;
+	outline-offset: 2px;
+	border-radius: 3px;
+}
+
+
+/* ============================================================
+   13. DARK MODE OVERRIDES
+   ============================================================ */
+html.gprs-dark .gprs-404__heading {
+	color: #ffffff;
+}
+
+html.gprs-dark .gprs-404__text {
+	color: #d1d5db;
+}
+
+html.gprs-dark .gprs-404__nav-heading {
+	color: #ffffff;
+}
+
+html.gprs-dark .gprs-404__card-desc {
+	color: #d1d5db;
+}
+
+html.gprs-dark .gprs-404__search-input {
+	background: rgba(255, 255, 255, 0.10);
+	border-color: rgba(255, 255, 255, 0.18);
+	color: #ffffff;
+}
+
+html.gprs-dark .gprs-404__search-input:focus {
+	border-color: #4da6ff;
+	box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.25);
+}
+
+html.gprs-dark .gprs-404__contact a {
+	color: #4da6ff;
+}
+
+
+/* ============================================================
+   14. RESPONSIVE — TABLET (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+	.hero--404 {
+		min-height: 42vh;
+	}
+
+	.gprs-404__video-wrap {
+		max-width: 340px;
+		margin-top: 2.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.gprs-404__heading {
+		font-size: 1.35rem;
+	}
+
+	.gprs-404__grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
+}
+
+
+/* ============================================================
+   15. RESPONSIVE — MOBILE (max-width: 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+	.hero--404 {
+		min-height: 38vh;
+	}
+
+	.gprs-404 {
+		padding: 0 1rem 3rem;
+	}
+
+	.gprs-404__video-wrap {
+		max-width: 280px;
+		margin-top: 2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.gprs-404__heading {
+		font-size: 1.2rem;
+	}
+
+	.gprs-404__text {
+		font-size: 0.95rem;
+	}
+
+	.gprs-404__search-form {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	.gprs-404__search-input {
+		width: 100%;
+	}
+
+	.gprs-404__search-btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.gprs-404__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gprs-404__card {
+		padding: 1rem 1.25rem;
+	}
+}
+
+
+/* ============================================================
+   16. REDUCED MOTION
+   ============================================================
+   The video pause/play button handles this via JavaScript
+   (auto-pausing when prefers-reduced-motion is active).
+   This CSS backup removes card hover transforms as well.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	.gprs-404__card:hover {
+		transform: none;
+	}
+
+	.gprs-404__video {
+		animation: none;
+	}
+}

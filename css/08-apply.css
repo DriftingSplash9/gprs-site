@@ -1,0 +1,847 @@
+/**
+ * 08-apply.css
+ *
+ * Styles for /apply/ page — DARK MODE FIRST.
+ * Dark mode is the primary design perspective.
+ * Light mode adapts from it, not the other way around.
+ *
+ * Design philosophy:
+ *   - Glows on hover, not shadows
+ *   - Gradient headings, not flat white
+ *   - Tinted body text, not pure white
+ *   - Accent-colored interactive elements
+ *   - Starfield-compatible transparent backgrounds
+ *
+ * Class prefix: apply-
+ * Depends: 01-core-tokens-base.css
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CUSTOM PROPERTIES — DARK MODE PALETTE
+   These extend the token system for this page's richer dark mode.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --apply-text-soft: #c8d6e5;
+    --apply-text-accent: #6db3f2;
+    --apply-heading-from: #ffffff;
+    --apply-heading-to: #6db3f2;
+    --apply-glow-accent: rgba(0, 102, 204, 0.35);
+    --apply-glow-soft: rgba(0, 102, 204, 0.15);
+    --apply-card-bg: rgba(255, 255, 255, 0.55);
+    --apply-card-border: rgba(0, 0, 0, 0.06);
+    --apply-section-border: rgba(0, 102, 204, 0.08);
+}
+
+html.gprs-dark {
+    --apply-text-soft: #b0c4de;
+    --apply-heading-from: #ffffff;
+    --apply-heading-to: #4da8ff;
+    --apply-card-bg: var(--glass-bg);
+    --apply-card-border: var(--glass-border);
+    --apply-section-border: rgba(255, 255, 255, 0.06);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PAGE WRAPPER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-page {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION SPACING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--apply-section-border);
+}
+
+.apply-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADINGS — Gradient text in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-section-title,
+.apply-step-title,
+.apply-intro__heading {
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .apply-section-title,
+html.gprs-dark .apply-step-title,
+html.gprs-dark .apply-intro__heading {
+    background: linear-gradient(135deg, var(--apply-heading-from), var(--apply-heading-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.apply-section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BODY TEXT — Soft tint in dark mode, not pure white
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-page p,
+.apply-page li,
+.apply-page address {
+    color: var(--clr-text-body);
+}
+
+html.gprs-dark .apply-page p,
+html.gprs-dark .apply-page li,
+html.gprs-dark .apply-page address {
+    color: var(--apply-text-soft);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LINKS — Accent blue always visible, brighter in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-page a:not(.apply-btn):not(.apply-form-card__btn) {
+    color: var(--clr-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--anim-fast);
+}
+
+html.gprs-dark .apply-page a:not(.apply-btn):not(.apply-form-card__btn) {
+    color: var(--apply-text-accent);
+}
+
+.apply-page a:not(.apply-btn):not(.apply-form-card__btn):hover {
+    color: var(--clr-accent-hover);
+}
+
+html.gprs-dark .apply-page a:not(.apply-btn):not(.apply-form-card__btn):hover {
+    color: #a0d0ff;
+    text-shadow: 0 0 8px rgba(109, 179, 242, 0.3);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   INTRO SECTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-intro {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--apply-section-border);
+}
+
+.apply-intro__heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    line-height: 1.25;
+}
+
+.apply-intro__text {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0 0 1.25rem;
+}
+
+.apply-intro__note {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.04);
+}
+
+html.gprs-dark .apply-intro__note {
+    background: rgba(0, 102, 204, 0.08);
+    border-left-color: var(--apply-text-accent);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STEP HEADER (number badge + title)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.apply-step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .apply-step-badge {
+    box-shadow: 0 0 12px var(--apply-glow-accent), 0 0 4px var(--apply-glow-soft);
+}
+
+.apply-step-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ELIGIBILITY CARDS — Glow on hover in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-elig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.apply-elig-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--apply-card-bg);
+    border: 1px solid var(--apply-card-border);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .apply-elig-card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+/* Light mode: subtle shadow on hover */
+.apply-elig-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Dark mode: glow on hover instead of shadow */
+html.gprs-dark .apply-elig-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--apply-glow-accent), 0 0 6px var(--apply-glow-soft);
+    border-color: rgba(0, 102, 204, 0.3);
+}
+
+.apply-elig-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--clr-accent);
+    margin-bottom: 0.75rem;
+}
+
+html.gprs-dark .apply-elig-icon {
+    background: rgba(0, 102, 204, 0.15);
+    color: var(--apply-text-accent);
+}
+
+.apply-elig-label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .apply-elig-label {
+    color: var(--apply-text-accent);
+}
+
+.apply-elig-card p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Income qualification details */
+.apply-elig-income {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--apply-card-bg);
+    border: 1px solid var(--apply-card-border);
+}
+
+html.gprs-dark .apply-elig-income {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.apply-elig-income h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .apply-elig-income h4 {
+    color: var(--apply-text-accent);
+}
+
+.apply-elig-income ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+}
+
+.apply-elig-income li {
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FORM DOWNLOAD CARD — Prominent with glow border in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-form-card {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.03);
+    max-width: 640px;
+    margin: 1.5rem 0;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .apply-form-card {
+    background: rgba(0, 102, 204, 0.06);
+    border-color: rgba(0, 102, 204, 0.4);
+    box-shadow: 0 0 16px var(--apply-glow-soft);
+}
+
+html.gprs-dark .apply-form-card:hover {
+    box-shadow: 0 0 24px var(--apply-glow-accent), 0 0 8px var(--apply-glow-soft);
+}
+
+.apply-form-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .apply-form-card__title {
+    color: #ffffff;
+}
+
+.apply-form-card__desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0 0 1rem;
+}
+
+.apply-form-card__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-pill);
+    background: var(--clr-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background var(--anim-fast), transform var(--anim-fast),
+                box-shadow var(--anim-fast);
+}
+
+.apply-form-card__btn:hover {
+    background: var(--clr-accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+html.gprs-dark .apply-form-card__btn:hover {
+    box-shadow: 0 0 16px var(--apply-glow-accent);
+}
+
+.apply-form-card__btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.apply-form-card__btn-icon {
+    flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SUBMIT METHODS GRID
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+}
+
+.apply-submit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.apply-submit-card {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    background: var(--apply-card-bg);
+    border: 1px solid var(--apply-card-border);
+    transition: box-shadow var(--anim-fast), transform var(--anim-fast);
+}
+
+html.gprs-dark .apply-submit-card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+html.gprs-dark .apply-submit-card:hover {
+    box-shadow: 0 0 14px var(--apply-glow-soft);
+    transform: translateY(-2px);
+}
+
+.apply-submit-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .apply-submit-card h4 {
+    color: var(--apply-text-accent);
+}
+
+.apply-submit-card h4 svg {
+    color: var(--clr-accent);
+    flex-shrink: 0;
+}
+
+html.gprs-dark .apply-submit-card h4 svg {
+    color: var(--apply-text-accent);
+}
+
+.apply-submit-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.35rem 0 0;
+}
+
+.apply-submit-card a {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TIMELINE (What Happens Next)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-timeline {
+    margin: 1.5rem 0;
+    padding-left: 0.5rem;
+}
+
+.apply-timeline__step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Connecting line */
+.apply-timeline__step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 42px;
+    bottom: -12px;
+    width: 2px;
+    background: rgba(0, 102, 204, 0.15);
+}
+
+html.gprs-dark .apply-timeline__step:not(:last-child)::before {
+    background: linear-gradient(180deg, var(--apply-text-accent), transparent);
+    opacity: 0.3;
+}
+
+.apply-timeline__marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    text-transform: lowercase;
+}
+
+html.gprs-dark .apply-timeline__marker {
+    box-shadow: 0 0 10px var(--apply-glow-accent);
+}
+
+.apply-timeline__content {
+    flex: 1;
+    padding-top: 0.15rem;
+}
+
+.apply-timeline__content h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .apply-timeline__content h4 {
+    color: #ffffff;
+}
+
+.apply-timeline__content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   INFO CALLOUT (MEM rebuild note) — Warm amber accent
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-info-callout {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid #e67e22;
+    background: rgba(230, 126, 34, 0.04);
+}
+
+html.gprs-dark .apply-info-callout {
+    background: rgba(230, 126, 34, 0.08);
+    border-left-color: #fbbf24;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.08);
+}
+
+.apply-info-callout h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    color: #e67e22;
+}
+
+html.gprs-dark .apply-info-callout h4 {
+    color: #fbbf24;
+}
+
+.apply-info-callout p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FAQ ACCORDION — Glow-bordered in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-faq {
+    margin: 0.6rem 0;
+    border: 1px solid rgba(0, 102, 204, 0.10);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .apply-faq {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.gprs-dark .apply-faq[open] {
+    box-shadow: 0 0 12px var(--apply-glow-soft);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.apply-faq summary {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background var(--anim-fast);
+    color: var(--clr-text-body);
+}
+
+html.gprs-dark .apply-faq summary {
+    color: var(--apply-text-soft);
+}
+
+.apply-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.apply-faq summary::before {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .apply-faq summary::before {
+    box-shadow: 0 0 8px var(--apply-glow-accent);
+}
+
+.apply-faq[open] summary::before {
+    content: "\2212";
+}
+
+.apply-faq summary:hover {
+    background: rgba(0, 102, 204, 0.04);
+}
+
+html.gprs-dark .apply-faq summary:hover {
+    background: rgba(0, 102, 204, 0.06);
+}
+
+.apply-faq__body {
+    padding: 0 1.25rem 1.25rem 3.1rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.apply-faq__body p {
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CONTACT CTA
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-contact-cta {
+    text-align: center;
+}
+
+.apply-contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.apply-contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.92rem;
+}
+
+.apply-contact-item strong {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--clr-accent);
+    margin-bottom: 0.15rem;
+}
+
+html.gprs-dark .apply-contact-item strong {
+    color: var(--apply-text-accent);
+}
+
+.apply-contact-item a {
+    font-weight: 500;
+}
+
+.apply-contact-item span {
+    font-size: 0.82rem;
+    opacity: 0.7;
+}
+
+.apply-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BUTTONS — Glow on hover in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.apply-btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background var(--anim-fast), color var(--anim-fast),
+                transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+.apply-btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.apply-btn--primary {
+    background: var(--clr-accent);
+    color: #fff;
+    border: 2px solid var(--clr-accent);
+}
+
+.apply-btn--primary:hover {
+    background: var(--clr-accent-hover);
+    border-color: var(--clr-accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+html.gprs-dark .apply-btn--primary:hover {
+    box-shadow: 0 0 18px var(--apply-glow-accent);
+}
+
+.apply-btn--outline {
+    background: transparent;
+    color: var(--clr-accent);
+    border: 2px solid var(--clr-accent);
+}
+
+.apply-btn--outline:hover {
+    background: var(--clr-accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+html.gprs-dark .apply-btn--outline:hover {
+    box-shadow: 0 0 18px var(--apply-glow-accent);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .apply-page {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .apply-elig-grid,
+    .apply-submit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apply-form-card {
+        max-width: 100%;
+    }
+
+    .apply-contact-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .apply-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .apply-section-title,
+    .apply-intro__heading {
+        font-size: 1.35rem;
+    }
+
+    .apply-step-title {
+        font-size: 1.15rem;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .apply-elig-card,
+    .apply-submit-card,
+    .apply-form-card__btn,
+    .apply-btn,
+    .apply-faq,
+    .apply-faq summary::before,
+    .apply-step-badge {
+        transition: none;
+    }
+
+    .apply-elig-card:hover,
+    .apply-submit-card:hover,
+    .apply-form-card__btn:hover,
+    .apply-btn--primary:hover,
+    .apply-btn--outline:hover {
+        transform: none;
+    }
+}

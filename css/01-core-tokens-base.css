@@ -1,0 +1,522 @@
+/* ============================================================
+   01 — CORE TOKENS & BASE LAYOUT
+   ============================================================
+   Purpose:  Design tokens (variables) + body, layout,
+             backgrounds, dark mode, typography, accessibility
+   Depends:  Nothing (loads first, Priority 1)
+   Updated:  2026-03-31 — Phase 3: Removed all dead Elementor
+             selectors, cleaned mixed selector lists, removed
+             duplicate dark body background
+   Merged:   01-Tokens + 02-Base into single snippet
+
+   TABLE OF CONTENTS:
+   PART A — DESIGN TOKENS
+     1. Z-Index Scale
+     2. Colors (Light Mode)
+     3. Header / Navigation
+     4. Forms
+     5. Layout / Radius / Shadows / Animation
+     6. Glass Effects
+     7. Dark Mode Token Overrides
+     8. Reduced Motion Safety Net
+
+   PART B — BASE LAYOUT & ACCESSIBILITY
+     9.  Body Defaults
+     10. Global Safety & Resets
+     11. Container & Width Rules
+     12. Dark Mode Background & Colors
+     13. Accessibility (Skip Links, Focus Rings)
+     14. Gallery / Image Focus (Inset Approach)
+     15. Hero Content Positioning
+     16. Final Background Ownership (MUST BE LAST)
+   ============================================================ */
+
+
+/* ************************************************************
+   PART A — DESIGN TOKENS
+   ************************************************************ */
+
+:root {
+	/* ============================================================
+	   Z-INDEX SCALE
+	============================================================ */
+	--z-base:       1;
+	--z-above:     10;
+	--z-header:  1000;
+	--z-modal:   1100;
+
+	/* ============================================================
+	   COLORS — LIGHT MODE
+	============================================================ */
+	--clr-bg-main: #e3f2fd;
+	--clr-text-body: #111827;
+	--clr-text-heading: #000000;
+	--clr-text-light: #ffffff;
+	--clr-accent: #0066CC;
+	--clr-accent-hover: #0051a3;
+
+	/* ============================================================
+	   HEADER
+	============================================================ */
+	--clr-header-border: rgba(255,255,255,0.75);
+	--header-height: 72px;
+	--header-logo-height: 65px;
+
+	/* ============================================================
+	   NAVIGATION
+	============================================================ */
+	--clr-nav-btn-text: #ffffff;
+
+	/* ============================================================
+	   FORMS
+	============================================================ */
+	--clr-form-input-bg: #ffffffee;
+	--clr-form-input-text: #000000;
+
+	/* ============================================================
+	   LAYOUT
+	============================================================ */
+	--max-content-width: 1400px;
+
+	/* ============================================================
+	   RADIUS
+	============================================================ */
+	--radius-sm: 8px;
+	--radius-md: 14px;
+	--radius-lg: 20px;
+	--radius-pill: 999px;
+
+	/* ============================================================
+	   SHADOWS
+	============================================================ */
+	--shadow-header: 0 4px 20px rgba(0,0,0,0.5);
+
+	/* ============================================================
+	   ANIMATION
+	============================================================ */
+	--anim-fast: 0.18s ease;
+	--anim-medium: 0.3s ease;
+	--anim-slow: 0.5s ease;
+
+	/* ============================================================
+	   GLASS / CONTAINER EFFECTS
+	============================================================ */
+	--gprs-glass-bg-light: rgba(255,255,255,0.88);
+	--gprs-glass-bg-dark: rgba(255,255,255,0.08);
+	--gprs-glass-border-light: rgba(0,102,204,0.35);
+	--gprs-glass-border-dark: rgba(255,255,255,0.22);
+
+	/* ============================================================
+	   FOCUS INDICATOR — SINGLE SOURCE OF TRUTH
+	   Used by the global focus rules and the skip link.
+	   Change these to restyle focus everywhere at once.
+	============================================================ */
+	--focus-ring-color: rgba(255, 215, 0, 0.80);
+	--focus-glow-color: rgba(255, 215, 0, 0.35);
+	--focus-ring-width: 2px;
+	--focus-ring-offset: 3px;
+	--focus-glow-spread: 14px 4px;
+}
+
+/* ============================================================
+   DARK MODE OVERRIDES
+============================================================ */
+html.gprs-dark {
+	--clr-bg-main: #0a1a0c;
+	--clr-text-body: #ffffff;
+	--clr-text-heading: #ffffff;
+
+	--clr-form-input-bg: rgba(255,255,255,0.12);
+	--clr-form-input-text: #ffffff;
+}
+
+/* ============================================================
+   REDUCED MOTION — GLOBAL SAFETY NET
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+
+/* ************************************************************
+   PART B — BASE LAYOUT & ACCESSIBILITY
+   ************************************************************ */
+
+/* BODY */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  color: var(--clr-text-body);
+  padding-top: 0;
+  transition: background var(--anim-slow);
+}
+
+/* ============================================================
+   GLOBAL SAFETY & RESETS
+============================================================ */
+
+/* GLOBAL MOBILE / TABLET OVERFLOW LOCK */
+html {
+	max-width: 100%;
+}
+
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+	*[style*="100vw"],
+	.full-width,
+	.full-bleed {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+
+/* ============================================================
+   UNIVERSAL CONTAINER RULE
+============================================================ */
+.gprs-card,
+.gprs-step,
+.gprs-box {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* ============================================================
+   ROOT LAYOUT WIDTH CORRECTION (ASTRA)
+============================================================ */
+.site,
+.site-content,
+#content {
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* ============================================================
+   KILL 100vw OVERFLOW (CRITICAL)
+============================================================ */
+@media (max-width: 1024px) {
+
+	body,
+	.site,
+	#page,
+	#content {
+		width: 100%;
+		max-width: 100%;
+	}
+
+}
+
+/* ============================================================
+   FIXED HEADER WIDTH LOCK
+============================================================ */
+.site-header,
+.gprs-header,
+.ast-header-sticky,
+header {
+	max-width: 100%;
+	width: 100%;
+	left: 0;
+	right: 0;
+}
+
+/* ============================================================
+   DARK MODE BACKGROUND
+============================================================ */
+
+/* LAYOUT */
+main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+/* ============================================================
+   DARK MODE TEXT COLORS — REMOVED
+   The old blanket rule (color: #ffffff on all elements) has been
+   disabled so individual page CSS files can set their own dark
+   mode colors independently. Each page stylesheet is now
+   responsible for its own dark-mode text colors.
+============================================================ */
+
+
+/* IMAGES */
+html.gprs-dark img:not(.footer-logo img):not(.logo img) {
+  filter: brightness(85%) contrast(92%);
+}
+
+/* ============================================================
+   BODY GRADIENT VISIBILITY FIX
+   Purpose:
+   - Allow <body> background gradients to show through
+   - Neutralize Astra full-page wrappers
+   - Preserve section/card backgrounds
+
+   ⚠️ !important REQUIRED
+   Astra sets opaque backgrounds with high specificity
+============================================================ */
+
+/* Astra wrapper transparency */
+html.gprs-dark .ast-separate-container,
+html.gprs-dark .ast-separate-container .ast-article-single,
+html.gprs-dark .ast-plain-container {
+  background: transparent !important;
+}
+
+html:not(.gprs-dark) .ast-separate-container,
+html:not(.gprs-dark) .ast-separate-container .ast-article-single,
+html:not(.gprs-dark) .ast-plain-container {
+  background-color: transparent !important;
+  background-color: inherit !important;
+}
+
+
+/* ============================================================
+   ACCESSIBILITY — SKIP LINKS & FOCUS RINGS
+   ============================================================
+
+   ⚠️ FOCUS RING — SINGLE SOURCE OF TRUTH
+   Soft gold glow is the GPRS global focus indicator.
+   All other snippets should NOT redefine outline or
+   box-shadow for :focus-visible — they inherit from here.
+============================================================ */
+
+/* HIDE ASTRA'S DUPLICATE SKIP LINK
+   Astra theme generates its own skip-to-content link.
+   We have a custom one already, so hide Astra's to
+   prevent it from appearing twice when tabbing. */
+.ast-a11y-skip-link,
+a.screen-reader-text.skip-link[href="#content"]:not(.gprs-header .skip-link) {
+  display: none !important;
+}
+
+/* CUSTOM SKIP LINK */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 10000;
+  background: #111827;
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 0.75rem;
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: 0 0 var(--focus-glow-spread) var(--focus-glow-color);
+}
+
+/* ============================================================
+   GLOBAL FOCUS — PROGRESSIVE ENHANCEMENT
+   ============================================================
+   
+   STRATEGY (replaces the old "kill everything + restore" approach):
+   
+   LAYER 1 — *:focus
+     Gold glow on ALL focus events. This is the SAFE BASELINE.
+     Every browser understands :focus. If a browser is too old
+     for :focus-visible, this ensures focus is ALWAYS indicated.
+     WCAG 2.1 AA requires visible focus — this guarantees it.
+   
+   LAYER 2 — *:focus:not(:focus-visible)
+     HIDES the gold glow on MOUSE CLICKS only. Modern browsers
+     know that mouse clicks are :focus but NOT :focus-visible,
+     so this rule fires and removes the indicator for clicks.
+     
+     Old browsers that don't understand :focus-visible also
+     don't understand :not(:focus-visible), so they IGNORE
+     this entire rule — the Layer 1 gold glow stays visible
+     on everything. That's the safe fallback: slightly more
+     visible than ideal, but WCAG-compliant.
+   
+   LAYER 3 — *:focus-visible
+     Explicit gold glow for keyboard focus. In modern browsers
+     this is redundant with Layer 1 (both apply), but it's
+     here for clarity and to ensure specificity wins if any
+     plugin tries to override :focus.
+   
+   NET RESULT:
+     Modern browser + keyboard → gold glow (Layer 1 + 3)
+     Modern browser + mouse   → nothing   (Layer 2 hides it)
+     Old browser + anything   → gold glow (Layer 1 only)
+     Plugin JS .focus() call  → gold glow (Layer 1 catches it)
+   
+   ⚠️ !important is needed to override Astra and
+   browser defaults. This is the ONLY place focus is defined.
+   Components can override with higher specificity but
+   MUST NOT stack a second ring on top.
+============================================================ */
+
+/* LAYER 1 — Safe baseline: gold glow on ALL focus.
+   This replaces the old *:focus { outline: none } kill rule. */
+*:focus {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color) !important;
+  outline-offset: var(--focus-ring-offset) !important;
+  box-shadow: 0 0 var(--focus-glow-spread) var(--focus-glow-color) !important;
+}
+
+/* LAYER 2 — Hide on mouse clicks (modern browsers only).
+   Old browsers ignore this rule entirely = safe. */
+*:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* LAYER 3 — Explicit keyboard focus (modern browsers).
+   Redundant with Layer 1 but locks in specificity. */
+*:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color) !important;
+  outline-offset: var(--focus-ring-offset) !important;
+  box-shadow: 0 0 var(--focus-glow-spread) var(--focus-glow-color) !important;
+}
+
+/* ============================================================
+   GALLERY / IMAGE / TILE FOCUS — FULLY INSET APPROACH
+   
+   Problem: WordPress galleries nest images inside multiple
+   layers of overflow:hidden containers. Outlines and external
+   box-shadows get clipped no matter what.
+   
+   Solution: Use ONLY inset box-shadow. Inset shadows are
+   drawn entirely inside the element's border box and can
+   NEVER be clipped by parent overflow. We also add a
+   subtle brightness bump so the focused image literally
+   glows brighter than its neighbors.
+   
+   Same 3-layer progressive enhancement as global focus:
+   Layer 1 (:focus) = safe baseline with inset glow
+   Layer 2 (:focus:not(:focus-visible)) = hide on mouse
+   Layer 3 (:focus-visible) = explicit keyboard inset glow
+============================================================ */
+
+/* GALLERY LAYER 1 — Safe baseline: inset gold on ALL focus */
+.gallery-item a:focus,
+figure.gallery-item a:focus,
+.wp-block-gallery a:focus,
+.gallery-icon a:focus {
+  outline: none !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 215, 0, 0.90),
+    inset 0 0 14px rgba(255, 215, 0, 0.35) !important;
+  filter: brightness(1.15) !important;
+  z-index: 1;
+  position: relative;
+}
+
+/* GALLERY LAYER 2 — Hide on mouse clicks */
+.gallery-item a:focus:not(:focus-visible),
+figure.gallery-item a:focus:not(:focus-visible),
+.wp-block-gallery a:focus:not(:focus-visible),
+.gallery-icon a:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* GALLERY LAYER 3 — Explicit keyboard focus with inset glow */
+.gallery-item a:focus-visible,
+figure.gallery-item a:focus-visible,
+.wp-block-gallery a:focus-visible,
+.gallery-icon a:focus-visible {
+  outline: none !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 215, 0, 0.90),
+    inset 0 0 14px rgba(255, 215, 0, 0.35) !important;
+  filter: brightness(1.15) !important;
+  z-index: 1;
+  position: relative;
+}
+
+/* IMG direct targets — same 3-layer approach */
+.gallery-item img:focus,
+figure.gallery-item img:focus {
+  outline: none !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 215, 0, 0.90),
+    inset 0 0 14px rgba(255, 215, 0, 0.35) !important;
+  filter: brightness(1.15) !important;
+}
+
+.gallery-item img:focus:not(:focus-visible),
+figure.gallery-item img:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.gallery-item img:focus-visible,
+figure.gallery-item img:focus-visible {
+  outline: none !important;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 215, 0, 0.90),
+    inset 0 0 14px rgba(255, 215, 0, 0.35) !important;
+  filter: brightness(1.15) !important;
+}
+
+/* SCREEN READER ONLY */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+}
+
+/* ============================================================
+   HERO CONTENT POSITIONING
+============================================================ */
+
+.gprs-hero-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1.4rem;
+
+	max-width: 960px;
+	margin-inline: auto;
+}
+/* ============================================================
+   HERO VERTICAL INTENT
+============================================================ */
+
+/* Emotion-first (centered) */
+.hero--volunteer .hero-content,
+.hero--story .hero-content {
+	justify-content: center;
+}
+
+/* Action / orientation-first (top-biased) */
+.hero--donate .hero-content,
+.hero--default .hero-content {
+	justify-content: flex-start;
+}
+
+/* ============================================================
+   FINAL BACKGROUND OWNERSHIP — DARK MODE
+   Must come LAST in this file
+============================================================ */
+
+html.gprs-dark body {
+  background: linear-gradient(
+    135deg,
+    #0f0f1a 0%,    /* near-black with subtle blue hint */
+    #0a0a14 50%,   /* deep charcoal */
+    #000000 100%   /* pure black */
+  ) !important;
+}

@@ -1,0 +1,668 @@
+/* ============================================================
+   12-ACCESSIBILITY-TOOLBAR.CSS
+   Purpose:  Accessibility settings panel + toggle effect rules
+   Scope:    Global (loads on every page)
+   Depends:  01-core-tokens-base.css
+   Updated:  2026-03-25
+
+   TABLE OF CONTENTS:
+   1.  Accessibility Button (header bar)
+   2.  Panel Container (dropdown / mobile slide-down)
+   3.  Panel Toggle Rows
+   4.  Panel Reset Button
+   5.  Panel Close Button
+   6.  Responsive Breakpoints (768px, 480px)
+   7.  Toggle Effects — Text Scale
+   8.  Toggle Effects — Line Height
+   9.  Toggle Effects — Letter Spacing
+   10. Toggle Effects — Grayscale
+   11. Toggle Effects — Simplify Images
+   12. Toggle Effects — Enlarge Targets
+   13. Reduced Motion
+============================================================ */
+
+
+/* ============================================================
+   1. ACCESSIBILITY BUTTON (in header controls row)
+   Same glassmorphic styling as the old theme toggle —
+   44px min-width, 38px height, matching border treatment.
+============================================================ */
+.gprs-a11y-toggle,
+#gprs-a11y-toggle {
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	padding: 0 !important;
+	border-radius: var(--radius-sm) !important;
+	background: rgba(255, 255, 255, 0.06) !important;
+	border: 1px solid rgba(255, 255, 255, 0.18) !important;
+	cursor: pointer !important;
+	transition:
+		background var(--anim-fast),
+		border-color var(--anim-fast) !important;
+	min-width: 44px !important;
+	height: 38px !important;
+	position: relative !important;
+	color: var(--clr-nav-btn-text) !important;
+	white-space: nowrap !important;
+	box-shadow: none !important;
+	flex-shrink: 0 !important;
+}
+
+.gprs-a11y-toggle:hover,
+#gprs-a11y-toggle:hover {
+	background: rgba(255, 255, 255, 0.12) !important;
+	border-color: rgba(255, 255, 255, 0.30) !important;
+}
+
+.gprs-a11y-toggle[aria-expanded="true"] {
+	background: rgba(255, 255, 255, 0.16) !important;
+	border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.gprs-a11y-toggle svg {
+	display: block;
+	width: 20px;
+	height: 20px;
+	flex-shrink: 0;
+}
+
+/* Light-mode variant */
+html:not(.gprs-dark) .gprs-a11y-toggle,
+html:not(.gprs-dark) #gprs-a11y-toggle {
+	background: rgba(0, 0, 0, 0.04) !important;
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	color: #374151 !important;
+}
+
+html:not(.gprs-dark) .gprs-a11y-toggle:hover,
+html:not(.gprs-dark) #gprs-a11y-toggle:hover {
+	background: rgba(0, 0, 0, 0.08) !important;
+	border-color: rgba(0, 0, 0, 0.20) !important;
+}
+
+html:not(.gprs-dark) .gprs-a11y-toggle[aria-expanded="true"] {
+	background: rgba(0, 102, 204, 0.08) !important;
+	border-color: rgba(0, 102, 204, 0.25) !important;
+	color: var(--clr-accent) !important;
+}
+
+
+/* ============================================================
+   2. PANEL CONTAINER
+   Desktop: positioned below the button (absolute).
+   Mobile:  nearly full-width slide-down below header.
+============================================================ */
+.gprs-a11y-panel {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	z-index: 1050;
+	width: 320px;
+	max-height: calc(100vh - var(--header-height) - 24px);
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+
+	background: linear-gradient(
+		165deg,
+		rgba(15, 23, 42, 0.96),
+		rgba(30, 41, 59, 0.96)
+	);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: var(--radius-md, 14px);
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.35),
+		0 2px 8px rgba(0, 0, 0, 0.20);
+
+	padding: 1rem 1rem 0.75rem;
+
+	/* Closed state */
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px);
+	pointer-events: none;
+
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease,
+		visibility 0s linear 0.2s;
+}
+
+/* Open state */
+.gprs-a11y-panel.gprs-a11y-panel--open {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	pointer-events: auto;
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease,
+		visibility 0s linear 0s;
+}
+
+/* Light-mode panel */
+html:not(.gprs-dark) .gprs-a11y-panel {
+	background: linear-gradient(
+		165deg,
+		rgba(255, 255, 255, 0.97),
+		rgba(248, 250, 252, 0.97)
+	);
+	border-color: rgba(0, 0, 0, 0.10);
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.12),
+		0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Panel heading */
+.gprs-a11y-panel-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 0.75rem;
+	padding: 0 0 0.5rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+html:not(.gprs-dark) .gprs-a11y-panel-heading {
+	border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.gprs-a11y-panel-title {
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.70);
+	margin: 0;
+}
+
+html:not(.gprs-dark) .gprs-a11y-panel-title {
+	color: rgba(0, 0, 0, 0.55);
+}
+
+
+/* ============================================================
+   3. PANEL TOGGLE ROWS
+============================================================ */
+.gprs-a11y-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.6rem 0.5rem;
+	margin-bottom: 2px;
+	border-radius: var(--radius-sm, 8px);
+	transition: background 0.15s ease;
+	gap: 0.75rem;
+}
+
+.gprs-a11y-row:hover {
+	background: rgba(255, 255, 255, 0.06);
+}
+
+html:not(.gprs-dark) .gprs-a11y-row:hover {
+	background: rgba(0, 0, 0, 0.03);
+}
+
+/* Row label */
+.gprs-a11y-row-label {
+	font-size: 0.92rem;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.90);
+	flex: 1;
+	min-width: 0;
+}
+
+html:not(.gprs-dark) .gprs-a11y-row-label {
+	color: #1f2937;
+}
+
+/* Row status badge (shows "Large", "On", etc.) */
+.gprs-a11y-row-status {
+	font-size: 0.78rem;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.50);
+	flex-shrink: 0;
+	margin-right: 0.5rem;
+}
+
+html:not(.gprs-dark) .gprs-a11y-row-status {
+	color: rgba(0, 0, 0, 0.40);
+}
+
+.gprs-a11y-row-status--active {
+	color: #60a5fa;
+}
+
+html:not(.gprs-dark) .gprs-a11y-row-status--active {
+	color: var(--clr-accent, #0066CC);
+}
+
+/* Toggle switch */
+.gprs-a11y-switch {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 44px;
+	height: 26px;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.20);
+	border-radius: 999px;
+	cursor: pointer;
+	padding: 0;
+	transition:
+		background 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.gprs-a11y-switch::after {
+	content: '';
+	position: absolute;
+	left: 3px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 18px;
+	height: 18px;
+	background: rgba(255, 255, 255, 0.80);
+	border-radius: 50%;
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Switch ON state */
+.gprs-a11y-switch[aria-pressed="true"],
+.gprs-a11y-switch[aria-checked="true"] {
+	background: var(--clr-accent, #0066CC);
+	border-color: var(--clr-accent, #0066CC);
+}
+
+.gprs-a11y-switch[aria-pressed="true"]::after,
+.gprs-a11y-switch[aria-checked="true"]::after {
+	transform: translateY(-50%) translateX(18px);
+	background: #ffffff;
+}
+
+/* Light-mode switch */
+html:not(.gprs-dark) .gprs-a11y-switch {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: rgba(0, 0, 0, 0.15);
+}
+
+html:not(.gprs-dark) .gprs-a11y-switch::after {
+	background: #ffffff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.20);
+}
+
+html:not(.gprs-dark) .gprs-a11y-switch[aria-pressed="true"],
+html:not(.gprs-dark) .gprs-a11y-switch[aria-checked="true"] {
+	background: var(--clr-accent, #0066CC);
+	border-color: var(--clr-accent, #0066CC);
+}
+
+/* Cycle button (for text size — cycles through steps) */
+.gprs-a11y-cycle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	min-width: 44px;
+	height: 30px;
+	padding: 0 0.65rem;
+	background: rgba(255, 255, 255, 0.10);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: var(--radius-sm, 8px);
+	color: rgba(255, 255, 255, 0.90);
+	font-size: 0.78rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition:
+		background 0.15s ease,
+		border-color 0.15s ease;
+	white-space: nowrap;
+}
+
+.gprs-a11y-cycle:hover {
+	background: rgba(255, 255, 255, 0.16);
+	border-color: rgba(255, 255, 255, 0.28);
+}
+
+html:not(.gprs-dark) .gprs-a11y-cycle {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.12);
+	color: #374151;
+}
+
+html:not(.gprs-dark) .gprs-a11y-cycle:hover {
+	background: rgba(0, 0, 0, 0.08);
+	border-color: rgba(0, 0, 0, 0.20);
+}
+
+/* Cycle button active state (not default) */
+.gprs-a11y-cycle--active {
+	background: rgba(0, 102, 204, 0.15);
+	border-color: rgba(0, 102, 204, 0.35);
+	color: #60a5fa;
+}
+
+html:not(.gprs-dark) .gprs-a11y-cycle--active {
+	background: rgba(0, 102, 204, 0.08);
+	border-color: rgba(0, 102, 204, 0.25);
+	color: var(--clr-accent, #0066CC);
+}
+
+
+/* ============================================================
+   4. PANEL RESET BUTTON
+============================================================ */
+.gprs-a11y-reset {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 0.5rem;
+	padding: 0.55rem 0;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: var(--radius-sm, 8px);
+	background: transparent;
+	color: rgba(255, 255, 255, 0.55);
+	font-size: 0.82rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition:
+		background 0.15s ease,
+		color 0.15s ease,
+		border-color 0.15s ease;
+}
+
+.gprs-a11y-reset:hover {
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.80);
+	border-color: rgba(255, 255, 255, 0.22);
+}
+
+html:not(.gprs-dark) .gprs-a11y-reset {
+	border-color: rgba(0, 0, 0, 0.10);
+	color: rgba(0, 0, 0, 0.45);
+}
+
+html:not(.gprs-dark) .gprs-a11y-reset:hover {
+	background: rgba(0, 0, 0, 0.04);
+	color: rgba(0, 0, 0, 0.65);
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================================================
+   5. PANEL CLOSE BUTTON (mobile only — X in top-right)
+============================================================ */
+.gprs-a11y-panel-close {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: none;
+	border-radius: var(--radius-sm, 8px);
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.60);
+	cursor: pointer;
+	flex-shrink: 0;
+	transition:
+		background 0.15s ease,
+		color 0.15s ease;
+}
+
+.gprs-a11y-panel-close:hover {
+	background: rgba(255, 255, 255, 0.15);
+	color: rgba(255, 255, 255, 0.90);
+}
+
+html:not(.gprs-dark) .gprs-a11y-panel-close {
+	background: rgba(0, 0, 0, 0.04);
+	color: rgba(0, 0, 0, 0.40);
+}
+
+html:not(.gprs-dark) .gprs-a11y-panel-close:hover {
+	background: rgba(0, 0, 0, 0.08);
+	color: rgba(0, 0, 0, 0.65);
+}
+
+.gprs-a11y-panel-close svg {
+	width: 16px;
+	height: 16px;
+}
+
+
+/* ============================================================
+   6. RESPONSIVE BREAKPOINTS
+============================================================ */
+
+/* ---- 1024px and below: panel goes nearly full-width ---- */
+@media (max-width: 1024px) {
+	.gprs-a11y-panel {
+		position: fixed;
+		top: var(--header-height);
+		left: 0;
+		right: 0;
+		width: 100%;
+		max-width: 100%;
+		border-radius: 0 0 var(--radius-md, 14px) var(--radius-md, 14px);
+		transform: translateY(-12px);
+	}
+
+	.gprs-a11y-panel.gprs-a11y-panel--open {
+		transform: translateY(0);
+	}
+
+	.gprs-a11y-panel-close {
+		display: flex;
+	}
+}
+
+/* ---- 768px: tighter spacing ---- */
+@media (max-width: 768px) {
+	.gprs-a11y-panel {
+		top: 65px;
+		padding: 0.85rem 0.85rem 0.65rem;
+	}
+
+	.gprs-a11y-toggle,
+	#gprs-a11y-toggle {
+		height: 36px !important;
+		min-width: 40px !important;
+	}
+
+	.gprs-a11y-toggle svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.gprs-a11y-row {
+		padding: 0.5rem 0.35rem;
+	}
+
+	.gprs-a11y-row-label {
+		font-size: 0.88rem;
+	}
+}
+
+/* ---- 480px: compact ---- */
+@media (max-width: 480px) {
+	.gprs-a11y-panel {
+		top: 60px;
+		padding: 0.75rem 0.65rem 0.5rem;
+	}
+
+	.gprs-a11y-toggle,
+	#gprs-a11y-toggle {
+		height: 34px !important;
+		min-width: 38px !important;
+	}
+
+	.gprs-a11y-toggle svg {
+		width: 17px;
+		height: 17px;
+	}
+
+	.gprs-a11y-row-label {
+		font-size: 0.84rem;
+	}
+
+	.gprs-a11y-switch {
+		width: 40px;
+		height: 24px;
+	}
+
+	.gprs-a11y-switch::after {
+		width: 16px;
+		height: 16px;
+	}
+
+	.gprs-a11y-switch[aria-pressed="true"]::after,
+	.gprs-a11y-switch[aria-checked="true"]::after {
+		transform: translateY(-50%) translateX(16px);
+	}
+}
+
+
+/* ============================================================
+   7. TOGGLE EFFECTS — TEXT SCALE
+   CSS variable on :root, applied to body font-size.
+   Steps: 1 (default) → 1.15 (large) → 1.3 (extra large)
+============================================================ */
+body {
+	font-size: calc(1rem * var(--gprs-text-scale, 1));
+}
+
+
+/* ============================================================
+   8. TOGGLE EFFECTS — LINE HEIGHT
+   CSS variable adds a boost to the base line-height.
+============================================================ */
+body {
+	line-height: calc(1.6 + var(--gprs-line-height-boost, 0));
+}
+
+
+/* ============================================================
+   9. TOGGLE EFFECTS — LETTER SPACING
+============================================================ */
+html.gprs-wide-spacing body {
+	letter-spacing: 0.03em;
+}
+
+html.gprs-wide-spacing body * {
+	letter-spacing: inherit;
+}
+
+
+/* ============================================================
+   10. TOGGLE EFFECTS — GRAYSCALE
+============================================================ */
+html.gprs-grayscale {
+	filter: grayscale(1);
+}
+
+
+/* ============================================================
+   11. TOGGLE EFFECTS — SIMPLIFY IMAGES
+   Hides <img> and shows alt-text placeholder boxes.
+   Does NOT use display:none — replaces with styled alt text.
+============================================================ */
+html.gprs-simplify-images img:not(.logo img):not([aria-hidden="true"]) {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	clip-path: inset(50%) !important;
+	white-space: nowrap !important;
+}
+
+/* The JS inserts .gprs-alt-placeholder spans after each image */
+.gprs-alt-placeholder {
+	display: none;
+}
+
+html.gprs-simplify-images .gprs-alt-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80px;
+	padding: 1rem 1.25rem;
+	border-radius: var(--radius-sm, 8px);
+	border: 2px dashed rgba(255, 255, 255, 0.20);
+	background: rgba(255, 255, 255, 0.04);
+	color: rgba(255, 255, 255, 0.65);
+	font-size: 0.88rem;
+	font-style: italic;
+	text-align: center;
+	word-break: break-word;
+}
+
+html:not(.gprs-dark).gprs-simplify-images .gprs-alt-placeholder {
+	border-color: rgba(0, 0, 0, 0.15);
+	background: rgba(0, 0, 0, 0.03);
+	color: rgba(0, 0, 0, 0.50);
+}
+
+/* Keep logo visible even in simplify mode */
+html.gprs-simplify-images .logo img {
+	position: static !important;
+	width: auto !important;
+	height: auto !important;
+	overflow: visible !important;
+	clip: auto !important;
+	clip-path: none !important;
+	white-space: normal !important;
+}
+
+
+/* ============================================================
+   12. TOGGLE EFFECTS — ENLARGE TARGETS
+   Scoped to main content links/buttons, nav links, form controls.
+   Excludes small utility controls.
+============================================================ */
+html.gprs-enlarge-targets .entry-content a,
+html.gprs-enlarge-targets .ast-article-post a,
+html.gprs-enlarge-targets .page-content a,
+html.gprs-enlarge-targets main a:not(.gprs-tl-lb-dot):not(.header-search-btn):not(.gprs-tl-lb-close):not(.gprs-tl-lb-arrow):not(.gprs-a11y-toggle):not(.gprs-a11y-switch):not(.gprs-a11y-cycle):not(.gprs-a11y-reset):not(.gprs-a11y-panel-close):not(.mobile-toggle):not(.gprs-tl-lb-prev):not(.gprs-tl-lb-next):not(.gprs-tl-lb-entry-prev):not(.gprs-tl-lb-entry-next):not(.skip-link):not(.logo),
+html.gprs-enlarge-targets .mobile-menu a,
+html.gprs-enlarge-targets .nav-desktop a[role="menuitem"] {
+	padding: 0.75em 1em;
+	font-size: 1.08em;
+	min-height: 48px;
+	display: inline-flex;
+	align-items: center;
+}
+
+html.gprs-enlarge-targets main button:not(.gprs-tl-lb-dot):not(.header-search-btn):not(.gprs-tl-lb-close):not(.gprs-a11y-toggle):not(.gprs-a11y-switch):not(.gprs-a11y-cycle):not(.gprs-a11y-reset):not(.gprs-a11y-panel-close):not(.mobile-toggle):not(#mobile-menu-toggle):not(.gprs-tl-lb-prev):not(.gprs-tl-lb-next):not(.gprs-tl-lb-entry-prev):not(.gprs-tl-lb-entry-next):not(.gprs-tl-card):not(.nav-link-submenu) {
+	padding: 0.75em 1.25em;
+	font-size: 1.05em;
+	min-height: 48px;
+}
+
+html.gprs-enlarge-targets .wpforms-submit,
+html.gprs-enlarge-targets input[type="submit"] {
+	padding: 0.85em 1.5em !important;
+	font-size: 1.08em !important;
+	min-height: 52px !important;
+}
+
+
+/* ============================================================
+   13. REDUCED MOTION
+   Respects prefers-reduced-motion for panel open/close.
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	.gprs-a11y-panel {
+		transition: none;
+	}
+
+	.gprs-a11y-switch::after {
+		transition: none;
+	}
+}

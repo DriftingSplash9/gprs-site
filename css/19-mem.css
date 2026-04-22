@@ -1,0 +1,754 @@
+/**
+ * 19-mem.css
+ *
+ * Styles for /margaret-edgson-manor/ — DARK MODE FIRST, evolved.
+ *
+ * Same evolution as 18-donate.css:
+ *   - Gradient headings in BOTH modes + 85% partial underline
+ *   - Glows on hover in dark, shadows in light
+ *   - Tinted body text in dark mode
+ *   - Glassmorphism cards for starfield compatibility
+ *
+ * Class prefix: mem-
+ * Depends: 01-core-tokens-base.css
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --mem-text-soft: #374151;
+    --mem-text-accent: #0066CC;
+    --mem-heading-from: #1a365d;
+    --mem-heading-to: #0066CC;
+    --mem-underline-from: #0066CC;
+    --mem-underline-to: rgba(0, 102, 204, 0);
+    --mem-glow-accent: rgba(0, 102, 204, 0.25);
+    --mem-card-bg: rgba(255, 255, 255, 0.6);
+    --mem-card-border: rgba(0, 0, 0, 0.06);
+    --mem-section-border: rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark {
+    --mem-text-soft: #b0c4de;
+    --mem-text-accent: #6db3f2;
+    --mem-heading-from: #ffffff;
+    --mem-heading-to: #4da8ff;
+    --mem-underline-from: #4da8ff;
+    --mem-underline-to: rgba(77, 168, 255, 0);
+    --mem-glow-accent: rgba(0, 102, 204, 0.4);
+    --mem-card-bg: var(--glass-bg);
+    --mem-card-border: var(--glass-border);
+    --mem-section-border: rgba(255, 255, 255, 0.06);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PAGE WRAPPER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-page {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   QUICKLINKS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-quicklinks {
+    position: sticky;
+    top: 75px;
+    z-index: 90;
+    background: var(--clr-bg-main);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 0;
+    transition: background var(--anim-normal), border-color var(--anim-normal);
+}
+
+html.gprs-dark .mem-quicklinks {
+    background: rgba(10, 26, 12, 0.85);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom-color: var(--glass-border);
+}
+
+.mem-quicklinks__inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.mem-quicklinks__label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--clr-text-body);
+    margin-right: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+}
+
+.mem-quicklinks__link {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--clr-accent);
+    text-decoration: none;
+    border: 1px solid var(--clr-accent);
+    transition: background var(--anim-fast), color var(--anim-fast);
+}
+
+.mem-quicklinks__link:hover,
+.mem-quicklinks__link:focus-visible {
+    background: var(--clr-accent);
+    color: var(--clr-text-light);
+}
+
+.mem-quicklinks__link:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADINGS — Gradient both modes + 85% partial underline
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--mem-heading-from), var(--mem-heading-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mem-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--mem-underline-from), var(--mem-underline-to));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BODY TEXT — Tinted dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-page p,
+.mem-page li,
+.mem-page address,
+.mem-page dd {
+    color: var(--mem-text-soft);
+    line-height: 1.7;
+}
+
+.mem-lead {
+    font-size: 1.05rem;
+    max-width: 760px;
+    margin: 0 0 1.5rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-page a:not(.mem-btn):not(.mem-quicklinks__link) {
+    color: var(--mem-text-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--anim-fast), text-shadow var(--anim-fast);
+}
+
+.mem-page a:not(.mem-btn):not(.mem-quicklinks__link):hover {
+    color: var(--clr-accent-hover);
+}
+
+html.gprs-dark .mem-page a:not(.mem-btn):not(.mem-quicklinks__link):hover {
+    color: #a0d0ff;
+    text-shadow: 0 0 8px rgba(109, 179, 242, 0.3);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-section,
+.mem-glance {
+    margin-bottom: 3rem;
+    padding: 2rem 0 2.5rem;
+    border-bottom: 1px solid var(--mem-section-border);
+    scroll-margin-top: 145px;
+}
+
+.mem-section:last-of-type {
+    border-bottom: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AT A GLANCE STRIP
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-glance__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.mem-glance__card {
+    background: var(--mem-card-bg);
+    border: 1px solid var(--mem-card-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .mem-glance__card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.mem-glance__card:hover {
+    transform: translateY(-2px);
+}
+
+html.gprs-dark .mem-glance__card:hover {
+    box-shadow: 0 0 16px var(--mem-glow-accent);
+    border-color: rgba(0, 102, 204, 0.25);
+}
+
+.mem-glance__value {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+html.gprs-dark .mem-glance__value {
+    color: var(--mem-text-accent);
+}
+
+.mem-glance__label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.75;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TWO-COLUMN LAYOUT (text + images)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-two-col {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.mem-two-col__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mem-two-col__content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.mem-two-col__images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FIGURES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-figure {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .mem-figure {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+html.gprs-dark .mem-figure:hover {
+    box-shadow: 0 0 22px var(--mem-glow-accent);
+}
+
+.mem-figure--wide {
+    margin-top: 2rem;
+}
+
+.mem-figure__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FACTS DEFINITION LIST
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-facts {
+    margin: 1.5rem 0;
+    padding: 0;
+    background: var(--mem-card-bg);
+    border: 1px solid var(--mem-card-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+html.gprs-dark .mem-facts {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.mem-facts__item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+html.gprs-dark .mem-facts__item {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.mem-facts__item:last-child {
+    border-bottom: none;
+}
+
+.mem-facts__label {
+    flex: 0 0 110px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--clr-accent);
+    padding-top: 0.1rem;
+}
+
+html.gprs-dark .mem-facts__label {
+    color: var(--mem-text-accent);
+}
+
+.mem-facts__value {
+    flex: 1;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FEATURES CARDS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-features-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.mem-features-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--mem-card-bg);
+    border: 1px solid var(--mem-card-border);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+html.gprs-dark .mem-features-card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.mem-features-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+html.gprs-dark .mem-features-card:hover {
+    box-shadow: 0 0 20px var(--mem-glow-accent);
+    border-color: rgba(0, 102, 204, 0.3);
+}
+
+.mem-features-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .mem-features-card h3 {
+    color: var(--mem-text-accent);
+}
+
+.mem-features-card p {
+    font-size: 0.92rem;
+    margin: 0 0 0.5rem;
+}
+
+.mem-features-list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.mem-features-list li {
+    margin-bottom: 0.3rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BLOCKQUOTES — Glow in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-quote {
+    margin: 1rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.04);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .mem-quote {
+    background: rgba(0, 102, 204, 0.06);
+    border-left-color: var(--mem-text-accent);
+    box-shadow: -4px 0 12px rgba(77, 168, 255, 0.1);
+}
+
+.mem-quote--hero {
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--clr-accent);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.75rem 2rem;
+}
+
+html.gprs-dark .mem-quote--hero {
+    border-top-color: var(--mem-text-accent);
+    box-shadow: 0 -4px 16px rgba(77, 168, 255, 0.12);
+}
+
+.mem-quote__text {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.55;
+    margin: 0 0 0.5rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .mem-quote__text {
+    color: #ffffff;
+}
+
+.mem-quote__footer {
+    font-size: 0.85rem;
+    color: var(--mem-text-soft);
+}
+
+html.gprs-dark .mem-quote__footer {
+    color: var(--mem-text-accent);
+}
+
+.mem-quote__footer cite {
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REBUILD CROSS-LINK BANNER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-rebuild-link {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    background: rgba(0, 102, 204, 0.04);
+    border: 1px solid rgba(0, 102, 204, 0.15);
+    text-align: center;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .mem-rebuild-link {
+    background: rgba(0, 102, 204, 0.06);
+    border-color: rgba(0, 102, 204, 0.25);
+    box-shadow: 0 0 14px rgba(0, 102, 204, 0.08);
+}
+
+.mem-rebuild-link__content p {
+    font-size: 1.05rem;
+    margin: 0 0 1.25rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mem-rebuild-link__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   APPLY CTA
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-apply-cta {
+    text-align: center;
+    padding: 2rem 0;
+    scroll-margin-top: 145px;
+}
+
+.mem-apply-cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.mem-apply-cta__contact {
+    font-size: 0.95rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mem-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background var(--anim-fast), color var(--anim-fast),
+                transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+.mem-btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.mem-btn--primary {
+    background: var(--clr-accent);
+    color: #fff;
+    border: 2px solid var(--clr-accent);
+}
+
+.mem-btn--primary:hover {
+    background: var(--clr-accent-hover);
+    border-color: var(--clr-accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+html.gprs-dark .mem-btn--primary:hover {
+    box-shadow: 0 0 20px var(--mem-glow-accent);
+}
+
+.mem-btn--outline {
+    background: transparent;
+    color: var(--clr-accent);
+    border: 2px solid var(--clr-accent);
+}
+
+html.gprs-dark .mem-btn--outline {
+    color: var(--mem-text-accent);
+    border-color: var(--mem-text-accent);
+}
+
+.mem-btn--outline:hover {
+    background: var(--clr-accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+html.gprs-dark .mem-btn--outline:hover {
+    box-shadow: 0 0 20px var(--mem-glow-accent);
+}
+
+.mem-btn__arrow {
+    flex-shrink: 0;
+    transition: transform var(--anim-fast);
+}
+
+.mem-btn:hover .mem-btn__arrow {
+    transform: translateX(3px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .mem-two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .mem-two-col__images {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .mem-two-col__images .mem-figure {
+        flex: 1 1 280px;
+    }
+
+    .mem-glance__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mem-features-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mem-features-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 420px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .mem-page {
+        padding: 0 1rem 3rem;
+    }
+
+    .mem-heading {
+        font-size: 1.4rem;
+    }
+
+    .mem-quicklinks__inner {
+        justify-content: center;
+    }
+
+    .mem-quicklinks__label {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mem-glance__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mem-features-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mem-features-card:last-child {
+        grid-column: auto;
+        max-width: none;
+        justify-self: auto;
+    }
+
+    .mem-two-col__images {
+        flex-direction: column;
+    }
+
+    .mem-facts__item {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .mem-facts__label {
+        flex: none;
+    }
+
+    .mem-rebuild-link__actions,
+    .mem-apply-cta__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mem-btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mem-glance__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .mem-glance__card,
+    .mem-features-card,
+    .mem-figure,
+    .mem-quote,
+    .mem-rebuild-link,
+    .mem-btn,
+    .mem-quicklinks__link {
+        transition: none;
+    }
+
+    .mem-glance__card:hover,
+    .mem-features-card:hover,
+    .mem-btn--primary:hover,
+    .mem-btn--outline:hover {
+        transform: none;
+    }
+
+    .mem-btn:hover .mem-btn__arrow {
+        transform: none;
+    }
+}

@@ -1,0 +1,694 @@
+/**
+ * 18-donate.css
+ *
+ * Styles for /donate/ page — DARK MODE FIRST, evolved.
+ *
+ * Evolution beyond 08-apply.css:
+ *   - Gradient headings in BOTH modes (not just dark)
+ *   - Partial underline gradient at ~85% heading width
+ *   - Deeper glow effects on cards, buttons, quotes
+ *   - Warm accent shifts for donation CTAs
+ *   - Tinted body text in dark mode
+ *   - Starfield-compatible transparent backgrounds
+ *
+ * Class prefix: donate-
+ * Depends: 01-core-tokens-base.css
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CUSTOM PROPERTIES
+   Light mode gets a rich blue gradient. Dark mode goes white-to-blue.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --donate-text-soft: #374151;
+    --donate-text-accent: #0066CC;
+    --donate-heading-from: #1a365d;
+    --donate-heading-to: #0066CC;
+    --donate-underline-from: #0066CC;
+    --donate-underline-to: rgba(0, 102, 204, 0);
+    --donate-glow-accent: rgba(0, 102, 204, 0.25);
+    --donate-glow-warm: rgba(230, 126, 34, 0.15);
+    --donate-card-bg: rgba(255, 255, 255, 0.6);
+    --donate-card-border: rgba(0, 0, 0, 0.06);
+    --donate-section-border: rgba(0, 102, 204, 0.10);
+}
+
+html.gprs-dark {
+    --donate-text-soft: #b0c4de;
+    --donate-text-accent: #6db3f2;
+    --donate-heading-from: #ffffff;
+    --donate-heading-to: #4da8ff;
+    --donate-underline-from: #4da8ff;
+    --donate-underline-to: rgba(77, 168, 255, 0);
+    --donate-glow-accent: rgba(0, 102, 204, 0.4);
+    --donate-glow-warm: rgba(251, 191, 36, 0.15);
+    --donate-card-bg: var(--glass-bg);
+    --donate-card-border: var(--glass-border);
+    --donate-section-border: rgba(255, 255, 255, 0.06);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PAGE WRAPPER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-page {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADINGS — Gradient text in BOTH modes + partial underline
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    position: relative;
+    display: inline-block;
+
+    /* Gradient text — light mode */
+    background: linear-gradient(135deg, var(--donate-heading-from), var(--donate-heading-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Partial underline — 85% width gradient */
+.donate-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85%;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--donate-underline-from), var(--donate-underline-to));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BODY TEXT — Warm grey in light, blue-tinted in dark
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-page p,
+.donate-page li,
+.donate-page address {
+    color: var(--donate-text-soft);
+    line-height: 1.7;
+}
+
+.donate-text--large {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.donate-lead {
+    font-size: 1.05rem;
+    margin: 0 0 1.5rem;
+    max-width: 760px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LINKS — Accent in light, brighter in dark, glow on hover
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-page a:not(.donate-btn) {
+    color: var(--donate-text-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--anim-fast), text-shadow var(--anim-fast);
+}
+
+.donate-page a:not(.donate-btn):hover {
+    color: var(--clr-accent-hover);
+}
+
+html.gprs-dark .donate-page a:not(.donate-btn):hover {
+    color: #a0d0ff;
+    text-shadow: 0 0 8px rgba(109, 179, 242, 0.3);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION SPACING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-intro,
+.donate-impact,
+.donate-rebuild,
+.donate-methods,
+.donate-other {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--donate-section-border);
+}
+
+.donate-closing {
+    margin-bottom: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   IMPACT CARDS — Glow hover dark, shadow hover light
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-impact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.donate-impact__card {
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--donate-card-bg);
+    border: 1px solid var(--donate-card-border);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+html.gprs-dark .donate-impact__card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.donate-impact__card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+html.gprs-dark .donate-impact__card:hover {
+    box-shadow: 0 0 22px var(--donate-glow-accent), 0 0 6px rgba(0, 102, 204, 0.12);
+    border-color: rgba(0, 102, 204, 0.3);
+}
+
+.donate-impact__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--clr-accent);
+    margin-bottom: 0.75rem;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .donate-impact__icon {
+    background: rgba(0, 102, 204, 0.15);
+    color: var(--donate-text-accent);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+}
+
+.donate-impact__card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .donate-impact__card h3 {
+    color: var(--donate-text-accent);
+}
+
+.donate-impact__card p {
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REBUILD SECTION — Two-column with photos
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-rebuild__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.donate-rebuild__images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.donate-rebuild__figure {
+    margin: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .donate-rebuild__figure {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+}
+
+html.gprs-dark .donate-rebuild__figure:hover {
+    box-shadow: 0 0 24px var(--donate-glow-accent);
+}
+
+.donate-rebuild__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.donate-rebuild__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.donate-rebuild__content p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BLOCKQUOTES — Accent glow in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-quote {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.04);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: box-shadow var(--anim-normal);
+}
+
+html.gprs-dark .donate-quote {
+    background: rgba(0, 102, 204, 0.06);
+    border-left-color: var(--donate-text-accent);
+    box-shadow: -4px 0 12px rgba(77, 168, 255, 0.1);
+}
+
+.donate-quote--hero {
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--clr-accent);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    padding: 1.75rem 2rem;
+}
+
+html.gprs-dark .donate-quote--hero {
+    border-top-color: var(--donate-text-accent);
+    box-shadow: 0 -4px 16px rgba(77, 168, 255, 0.12);
+}
+
+.donate-quote__text {
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.55;
+    margin: 0 0 0.5rem;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .donate-quote__text {
+    color: #ffffff;
+}
+
+.donate-quote__footer {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.donate-quote__footer cite {
+    font-style: normal;
+    font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DONATION METHODS — Featured card gets extra treatment
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-methods__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.donate-methods__card {
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--donate-card-bg);
+    border: 1px solid var(--donate-card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+html.gprs-dark .donate-methods__card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.donate-methods__card:hover {
+    transform: translateY(-2px);
+}
+
+html.gprs-dark .donate-methods__card:hover {
+    box-shadow: 0 0 16px var(--donate-glow-accent);
+    border-color: rgba(0, 102, 204, 0.25);
+}
+
+/* Featured card — the primary donation CTA */
+.donate-methods__card--featured {
+    border: 2px solid var(--clr-accent);
+    background: rgba(0, 102, 204, 0.04);
+}
+
+html.gprs-dark .donate-methods__card--featured {
+    background: rgba(0, 102, 204, 0.08);
+    border-color: rgba(0, 102, 204, 0.45);
+    box-shadow: 0 0 14px rgba(0, 102, 204, 0.12);
+}
+
+html.gprs-dark .donate-methods__card--featured:hover {
+    box-shadow: 0 0 26px var(--donate-glow-accent), 0 0 8px rgba(0, 102, 204, 0.15);
+}
+
+.donate-methods__card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--clr-text-heading);
+}
+
+html.gprs-dark .donate-methods__card h3 {
+    color: var(--donate-text-accent);
+}
+
+.donate-methods__card h3 svg {
+    color: var(--clr-accent);
+    flex-shrink: 0;
+}
+
+html.gprs-dark .donate-methods__card h3 svg {
+    color: var(--donate-text-accent);
+}
+
+.donate-methods__card p {
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.donate-methods__detail {
+    font-size: 0.85rem !important;
+    opacity: 0.75;
+}
+
+.donate-methods__address {
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-top: 0.25rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   OTHER WAYS TO HELP
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-other__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.donate-other__card {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--donate-card-bg);
+    border: 1px solid var(--donate-card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+html.gprs-dark .donate-other__card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+html.gprs-dark .donate-other__card:hover {
+    box-shadow: 0 0 14px var(--donate-glow-accent);
+    transform: translateY(-2px);
+}
+
+.donate-other__card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .donate-other__card h3 {
+    color: var(--donate-text-accent);
+}
+
+.donate-other__card p {
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.donate-other__list {
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.donate-other__list li {
+    margin-bottom: 0.35rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CLOSING SECTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-closing__contact {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.donate-closing__contact p {
+    margin: 0 0 1rem;
+    font-size: 1.05rem;
+}
+
+.donate-closing__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.donate-closing__links a:not(.donate-btn) {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BUTTONS — Pill shape, glow hover in dark mode
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background var(--anim-fast), color var(--anim-fast),
+                transform var(--anim-fast), box-shadow var(--anim-fast),
+                border-color var(--anim-fast);
+}
+
+.donate-btn:focus-visible {
+    outline: 2px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.donate-btn--primary {
+    background: var(--clr-accent);
+    color: #fff;
+    border: 2px solid var(--clr-accent);
+}
+
+.donate-btn--primary:hover {
+    background: var(--clr-accent-hover);
+    border-color: var(--clr-accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+html.gprs-dark .donate-btn--primary:hover {
+    box-shadow: 0 0 20px var(--donate-glow-accent), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.donate-btn--outline {
+    background: transparent;
+    color: var(--clr-accent);
+    border: 2px solid var(--clr-accent);
+}
+
+html.gprs-dark .donate-btn--outline {
+    color: var(--donate-text-accent);
+    border-color: var(--donate-text-accent);
+}
+
+.donate-btn--outline:hover {
+    background: var(--clr-accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+html.gprs-dark .donate-btn--outline:hover {
+    box-shadow: 0 0 20px var(--donate-glow-accent);
+}
+
+.donate-btn__arrow {
+    flex-shrink: 0;
+    transition: transform var(--anim-fast);
+}
+
+.donate-btn:hover .donate-btn__arrow {
+    transform: translateX(3px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .donate-rebuild__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-rebuild__images {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .donate-rebuild__figure {
+        flex: 1 1 280px;
+    }
+
+    .donate-impact__grid,
+    .donate-methods__grid,
+    .donate-other__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Let the 3rd card span center on 2-col */
+    .donate-impact__card:last-child,
+    .donate-methods__card:last-child,
+    .donate-other__card:last-child {
+        grid-column: 1 / -1;
+        max-width: 420px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .donate-page {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .donate-heading {
+        font-size: 1.4rem;
+    }
+
+    .donate-impact__grid,
+    .donate-methods__grid,
+    .donate-other__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-impact__card:last-child,
+    .donate-methods__card:last-child,
+    .donate-other__card:last-child {
+        grid-column: auto;
+        max-width: none;
+        justify-self: auto;
+    }
+
+    .donate-rebuild__images {
+        flex-direction: column;
+    }
+
+    .donate-rebuild__figure {
+        flex: 1 1 auto;
+    }
+
+    .donate-closing__links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donate-btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .donate-impact__card,
+    .donate-methods__card,
+    .donate-other__card,
+    .donate-rebuild__figure,
+    .donate-quote,
+    .donate-btn {
+        transition: none;
+    }
+
+    .donate-impact__card:hover,
+    .donate-methods__card:hover,
+    .donate-other__card:hover,
+    .donate-btn--primary:hover,
+    .donate-btn--outline:hover {
+        transform: none;
+    }
+
+    .donate-btn:hover .donate-btn__arrow {
+        transform: none;
+    }
+}
