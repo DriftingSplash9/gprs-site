@@ -155,6 +155,7 @@ function gprs_render_accessible_housing_content() {
                             alt="Street view of GPRS Crystal Ridge duplexes — the first wheelchair-accessible housing built north of Edmonton, completed in 1987"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -165,6 +166,7 @@ function gprs_render_accessible_housing_content() {
                             alt="Front entrance of a GPRS Crystal Ridge duplex showing accessible entry with gently sloped walkway"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -253,6 +255,7 @@ function gprs_render_accessible_housing_content() {
                             alt="GPRS Phase II 7-Plex exterior — seven accessible apartments in Crystal Ridge, Grande Prairie"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -263,6 +266,7 @@ function gprs_render_accessible_housing_content() {
                             alt="GPRS 7-Plex bungalow-style apartments with white siding on green lawns under blue sky"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -338,6 +342,7 @@ function gprs_render_accessible_housing_content() {
                             alt="Margaret Edgson Manor exterior showing multi-storey apartment building with balconies, before the June 2025 fire"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -348,6 +353,7 @@ function gprs_render_accessible_housing_content() {
                             alt="Architectural rendering of Margaret Edgson Manor — designed as a 70-unit accessible and affordable housing complex"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -358,6 +364,7 @@ function gprs_render_accessible_housing_content() {
                             alt="Margaret Edgson Manor front entrance — barrier-free design with covered portico"
                             class="gprs-housing-phase__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -502,6 +509,7 @@ function gprs_render_accessible_housing_content() {
                                 src="<?php echo esc_url( $uploads . $img['src'] ); ?>"
                                 alt=""
                                 loading="lazy"
+                                decoding="async"
                                 class="gprs-housing-gallery__thumb-img"
                             />
                         </button>
@@ -539,6 +547,7 @@ function gprs_render_accessible_housing_content() {
                                 src="<?php echo esc_url( $uploads . $img['src'] ); ?>"
                                 alt=""
                                 loading="lazy"
+                                decoding="async"
                                 class="gprs-housing-gallery__thumb-img"
                             />
                         </button>
@@ -572,6 +581,7 @@ function gprs_render_accessible_housing_content() {
                                 src="<?php echo esc_url( $uploads . $img['src'] ); ?>"
                                 alt=""
                                 loading="lazy"
+                                decoding="async"
                                 class="gprs-housing-gallery__thumb-img"
                             />
                         </button>

@@ -38,6 +38,7 @@
 
 		running = true;
 
+		var animationFrameId = null;
 		var w, h, cx, cy;
 
 		function resize() {
@@ -140,12 +141,10 @@
 			var dt = Math.min((now - last) / 1000, 0.1);
 			last = now;
 
-			var isDark = document.documentElement.classList.contains('gprs-dark');
-
-			/* Light mode — clear and wait */
-			if (!isDark) {
+			/* Light mode — stop the loop entirely; MutationObserver will restart on theme flip */
+			if (!document.documentElement.classList.contains('gprs-dark')) {
 				ctx.clearRect(0, 0, w, h);
-				requestAnimationFrame(frame);
+				animationFrameId = null;
 				return;
 			}
 
@@ -153,7 +152,7 @@
 			if (MOBILE) {
 				mobileAccum += dt * 1000;
 				if (mobileAccum < mobileFrameInterval) {
-					requestAnimationFrame(frame);
+					animationFrameId = requestAnimationFrame(frame);
 					return;
 				}
 				mobileAccum = 0;
@@ -220,10 +219,22 @@
 				}
 			}
 
-			requestAnimationFrame(frame);
+			animationFrameId = requestAnimationFrame(frame);
 		}
 
-		requestAnimationFrame(frame);
+		function startIfDark() {
+			if (animationFrameId !== null) return;
+			if (!document.documentElement.classList.contains('gprs-dark')) return;
+			last = performance.now();
+			animationFrameId = requestAnimationFrame(frame);
+		}
+
+		startIfDark();
+
+		new MutationObserver(startIfDark).observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ['class']
+		});
 	}
 
 	/* ============================================================

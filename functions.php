@@ -31,10 +31,10 @@ function gprs_enqueue_styles() {
 	$v   = CHILD_THEME_ASTRA_CHILD_VERSION;
 	$uri = get_stylesheet_directory_uri();
 
-	// Normalize (CDN) — baseline reset
+	// Normalize (self-hosted) — baseline reset
 	wp_enqueue_style(
 		'normalize-css',
-		'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css',
+		$uri . '/css/normalize.css',
 		array(),
 		'8.0.1'
 	);
@@ -314,7 +314,7 @@ function gprs_enqueue_scripts() {
 		$uri . '/js/accessibility-toolbar.js',
 		array(),
 		$v,
-		true
+		array( 'in_footer' => true, 'strategy' => 'defer' )
 	);
 
 	// Submenus (mobile menu, dropdown handling) — every page
@@ -323,7 +323,7 @@ function gprs_enqueue_scripts() {
 		$uri . '/js/submenus.js',
 		array(),
 		$v,
-		true
+		array( 'in_footer' => true, 'strategy' => 'defer' )
 	);
 
 	// Starfield + comets — every page (dark mode only, self-pausing)
@@ -332,7 +332,7 @@ function gprs_enqueue_scripts() {
 		$uri . '/js/gprs-starfield.js',
 		array(),
 		$v,
-		true
+		array( 'in_footer' => true, 'strategy' => 'defer' )
 	);
  
     // Accessible Housing gallery lightbox

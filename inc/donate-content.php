@@ -84,6 +84,7 @@ function gprs_render_donate_content() {
                             alt="Aerial view of Margaret Edgson Manor under construction — gabled roof with exposed trusses, multi-level framing, red protective wrapping, winter 2026"
                             class="donate-rebuild__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
@@ -94,6 +95,7 @@ function gprs_render_donate_content() {
                             alt="Exposed top floor of Margaret Edgson Manor where the roof burned off, partially covered by snow"
                             class="donate-rebuild__img"
                             loading="lazy"
+                            decoding="async"
                             width="800"
                             height="533"
                         />
