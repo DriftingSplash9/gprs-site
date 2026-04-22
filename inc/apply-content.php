@@ -72,13 +72,7 @@ function gprs_render_apply_content() {
             </div>
 
             <div class="apply-elig-income">
-                <h4>Qualification Details</h4>
-                <p>Requirements vary by program and may change over time:</p>
-                <ul>
-                    <li><strong>Affordable Housing:</strong> Annual household income must be below the <a href="https://open.alberta.ca/publications/income-thresholds" target="_blank" rel="noopener noreferrer">Household Income Limit (HIL)</a>.</li>
-                    <li><strong>Rent Subsidy Programs (<a href="https://www.alberta.ca/rent-assistance" target="_blank" rel="noopener noreferrer">RAB</a>/<a href="https://open.alberta.ca/dataset/temporary-rent-assistance-benefit-rates" target="_blank" rel="noopener noreferrer">TRAB</a>):</strong> Applicants must meet income thresholds, asset limits, and employment criteria.</li>
-                    <li><strong>Direct Rentals:</strong> Applicants must be below household income and asset limits.</li>
-                </ul>
+                <p>For information on financial qualification and assistance programs, please contact our property manager, Grande Spirit Foundation Family Housing.</p>
             </div>
         </section>
 
@@ -94,7 +88,7 @@ function gprs_render_apply_content() {
 
             <div class="apply-form-card">
                 <h4 class="apply-form-card__title">GPRS Tenant Application</h4>
-                <p class="apply-form-card__desc">This fillable PDF covers everything we need to assess your application: your personal information, mobility and accessibility needs, equipment used, personal care and homemaking assistance, housing preferences, and references. It also includes our privacy notice and consent under Alberta's PIPA and POPA.</p>
+                <p class="apply-form-card__desc">This fillable PDF covers everything we need to assess your application: your personal information, mobility and accessibility needs, equipment used, personal care and homemaking assistance, housing preferences, and references. It also includes our privacy notice and consent under Alberta's PIPA.</p>
                 <p class="apply-form-card__desc"><strong>4 pages.</strong> You can fill it out on your computer, phone, or tablet before printing, saving, or emailing it to us.</p>
                 <a href="<?php echo esc_url( $uploads . '/2026/04/GPRS-TENANT-APPLICATION-2026-RevisionFillable.pdf' ); ?>" class="apply-form-card__btn" target="_blank" rel="noopener noreferrer">
                     Download Application (PDF)
@@ -160,7 +154,7 @@ function gprs_render_apply_content() {
                     <span class="apply-timeline__marker" aria-hidden="true">a</span>
                     <div class="apply-timeline__content">
                         <h4>Application Received</h4>
-                        <p>Grande Spirit Foundation receives your completed application and confirms receipt.</p>
+                        <p>Grande Spirit Foundation Family Housing, the property manager for GPRS, receives your completed application and confirms receipt.</p>
                     </div>
                 </div>
                 <div class="apply-timeline__step">
@@ -181,7 +175,7 @@ function gprs_render_apply_content() {
                     <span class="apply-timeline__marker" aria-hidden="true">d</span>
                     <div class="apply-timeline__content">
                         <h4>Next Steps</h4>
-                        <p>You'll be contacted directly about your application status and next steps.</p>
+                        <p>You will be contacted by GSF Family Housing about your application status and next steps.</p>
                     </div>
                 </div>
             </div>
@@ -210,7 +204,7 @@ function gprs_render_apply_content() {
             <details class="apply-faq">
                 <summary>What documents do I need?</summary>
                 <div class="apply-faq__body">
-                    <p>The application form itself covers what's needed. Supporting documentation may include proof of disability, income verification, and government-issued identification. The form explains each requirement.</p>
+                    <p>The application form itself covers what's needed. Supporting documentation may include income verification and government-issued identification. The form explains each requirement.</p>
                 </div>
             </details>
 
@@ -224,7 +218,7 @@ function gprs_render_apply_content() {
             <details class="apply-faq">
                 <summary>How is my personal information protected?</summary>
                 <div class="apply-faq__body">
-                    <p>Your information is collected under Alberta privacy laws (PIPA and POPA) and used only to assess your housing eligibility and accessibility needs. It is shared with our property manager, Grande Spirit Foundation, as necessary to provide housing services. <a href="<?php echo esc_url( home_url( '/privacy/' ) ); ?>">Read our full Privacy Policy.</a></p>
+                    <p>Your information is collected under Alberta privacy laws (PIPA) and used only to assess your housing eligibility and accessibility needs. It is shared with our property manager, Grande Spirit Foundation, as necessary to provide housing services. <a href="<?php echo esc_url( home_url( '/privacy/' ) ); ?>">Read our full Privacy Policy.</a></p>
                 </div>
             </details>
 
@@ -247,13 +241,12 @@ function gprs_render_apply_content() {
             <div class="apply-contact-grid">
                 <div class="apply-contact-item">
                     <strong>GPRS</strong>
-                    <a href="tel:7805323276">(780) 532-3276</a>
                     <a href="mailto:gpresidentialsociety@gmail.com">gpresidentialsociety@gmail.com</a>
                 </div>
                 <div class="apply-contact-item">
-                    <strong>Property Manager (GSF)</strong>
+                    <strong>GSF Family Housing, Property Manager</strong>
+                    <a href="tel:7805323276">(780) 532-3276</a>
                     <a href="mailto:family@grandespirit.org">family@grandespirit.org</a>
-                    <span>Grande Spirit Foundation Family Housing</span>
                 </div>
             </div>
 

@@ -125,35 +125,15 @@ function gprs_render_donate_content() {
             <p class="donate-lead">All donations are directed toward the Margaret Edgson Manor rebuild. Tax receipts are issued through the Grande Spirit Foundation (Registered Charity #102169158RR0001).</p>
 
             <div class="donate-methods__grid">
-                <div class="donate-methods__card donate-methods__card--featured">
-                    <h3>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M11 6v10M8 8.5c0-1.5 1.5-2.5 3-2.5s3 1 3 2.5-1.5 2-3 2.5c-1.5.5-3 1-3 2.5s1.5 2.5 3 2.5 3-1 3-2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        Online — ATB Benevity
-                    </h3>
-                    <p>Secure online donations through our partner platform. Credit card and bank transfer accepted.</p>
-                    <a href="https://www.atb.com/personal/benevity/" class="donate-btn donate-btn--primary" target="_blank" rel="noopener noreferrer">
-                        Donate Online
-                        <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </a>
-                </div>
-
-                <div class="donate-methods__card">
-                    <h3>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M2 5h18v12H2V5zm0 0l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-                        Interac e-Transfer
-                    </h3>
-                    <p>Send an e-transfer to Grande Spirit Foundation. Include <strong>"GPRS Donation"</strong> in the message for your tax receipt.</p>
-                    <p class="donate-methods__detail">Contact <a href="mailto:family@grandespirit.org">family@grandespirit.org</a> for e-transfer details.</p>
-                </div>
-
                 <div class="donate-methods__card">
                     <h3>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="7" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="13" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                         Cheque by Mail
                     </h3>
-                    <p>Make payable to <strong>Grande Spirit Foundation</strong> with <strong>"GPRS Donation"</strong> in the memo line.</p>
+                    <p>Make payable to <strong>Grande Prairie Residential Society</strong> with <strong>"GPRS Donation"</strong> in the memo line.</p>
                     <address class="donate-methods__address">
-                        GPRS c/o Grande Spirit Foundation<br>
+                        <strong>GPRS</strong><br>
+                        c/o Grande Spirit Foundation<br>
                         9503 102 Avenue<br>
                         Grande Prairie, AB T8V 7G9
                     </address>
