@@ -16,6 +16,43 @@
  * Updated: 2026-03-26 — Added fire rebuild page preload, slug-based fallbacks
  */
 
+/**
+ * Resolve srcset + sizes for a hero image URL.
+ *
+ * Uses WordPress' attachment metadata when it can find the upload. If the
+ * URL is an edited copy or can't be matched to an attachment, returns empty
+ * strings — callers should then fall back to single-image behaviour.
+ *
+ * @param string $image_url Full URL of the hero image.
+ * @return array{srcset:string,sizes:string}
+ */
+function gprs_hero_srcset_data( $image_url ) {
+	$attachment_id = attachment_url_to_postid( $image_url );
+	if ( ! $attachment_id ) {
+		return array( 'srcset' => '', 'sizes' => '' );
+	}
+	$srcset = wp_get_attachment_image_srcset( $attachment_id, 'full' );
+	if ( ! $srcset ) {
+		return array( 'srcset' => '', 'sizes' => '' );
+	}
+	return array(
+		'srcset' => $srcset,
+		'sizes'  => '100vw',
+	);
+}
+
+/**
+ * Returns ' srcset="..." sizes="100vw"' for inline use after the src attr of
+ * a hero <img>. Empty string when no responsive variants exist.
+ */
+function gprs_hero_srcset_attrs( $image_url ) {
+	$data = gprs_hero_srcset_data( $image_url );
+	if ( ! $data['srcset'] ) {
+		return '';
+	}
+	return ' srcset="' . esc_attr( $data['srcset'] ) . '" sizes="' . esc_attr( $data['sizes'] ) . '"';
+}
+
 add_action( 'wp_head', 'gprs_preload_hero_image', 1 );
 
 function gprs_preload_hero_image() {
@@ -66,6 +103,13 @@ function gprs_preload_hero_image() {
 	}
 
 	if ( $image ) {
-		echo '<link rel="preload" as="image" href="' . esc_url( $image ) . '" type="' . esc_attr( $type ) . '">' . "\n";
+		$data = gprs_hero_srcset_data( $image );
+		if ( $data['srcset'] ) {
+			// Responsive preload — browser picks matching candidate for viewport.
+			echo '<link rel="preload" as="image" imagesrcset="' . esc_attr( $data['srcset'] ) . '" imagesizes="' . esc_attr( $data['sizes'] ) . '" type="' . esc_attr( $type ) . '">' . "\n";
+		} else {
+			// Fallback: single-image preload when attachment metadata isn't available.
+			echo '<link rel="preload" as="image" href="' . esc_url( $image ) . '" type="' . esc_attr( $type ) . '">' . "\n";
+		}
 	}
 }

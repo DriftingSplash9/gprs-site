@@ -59,9 +59,10 @@ if (
 // ===============================
 if ($page_id == 1427 || is_page('volunteer')):
 ?>
+<?php $hero_img = $uploads . '/2025/11/pexels-photo-5029919-5029919-scaled-e1766013935470.jpg'; ?>
 <section class="hero hero--volunteer hero--soft" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url($uploads); ?>/2025/11/pexels-photo-5029919-5029919-scaled-e1766013935470.jpg"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt="Volunteers working together to support accessible housing"
 	     loading="eager"
 	     fetchpriority="high"
@@ -89,9 +90,10 @@ if ($page_id == 1427 || is_page('volunteer')):
 // ===============================
 elseif ($page_id == 1429 || is_page('our-story')):
 ?>
+<?php $hero_img = $uploads . '/2025/12/IMG_0988-scaled-e1764954260474.jpg'; ?>
 <section class="hero hero--story" id="content">
 	<img class="hero-bg-img"
-	     src="<?php echo esc_url($uploads); ?>/2025/12/IMG_0988-scaled-e1764954260474.jpg"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt="Accessible housing homes in Grande Prairie under an open sky"
 	     loading="eager"
 	     fetchpriority="high"
@@ -123,9 +125,10 @@ elseif ($page_id == 1429 || is_page('our-story')):
 // ===============================
 elseif ($page_id == 2418 || is_page('donate')):
 ?>
+<?php $hero_img = $uploads . '/2026/01/mem-cleaned-up.png'; ?>
 <section class="hero hero--donate" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url($uploads); ?>/2026/01/mem-cleaned-up.png"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt="Margaret Edgson Manor under construction during winter"
 	     loading="eager"
 	     fetchpriority="high"
@@ -156,9 +159,10 @@ elseif ($page_id == 2418 || is_page('donate')):
 // ===============================
 elseif (is_page('margaret-edgson-manor-rebuild-efforts')):
 ?>
+<?php $hero_img = $uploads . '/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg'; ?>
 <section class="hero hero--fire-rebuild" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url($uploads); ?>/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt="Aerial view of Margaret Edgson Manor under reconstruction, winter 2026"
 	     loading="eager"
 	     fetchpriority="high"
@@ -205,8 +209,9 @@ elseif ($page_id == get_option('page_on_front')):
 <section class="hero hero--home" aria-label="Homepage hero">
  
 	<div class="hero-bg">
+		<?php $hero_img = $uploads . '/2026/03/IMG_4052-e1774514929158.jpg'; ?>
 		<img class="hero-bg-img"
-			 src="<?php echo esc_url( $uploads . '/2026/03/IMG_4052-e1774514929158.jpg' ); ?>"
+			 src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 			 alt="Accessible housing complex in Grande Prairie, Alberta — barrier-free homes surrounded by open prairie landscape"
 			 width="1920"
 			 height="1080"
@@ -242,9 +247,10 @@ elseif ($page_id == get_option('page_on_front')):
 // ===============================
 elseif ($page_id == 182 || is_page('accessible-housing')):
 ?>
+<?php $hero_img = $uploads . '/2025/12/IMG_0991-1-scaled-e1774807371865.jpg'; ?>
 <section class="hero hero--housing" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url($uploads); ?>/2025/12/IMG_0991-1-scaled-e1774807371865.jpg"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt="Accessible duplex housing in Grande Prairie's Crystal Ridge neighbourhood with covered entrance and paved driveway"
 	     loading="eager"
 	     fetchpriority="high"
@@ -282,9 +288,10 @@ elseif ($page_id == 182 || is_page('accessible-housing')):
 // ===============================
 elseif ($page_id == 1300 || is_page('apply')):
 ?>
+<?php $hero_img = $uploads . '/2025/12/IMG_2284-scaled-e1774848390458.jpg'; ?>
 <section class="hero hero--apply" id="content">
     <img class="gprs-img-hero"
-         src="<?php echo esc_url($uploads); ?>/2025/12/IMG_2284-scaled-e1774848390458.jpg"
+         src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
          alt="Accessible duplex housing in Grande Prairie with covered entrance and landscaped grounds"
          loading="eager"
          fetchpriority="high"
@@ -322,9 +329,10 @@ elseif ($page_id == 1300 || is_page('apply')):
 // ===============================
 elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 ?>
+<?php $hero_img = $uploads . '/2025/12/IMG_1308-scaled-e1764904732232.jpg'; ?>
 <section class="hero hero--mem" id="content">
     <img class="gprs-img-hero"
-         src="<?php echo esc_url($uploads); ?>/2025/12/IMG_1308-scaled-e1764904732232.jpg"
+         src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
          alt="Margaret Edgson Manor four-storey apartment building entrance with covered portico"
          loading="eager"
          fetchpriority="high"
@@ -364,9 +372,10 @@ elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 // ===============================
 else:
 ?>
+<?php $hero_img = $uploads . '/2025/12/IMG_0983-scaled-e1764562777634.jpg'; ?>
 <section class="hero hero--default" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url($uploads); ?>/2025/12/IMG_0983-scaled-e1764562777634.jpg"
+	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 	     alt=""
 	     loading="eager"
 	     fetchpriority="high"

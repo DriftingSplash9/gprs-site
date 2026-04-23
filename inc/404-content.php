@@ -53,9 +53,10 @@ function gprs_404_render_hero() {
 	$home    = esc_url( home_url( '/' ) );
 	?>
 
+	<?php $hero_img = $uploads . '/2025/12/IMG_0983-scaled-e1764562777634.jpg'; ?>
 	<section class="hero hero--404" id="content">
 		<img class="gprs-img-hero"
-		     src="<?php echo esc_url( $uploads ); ?>/2025/12/IMG_0983-scaled-e1764562777634.jpg"
+		     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
 		     alt=""
 		     loading="eager"
 		     decoding="async"
