@@ -1,0 +1,152 @@
+/* ============================================================
+   23 — AGM / BBQ ANNOUNCEMENT BANNER
+   ============================================================
+   Purpose:  Slim, dismissible site-wide announcement bar shown
+             directly below the fixed header.
+   Markup:   inc/agm-banner.php
+   Loads:    Site-wide, but ONLY while the announcement is active
+             (auto-hides after the event date — see agm-banner.php)
+   Depends:  01-core-tokens-base.css, 02-header-nav-hero.css
+   Added:    2026-05-15
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   SPACE RESERVATION
+   ------------------------------------------------------------
+   The banner is position:fixed, so it is removed from normal
+   flow. We pad the body by the banner's height so no page
+   content is ever hidden underneath it.
+
+   --agm-banner-height starts at a sensible default and is then
+   refined to the banner's true rendered height by the small
+   script in inc/agm-banner.php (handles text wrapping on
+   narrow screens).
+   ------------------------------------------------------------ */
+:root {
+	--agm-banner-height: 56px;
+}
+
+body.has-agm-banner {
+	padding-top: var(--agm-banner-height, 56px);
+}
+
+
+/* ------------------------------------------------------------
+   THE BANNER BAR
+   ------------------------------------------------------------ */
+.gprs-agm-banner {
+	position: fixed;
+	top: var(--header-height, 72px);   /* sits directly below the header */
+	left: 0;
+	right: 0;
+	z-index: 900;                      /* above page content, below header dropdowns */
+	background: linear-gradient(135deg,
+		var(--clr-accent, #0066CC) 0%,
+		var(--clr-accent-hover, #0051a3) 100%);
+	color: var(--clr-text-light, #ffffff);
+	border-top: 1px solid rgba(255, 255, 255, 0.22);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+/* Shift below the WordPress admin bar for logged-in users. */
+.admin-bar .gprs-agm-banner {
+	top: calc(32px + var(--header-height, 72px));
+}
+@media (max-width: 782px) {
+	.admin-bar .gprs-agm-banner {
+		top: calc(46px + var(--header-height, 72px));
+	}
+}
+
+
+/* ------------------------------------------------------------
+   INNER LAYOUT — icon · message · close button
+   ------------------------------------------------------------ */
+.gprs-agm-banner__inner {
+	max-width: var(--max-content-width, 1400px);
+	margin-inline: auto;
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+	padding: 0.5rem 1rem;
+}
+
+.gprs-agm-banner__icon {
+	flex: 0 0 auto;
+	display: inline-flex;
+}
+
+.gprs-agm-banner__text {
+	flex: 1 1 auto;
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.45;
+	text-align: center;
+}
+
+.gprs-agm-banner__text strong {
+	font-weight: 700;
+}
+
+
+/* ------------------------------------------------------------
+   CLOSE BUTTON
+   ------------------------------------------------------------ */
+.gprs-agm-banner__close {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	border: 0;
+	border-radius: var(--radius-pill, 999px);
+	background: rgba(255, 255, 255, 0.16);
+	color: var(--clr-text-light, #ffffff);
+	cursor: pointer;
+	transition: background var(--anim-fast, 0.18s ease);
+}
+
+.gprs-agm-banner__close:hover {
+	background: rgba(255, 255, 255, 0.32);
+}
+
+
+/* ------------------------------------------------------------
+   DISMISSED STATE
+   ------------------------------------------------------------
+   The head script in inc/agm-banner.php adds .gprs-agm-dismissed
+   to <html> before paint when the visitor has closed the banner
+   on a previous visit — so it never flickers into view.
+   ------------------------------------------------------------ */
+html.gprs-agm-dismissed .gprs-agm-banner {
+	display: none !important;
+}
+html.gprs-agm-dismissed body.has-agm-banner {
+	padding-top: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+	.gprs-agm-banner__inner {
+		gap: 0.5rem;
+		padding: 0.5rem 0.75rem;
+		align-items: flex-start;
+	}
+	.gprs-agm-banner__icon {
+		padding-top: 2px;
+	}
+	.gprs-agm-banner__text {
+		font-size: 0.86rem;
+		text-align: left;
+	}
+	.gprs-agm-banner__close {
+		width: 30px;
+		height: 30px;
+	}
+}

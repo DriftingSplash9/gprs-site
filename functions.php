@@ -7,9 +7,10 @@
  * @package Astra Child
  * @since 1.0.0
  * Updated: 2026-03-27 — Added newsletter Brevo form shortcode, CSS module 14, newsletter-form.php include
+ * Updated: 2026-05-15 — Added AGM/BBQ announcement banner (inc/agm-banner.php, CSS module 23)
  */
 
-define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.0.0' );
+define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.1.0' );
 
 
 /* ============================================================
@@ -293,6 +294,18 @@ if ( is_page( 'gprs-application-submitted' ) ) {
 		array( 'gprs-01-core' ),
 		$v
 	);
+
+	// 23 — AGM / BBQ Announcement Banner
+	// Site-wide, but only enqueued while the announcement is active
+	// (auto-expires after the event — see inc/agm-banner.php).
+	if ( function_exists( 'gprs_agm_banner_active' ) && gprs_agm_banner_active() ) {
+		wp_enqueue_style(
+			'gprs-23-agm-banner',
+			$uri . '/css/23-agm-banner.css',
+			array( 'gprs-01-core', 'gprs-02-header' ),
+			$v
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'gprs_enqueue_styles', 15 );
 
@@ -492,7 +505,11 @@ require_once get_stylesheet_directory() . '/inc/app-submitted-content.php';
    
 // FAQ page content (self-hooking)
 require_once get_stylesheet_directory() . '/inc/faq-content.php';
- 
+
+// AGM / BBQ announcement banner (self-hooking — site-wide,
+// auto-expires after the event date)
+require_once get_stylesheet_directory() . '/inc/agm-banner.php';
+
 function gprs_output_custom_header() {
 	include get_stylesheet_directory() . '/parts/header.php';
 }
