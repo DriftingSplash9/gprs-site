@@ -68,25 +68,37 @@ function gprs_render_agm_banner() {
 <div id="gprs-agm-banner" class="gprs-agm-banner" role="region" aria-label="Event announcement">
 	<div class="gprs-agm-banner__inner">
 
-		<span class="gprs-agm-banner__icon" aria-hidden="true">
-			<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-			     stroke="currentColor" stroke-width="2.2"
-			     stroke-linecap="round" stroke-linejoin="round">
-				<rect x="3" y="4" width="18" height="18" rx="2"/>
-				<line x1="16" y1="2" x2="16" y2="6"/>
-				<line x1="8" y1="2" x2="8" y2="6"/>
-				<line x1="3" y1="10" x2="21" y2="10"/>
-			</svg>
+		<span class="gprs-agm-banner__date-chip" aria-hidden="true">
+			<span class="gprs-agm-banner__date-month">JUN</span>
+			<span class="gprs-agm-banner__date-day">16</span>
+			<span class="gprs-agm-banner__date-year">2026</span>
 		</span>
 
-		<p class="gprs-agm-banner__text">
-			<strong>You&rsquo;re invited!</strong>
-			GPRS BBQ &amp; Annual General Meeting &mdash;
-			<span class="gprs-agm-banner__date">Tuesday, June&nbsp;16,&nbsp;2026</span>.
-			BBQ supper 5:30&nbsp;pm &middot; AGM &amp; election of officers 7&nbsp;pm &middot;
-			GPRS 7-Plex parking lot, 9609&nbsp;&ndash;&nbsp;123&nbsp;Avenue.
-			Everyone welcome &mdash; voting memberships $5 at the door.
-		</p>
+		<div class="gprs-agm-banner__copy">
+
+			<p class="gprs-agm-banner__head">
+				<span class="screen-reader-text">You are invited to the </span>
+				Annual General Meeting
+				<span class="gprs-agm-banner__dash" aria-hidden="true">&mdash;</span>
+				<span class="gprs-agm-banner__welcome">open to everyone</span>
+			</p>
+
+			<p class="gprs-agm-banner__sub">
+				<span class="gprs-agm-banner__pill">Tenants</span>
+				<span class="gprs-agm-banner__pill-text">BBQ supper 5:30&nbsp;pm before the meeting</span>
+			</p>
+
+			<p class="gprs-agm-banner__meta">
+				<span class="gprs-agm-banner__date">Tuesday, June&nbsp;16,&nbsp;2026</span>
+				<span class="gprs-agm-banner__sep" aria-hidden="true">&middot;</span>
+				AGM 7:00&nbsp;pm
+				<span class="gprs-agm-banner__sep" aria-hidden="true">&middot;</span>
+				GPRS 7-Plex, 9609&nbsp;&ndash;&nbsp;123&nbsp;Avenue
+				<span class="gprs-agm-banner__sep" aria-hidden="true">&middot;</span>
+				$5 voting membership at the door
+			</p>
+
+		</div>
 
 	</div>
 </div>

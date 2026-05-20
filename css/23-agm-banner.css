@@ -8,6 +8,8 @@
              (auto-hides after the event date — see agm-banner.php)
    Depends:  01-core-tokens-base.css, 02-header-nav-hero.css
    Added:    2026-05-15
+   Refresh:  2026-05-19 — layered "aurora" background, date chip,
+             tenant-vs-public messaging split.
    ============================================================ */
 
 
@@ -21,24 +23,32 @@
    --agm-banner-height starts at a sensible default and is then
    refined to the banner's true rendered height by the small
    script in inc/agm-banner.php (handles text wrapping on
-   narrow screens).
+   narrow screens). New design is a bit taller — three text
+   lines next to a date chip — so default bumped from 56→96.
    ------------------------------------------------------------ */
 :root {
-	--agm-banner-height: 56px;
+	--agm-banner-height: 96px;
 }
 
 body.has-agm-banner {
-	padding-top: var(--agm-banner-height, 56px);
+	padding-top: var(--agm-banner-height, 96px);
 }
 
 
 /* ------------------------------------------------------------
    THE BANNER BAR
    ------------------------------------------------------------
-   An animated, multi-stop blue gradient with a gold top edge.
-   The slow gradient drift gives it life without being
-   distracting; it freezes automatically for visitors who have
-   "reduce motion" turned on (global rule in 01-core).
+   Layered "aurora" background:
+     1. ::before — main 135° linear gradient drifting slowly
+        across a wide background-size for organic motion.
+     2. ::after  — two radial blue/violet "blobs" pulsing at a
+        different cycle, blended in with mix-blend-mode:screen
+        to add depth without raising the brightness too much.
+   A solid colour underneath keeps the bar legible during the
+   first paint and as a fallback if filters/animations are off.
+   The 36s + 22s cycles are slow enough to feel calm and never
+   compete with the page content. Honours prefers-reduced-motion
+   via the global rule in 01-core-tokens-base.css.
    ------------------------------------------------------------ */
 .gprs-agm-banner {
 	position: fixed;
@@ -46,25 +56,59 @@ body.has-agm-banner {
 	left: 0;
 	right: 0;
 	z-index: 900;                      /* above page content, below header dropdowns */
+	overflow: hidden;
+	isolation: isolate;
 	color: #ffffff;
-	background: linear-gradient(100deg,
-		#062c5e 0%,
-		#0a4f9e 22%,
-		#0066cc 42%,
-		#2a86da 50%,
-		#0066cc 58%,
-		#0a4f9e 78%,
-		#062c5e 100%);
-	background-size: 220% 100%;
-	animation: gprs-agm-shift 16s ease-in-out infinite;
+	background-color: #0a2a78;         /* fallback before gradients paint */
 	border-top: 2px solid #ffc436;
-	box-shadow: 0 5px 18px rgba(0, 0, 0, 0.32);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+	box-shadow:
+		0 6px 22px rgba(0, 0, 0, 0.32),
+		inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Aurora layer 1 — slow horizontal flow */
+.gprs-agm-banner::before {
+	content: "";
+	position: absolute;
+	inset: -10%;
+	z-index: -2;
+	background: linear-gradient(
+		135deg,
+		#062c5e 0%,
+		#0a4f9e 25%,
+		#1a4ad6 50%,
+		#2e1a90 75%,
+		#062c5e 100%
+	);
+	background-size: 220% 220%;
+	animation: gprs-agm-shift 36s ease-in-out infinite;
+}
+
+/* Aurora layer 2 — two radial blobs drifting & pulsing */
+.gprs-agm-banner::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background:
+		radial-gradient(60% 220% at 18% 30%, rgba(80, 180, 255, 0.55), transparent 60%),
+		radial-gradient(55% 220% at 82% 70%, rgba(160, 80, 255, 0.42), transparent 65%);
+	mix-blend-mode: screen;
+	animation: gprs-agm-shimmer 22s ease-in-out infinite alternate;
+	pointer-events: none;
 }
 
 @keyframes gprs-agm-shift {
 	0%   { background-position:   0% 50%; }
 	50%  { background-position: 100% 50%; }
 	100% { background-position:   0% 50%; }
+}
+
+@keyframes gprs-agm-shimmer {
+	0%   { transform: translate3d(-2%,  0,    0) scale(1.00); opacity: 0.85; }
+	50%  { transform: translate3d( 2%, -1%,   0) scale(1.06); opacity: 1.00; }
+	100% { transform: translate3d( 0%,  1%,   0) scale(1.02); opacity: 0.90; }
 }
 
 /* Shift below the WordPress admin bar for logged-in users. */
@@ -79,69 +123,194 @@ body.has-agm-banner {
 
 
 /* ------------------------------------------------------------
-   INNER LAYOUT — gold icon chip + message
+   INNER LAYOUT — date chip + copy stack
+   ------------------------------------------------------------
+   Grid keeps the chip locked at the left and lets the copy
+   stack grow into whatever's left. No CTA in the bar itself —
+   the AGM is the call-to-action, and a button would crowd the
+   slim strip.
    ------------------------------------------------------------ */
 .gprs-agm-banner__inner {
 	max-width: var(--max-content-width, 1400px);
 	margin-inline: auto;
-	display: flex;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: clamp(14px, 2.2vw, 26px);
 	align-items: center;
-	gap: 14px;
-	padding: 8px 20px;
+	padding: 10px clamp(14px, 3vw, 28px);
 }
 
-/* Gold circular icon chip */
-.gprs-agm-banner__icon {
+
+/* ------------------------------------------------------------
+   DATE CHIP — white rounded tile with a red header strip
+   ------------------------------------------------------------ */
+.gprs-agm-banner__date-chip {
 	flex: 0 0 auto;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 38px;
-	height: 38px;
-	border-radius: 999px;
-	background: linear-gradient(150deg, #ffd877 0%, #ffc436 60%, #f0ad1c 100%);
-	color: #0a3a72;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+	display: grid;
+	grid-template-rows: auto auto auto;
+	justify-items: center;
+	width: 70px;
+	background: #ffffff;
+	color: #0f1a3c;
+	border-radius: 12px;
+	overflow: hidden;
+	line-height: 1;
+	font-family: var(--font-display, "Segoe UI", Arial, sans-serif);
+	box-shadow:
+		0 6px 16px rgba(0, 0, 0, 0.30),
+		inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
-.gprs-agm-banner__text {
-	flex: 1 1 auto;
-	margin: 0;
-	font-size: 0.95rem;
-	line-height: 1.45;
+.gprs-agm-banner__date-month {
+	width: 100%;
+	padding: 5px 0 4px;
+	background: #c41e1e;
+	color: #ffffff;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	font-size: 0.7rem;
 	text-align: center;
 }
 
-.gprs-agm-banner__text strong {
+.gprs-agm-banner__date-day {
+	font-weight: 800;
+	font-size: 1.85rem;
+	padding: 4px 0 1px;
+	letter-spacing: -0.02em;
+}
+
+.gprs-agm-banner__date-year {
+	font-size: 0.65rem;
+	font-weight: 700;
+	color: #54607a;
+	padding-bottom: 6px;
+	letter-spacing: 0.14em;
+}
+
+
+/* ------------------------------------------------------------
+   COPY STACK — headline, tenant pill row, meta line
+   ------------------------------------------------------------ */
+.gprs-agm-banner__copy {
+	min-width: 0;
+}
+
+.gprs-agm-banner__head {
+	margin: 0 0 4px;
+	font-size: clamp(1rem, 1.7vw, 1.25rem);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	color: #ffffff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+.gprs-agm-banner__dash {
+	opacity: 0.85;
+	margin: 0 0.15em;
+}
+.gprs-agm-banner__welcome {
+	color: #ffd864;
 	font-weight: 800;
 }
 
-/* The date pops in warm gold */
-.gprs-agm-banner__date {
-	color: #ffd877;
+.gprs-agm-banner__sub {
+	margin: 0 0 4px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+	font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+	color: #ffffff;
+	line-height: 1.4;
+}
+
+.gprs-agm-banner__pill {
+	display: inline-block;
+	background: linear-gradient(150deg, #ffd877 0%, #ffc436 60%, #f0ad1c 100%);
+	color: #3a1d00;
 	font-weight: 800;
+	font-size: 0.7rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
+}
+.gprs-agm-banner__pill-text {
+	font-weight: 600;
+}
+
+.gprs-agm-banner__meta {
+	margin: 0;
+	color: #d8e3ff;
+	font-size: clamp(0.75rem, 0.95vw, 0.85rem);
+	line-height: 1.45;
+}
+.gprs-agm-banner__date {
+	color: #ffd864;
+	font-weight: 700;
 	white-space: nowrap;
+}
+.gprs-agm-banner__sep {
+	margin: 0 0.45em;
+	opacity: 0.55;
 }
 
 
 /* ------------------------------------------------------------
    MOBILE
+   ------------------------------------------------------------
+   At narrow widths we drop the meta line to keep the bar slim,
+   shrink the chip, and let the headline + tenant pill carry the
+   message. The full details are still in the main hero copy on
+   the home page and on the News & FAQ pages.
    ------------------------------------------------------------ */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
 	:root {
-		--agm-banner-height: 104px;   /* better pre-JS fallback when text wraps */
+		--agm-banner-height: 112px;   /* pre-JS fallback */
 	}
 	.gprs-agm-banner__inner {
-		gap: 10px;
-		padding: 8px 14px;
-		align-items: flex-start;
+		gap: 12px;
+		padding: 10px 14px;
 	}
-	.gprs-agm-banner__icon {
-		width: 32px;
-		height: 32px;
+	.gprs-agm-banner__date-chip {
+		width: 58px;
 	}
-	.gprs-agm-banner__text {
+	.gprs-agm-banner__date-day {
+		font-size: 1.55rem;
+	}
+	.gprs-agm-banner__head {
+		font-size: 1rem;
+	}
+	.gprs-agm-banner__sub {
 		font-size: 0.85rem;
-		text-align: left;
 	}
+	.gprs-agm-banner__meta {
+		font-size: 0.78rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.gprs-agm-banner__meta {
+		display: none;   /* keep the bar slim on phones */
+	}
+	:root {
+		--agm-banner-height: 88px;
+	}
+}
+
+
+/* ------------------------------------------------------------
+   Screen-reader-only helper (in case the theme doesn't define
+   .screen-reader-text — most do; safe to keep here as backup).
+   ------------------------------------------------------------ */
+.gprs-agm-banner .screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
