@@ -365,6 +365,42 @@ elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 
 <?php
 // ===============================
+// MEM REBUILD ANNOUNCEMENT PAGE (62vh)
+// Slug: 'mem-rebuild-announcement'
+// ===============================
+elseif (is_page('mem-rebuild-announcement')):
+?>
+<?php $hero_img = $uploads . '/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg'; ?>
+<section class="hero hero--annc" id="content">
+    <img class="gprs-img-hero"
+         src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
+         alt="Aerial view of Margaret Edgson Manor under reconstruction"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+
+    <div class="hero-content hero-content--centered">
+        <div class="hero-stack">
+            <div class="hero-title-box">
+                <h1 class="hero-title">
+                    The Rebuild Is Officially Underway
+                </h1>
+            </div>
+
+            <p class="hero-mission">
+                Official announcement: reconstruction of Margaret Edgson Manor has begun.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-primary">Donate</a>
+                <a href="<?php echo esc_url(home_url('/margaret-edgson-manor-rebuild-efforts/')); ?>" class="btn btn-outline">Rebuild Progress</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php
+// ===============================
 // DEFAULT HERO (62vh)
 // ===============================
 // DEFAULT HERO (62vh)

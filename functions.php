@@ -180,6 +180,7 @@ function gprs_enqueue_styles() {
         'margaret-edgson-manor',
         'our-story',
         'timeline',
+        'mem-rebuild-announcement',
     );
     $needs_newsletter_css = gprs_page_has_newsletter();
     foreach ( $newsletter_pages as $slug ) {
@@ -283,6 +284,15 @@ if ( is_page( 'gprs-application-submitted' ) ) {
         wp_enqueue_style(
             'gprs-22-faq',
             $uri . '/css/22-faq.css',
+            array( 'gprs-00-shared', 'gprs-01-core' ),
+            $v
+        );
+    }
+    // 24 — MEM Rebuild Announcement (mem-rebuild-announcement page only)
+    if ( is_page( 'mem-rebuild-announcement' ) ) {
+        wp_enqueue_style(
+            'gprs-24-mem-announcement',
+            $uri . '/css/24-mem-announcement.css',
             array( 'gprs-00-shared', 'gprs-01-core' ),
             $v
         );
@@ -509,6 +519,10 @@ require_once get_stylesheet_directory() . '/inc/faq-content.php';
 // AGM / BBQ announcement banner (self-hooking — site-wide,
 // auto-expires after the event date)
 require_once get_stylesheet_directory() . '/inc/agm-banner.php';
+
+// MEM Rebuild Announcement press page (hooks into
+// astra_primary_content_top on 'mem-rebuild-announcement' slug)
+require_once get_stylesheet_directory() . '/inc/mem-announcement-content.php';
 
 function gprs_output_custom_header() {
 	include get_stylesheet_directory() . '/parts/header.php';
@@ -852,6 +866,11 @@ function gprs_append_newsletter_to_pages( $content ) {
         $show    = true;
         $heading = 'Stay Connected';
         $subtext = 'Community milestones, housing updates, and ways to get involved — delivered to your inbox.';
+    }
+    if ( is_page( 'mem-rebuild-announcement' ) ) {
+        $show    = true;
+        $heading = 'Stay Updated on the Rebuild';
+        $subtext = 'Construction milestones, community news, and ways to support — straight to your inbox.';
     }
     if ( ! $show ) {
         return $content;
