@@ -26,6 +26,7 @@
      8.  Contact Footer Bar
      9.  Dark Mode Overrides
      10. Responsive
+     11. Astra Content Gap Fix
    ============================================================ */
 
 
@@ -213,4 +214,48 @@ html.gprs-dark .gprs-annc__contact {
 	.gprs-annc__heading {
 		font-size: 1.45rem;
 	}
+}
+
+
+/* ============================================================
+   11. ASTRA CONTENT GAP FIX
+   ──────────────────────────────────────────────────────────────
+   Astra's separate-container layout gives the article a white
+   box background — make it transparent so the global (dark
+   mode) background shows through, matching the other pages.
+============================================================ */
+
+/* Collapse Astra's default article spacing */
+.ast-separate-container .ast-article-single {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove Astra container padding around the content area */
+.ast-separate-container .site-main > article {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Remove entry-content default padding */
+.ast-separate-container .entry-content {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* If Astra uses non-separate container layout */
+.site-main > article {
+    margin-bottom: 0;
+}
+
+.site-main > article > .entry-content {
+    padding: 0;
+}
+
+/* Give the newsletter wrapper proper spacing from the
+   announcement content above it */
+.entry-content > .donate-newsletter-wrap {
+    padding-top: var(--space-xl, 4rem);
+    padding-bottom: var(--space-lg, 2rem);
 }
