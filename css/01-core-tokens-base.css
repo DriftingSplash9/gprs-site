@@ -510,9 +510,16 @@ figure.gallery-item img:focus-visible {
 /* ============================================================
    FINAL BACKGROUND OWNERSHIP — DARK MODE
    Must come LAST in this file
+
+   body.ast-plain-container included with higher specificity:
+   Astra puts .ast-plain-container on <body> itself, so the
+   wrapper-transparency rule above (html.gprs-dark
+   .ast-plain-container) otherwise outranks this gradient and
+   leaves the body transparent → white page behind dark content.
 ============================================================ */
 
-html.gprs-dark body {
+html.gprs-dark body,
+html.gprs-dark body.ast-plain-container {
   background: linear-gradient(
     135deg,
     #0f0f1a 0%,    /* near-black with subtle blue hint */
