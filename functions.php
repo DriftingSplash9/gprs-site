@@ -10,7 +10,7 @@
  * Updated: 2026-05-15 — Added AGM/BBQ announcement banner (inc/agm-banner.php, CSS module 23)
  */
 
-define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.1.1' );
+define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.1.2' );
 
 
 /* ============================================================
