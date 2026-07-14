@@ -177,7 +177,7 @@ elseif (is_page('margaret-edgson-manor-rebuild-efforts')):
 			</div>
 
 			<p class="hero-mission">
-				Restoring 70 accessible, affordable homes &mdash; stronger than before.
+				Rebuilding accessible and affordable housing &mdash; better than before.
 			</p>
 
 			<div class="hero-buttons">
