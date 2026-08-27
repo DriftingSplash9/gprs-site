@@ -96,9 +96,29 @@ function gprs_preload_hero_image() {
 		} elseif ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {
 			$image = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg';
 
-		// Homepage + all other pages (default hero)
+		// MEM announcement page (slug 'mem-rebuild-announcement')
+		} elseif ( is_page( 'mem-rebuild-announcement' ) ) {
+			$image = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg';
+
+		// Margaret Edgson Manor page (ID 1433, slug 'margaret-edgson-manor')
+		} elseif ( $page_id === 1433 || is_page( 'margaret-edgson-manor' ) ) {
+			$image = $uploads . '/2026/08/mem-2026-08-site-wide-hero.jpg';
+
+		// Apply page (ID 1300, slug 'apply')
+		} elseif ( $page_id === 1300 || is_page( 'apply' ) ) {
+			$image = $uploads . '/2026/08/gprs-homes-2026-08-entrances.jpg';
+
+		// Accessible Housing page (ID 182, slug 'accessible-housing')
+		} elseif ( $page_id === 182 || is_page( 'accessible-housing' ) ) {
+			$image = $uploads . '/2025/12/IMG_0991-1-scaled-e1774807371865.jpg';
+
+		// Homepage (whichever page is set as the front page)
+		} elseif ( $page_id === (int) get_option( 'page_on_front' ) ) {
+			$image = $uploads . '/2026/08/gprs-homes-2026-08-row.jpg';
+
+		// Every remaining page — matches the default hero in hero.php
 		} else {
-			$image = $uploads . '/2026/03/IMG_4052-e1774514929158.jpg';
+			$image = $uploads . '/2025/12/IMG_0983-scaled-e1764562777634.jpg';
 		}
 	}
 

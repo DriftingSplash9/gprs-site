@@ -209,10 +209,10 @@ elseif ($page_id == get_option('page_on_front')):
 <section class="hero hero--home" aria-label="Homepage hero">
  
 	<div class="hero-bg">
-		<?php $hero_img = $uploads . '/2026/03/IMG_4052-e1774514929158.jpg'; ?>
+		<?php $hero_img = $uploads . '/2026/08/gprs-homes-2026-08-row.jpg'; ?>
 		<img class="hero-bg-img"
 			 src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-			 alt="Accessible housing complex in Grande Prairie, Alberta — barrier-free homes surrounded by open prairie landscape"
+			 alt="A row of GPRS single-storey barrier-free homes in Grande Prairie under a clear blue sky, each with its own front entrance"
 			 width="1920"
 			 height="1080"
 			 fetchpriority="high"
@@ -288,11 +288,11 @@ elseif ($page_id == 182 || is_page('accessible-housing')):
 // ===============================
 elseif ($page_id == 1300 || is_page('apply')):
 ?>
-<?php $hero_img = $uploads . '/2025/12/IMG_2284-scaled-e1774848390458.jpg'; ?>
+<?php $hero_img = $uploads . '/2026/08/gprs-homes-2026-08-entrances.jpg'; ?>
 <section class="hero hero--apply" id="content">
     <img class="gprs-img-hero"
          src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-         alt="Accessible duplex housing in Grande Prairie with covered entrance and landscaped grounds"
+         alt="Front entrances of two GPRS barrier-free homes, each with a level walkway from the sidewalk to the door"
          loading="eager"
          fetchpriority="high"
          decoding="async">
@@ -329,11 +329,11 @@ elseif ($page_id == 1300 || is_page('apply')):
 // ===============================
 elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 ?>
-<?php $hero_img = $uploads . '/2025/12/IMG_1308-scaled-e1764904732232.jpg'; ?>
+<?php $hero_img = $uploads . '/2026/08/mem-2026-08-site-wide-hero.jpg'; ?>
 <section class="hero hero--mem" id="content">
     <img class="gprs-img-hero"
          src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-         alt="Margaret Edgson Manor four-storey apartment building entrance with covered portico"
+         alt="Margaret Edgson Manor in August 2026, stripped back to bare sheathing behind construction fencing, seen across the parking lot"
          loading="eager"
          fetchpriority="high"
          decoding="async">
