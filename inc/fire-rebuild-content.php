@@ -73,19 +73,22 @@ function gprs_render_fire_rebuild_content() {
 					<time class="gprs-fire__update-date" datetime="2026-08">August 2026</time>
 					<span class="gprs-fire__update-badge">Latest</span>
 				</div>
-				<h3 class="gprs-fire__update-title">The old siding is off &mdash; and a new envelope is going on</h3>
+				<h3 class="gprs-fire__update-title">Down to bare board: the old skin is coming off</h3>
 				<div class="gprs-fire__update-body">
-					<p>The siding has been stripped from the entire building and Margaret
-					Edgson Manor is being prepared for a completely new exterior. New
-					sheathing is up, the weather barrier is going on around it, and the
-					new windows are in with their protective film still attached. What is
-					left is the cladding itself.</p>
+					<p>Crews have begun removing the old siding, stucco and
+					mould-damaged sheathing from Margaret Edgson Manor. The west end and
+					the front are already down to bare board; the rest of the building
+					still carries its original siding, and that is coming off too.</p>
 
-					<p>It looks stark from 107A&nbsp;Avenue right now &mdash; bare board
-					and black wrap, four storeys of it. But this is the stage where a
-					building stops being patched and starts being genuinely rebuilt: a
-					new envelope means a warmer, tighter, more efficient Manor than the
-					one that stood here before.</p>
+					<p>It looks stark from 107A&nbsp;Avenue right now. But taking the
+					building back to bare board is exactly what has to happen before
+					anything new can go on it, and it is the first change in a year that
+					you can see from the street.</p>
+
+					<p>Out of sight, the same crews are treating the building for smoke
+					odour, installing new sprinkler risers, and reworking bulkheads. The
+					architectural drawings are nearly final &mdash; among the last pieces
+					are the new roll-in showers for the modified accessible suites.</p>
 
 					<p>Work continues with our construction partner,
 					<strong>Terrace Construction Development Inc.</strong> We will keep
@@ -283,9 +286,9 @@ function gprs_render_fire_rebuild_content() {
 			<div class="gprs-fire__milestone">
 				<span class="gprs-fire__milestone-icon" aria-hidden="true">✓</span>
 				<span class="gprs-fire__milestone-text">
-					<strong>New envelope underway</strong> &mdash; old siding stripped
-					off, new sheathing and weather barrier going on, and new windows set
-					ahead of the new cladding.
+					<strong>Strip-out underway</strong> &mdash; old siding, stucco and
+					mould-damaged sheathing coming off, alongside smoke-odour abatement,
+					new sprinkler risers and bulkhead changes.
 				</span>
 			</div>
 
@@ -297,33 +300,33 @@ function gprs_render_fire_rebuild_content() {
 		<div class="gprs-fire__images">
 			<figure class="gprs-fire__image-tile">
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/08/mem-rebuild-2026-08-southwest-corner.jpg"
-				     alt="Margaret Edgson Manor from the southwest in August 2026, stripped back to bare sheathing across all four storeys, with balconies and new windows in place behind construction fencing"
+				     alt="Margaret Edgson Manor from the southwest in August 2026, with the old siding and stucco stripped from this elevation down to bare sheathing, balconies in place, behind construction fencing"
 				     loading="lazy"
 				     decoding="async"
 				     width="1600"
 				     height="1200">
 				<figcaption class="gprs-fire__image-caption">
-					The southwest corner: the old siding is gone and the building is back
-					to bare sheathing. August 18, 2026.
+					The west end, down to bare board as the old siding and stucco come
+					off. August 18, 2026.
 				</figcaption>
 			</figure>
 
 			<figure class="gprs-fire__image-tile">
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/08/mem-rebuild-2026-08-front-elevation.jpg"
-				     alt="The front of Margaret Edgson Manor in August 2026, with black weather barrier and new sheathing across the elevation, new windows installed, and the entrance canopy re-shingled"
+				     alt="The front of Margaret Edgson Manor in August 2026, part-stripped to bare sheathing and dark underlay, with the covered main entrance below"
 				     loading="lazy"
 				     decoding="async"
 				     width="1600"
 				     height="1200">
 				<figcaption class="gprs-fire__image-caption">
-					The front elevation, wrapped in weather barrier with the new windows
-					in &mdash; ready for the new cladding. August 18, 2026.
+					The front of the building part-way through the strip-out.
+					August 18, 2026.
 				</figcaption>
 			</figure>
 
 			<figure class="gprs-fire__image-tile">
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/08/mem-rebuild-2026-08-lift-on-site.jpg"
-				     alt="A boom lift parked along the front of Margaret Edgson Manor in August 2026, beside the stripped exterior and the covered main entrance"
+				     alt="A boom lift parked along the front of Margaret Edgson Manor in August 2026, beside the part-stripped exterior and the covered main entrance"
 				     loading="lazy"
 				     decoding="async"
 				     width="1600"
