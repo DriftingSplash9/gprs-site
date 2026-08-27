@@ -79,19 +79,20 @@ function gprs_render_mem_announcement_content() {
 		</div>
 
 		<blockquote class="gprs-annc__quote gprs-blockquote">
-			<p>&ldquo;This is the stage our residents and our community have been waiting
-			to see. Margaret Edgson Manor has always been more than a building &mdash; it
-			is a home, and a promise that accessible, affordable housing belongs in Grande
-			Prairie. Taking the old walls off is how that promise gets kept.&rdquo;</p>
+			<p>&ldquo;This is the stage our community and in particular our residents have
+			been waiting to see. Margaret Edgson Manor has always been more than a
+			building &mdash; it is a home, and a promise that accessible, affordable
+			housing belongs in Grande Prairie. Taking the old wall coverings off is how
+			that gets started.&rdquo;</p>
 			<cite>&mdash; GPRS Board of Directors</cite>
 		</blockquote>
 
 		<div class="gprs-annc__body">
 			<p>The rebuilt <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor/' ) ); ?>">Margaret
-			Edgson Manor</a> will again provide <strong>70 homes &mdash; 20 of them
-			wheelchair-accessible, all of them two-bedroom</strong> &mdash; restoring a
-			vital supply of accessible and affordable housing for people with physical
-			disabilities, seniors, and families. Architectural drawings are nearly final;
+			Edgson Manor</a> will again provide <strong>70 homes, 20 of them
+			wheelchair-accessible</strong> &mdash; restoring a vital supply of accessible
+			and affordable housing for people with physical disabilities, seniors and
+			families. Architectural drawings are nearly final;
 			among the last details being confirmed are new roll-in showers for the
 			modified accessible suites.</p>
 
@@ -128,7 +129,7 @@ function gprs_render_mem_announcement_content() {
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">The Fire</span>
-				<span class="gprs-annc__fact-text">June 9, 2025 &mdash; over 70 residents displaced, no lives lost</span>
+				<span class="gprs-annc__fact-text">June 9, 2025 &mdash; more than 70 residents displaced, no lives lost</span>
 			</div>
 
 			<div class="gprs-annc__fact gprs-glass-card">
