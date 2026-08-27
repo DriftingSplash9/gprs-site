@@ -3,10 +3,12 @@
  * MEM Rebuild Announcement — Page Content
  * Self-hooking: require_once in functions.php
  *
- * Permanent press-release page for the official commencement of
- * the Margaret Edgson Manor rebuild. Written to be cited by local
- * media: dateline, quotable copy, quick facts, and a For Media
- * section with downloadable assets.
+ * Permanent press-release page for the Margaret Edgson Manor
+ * rebuild. Written to be cited by local media: dateline, quotable
+ * copy, quick facts, and a For Media section with downloadable
+ * assets. Mirrors the Word/PDF release in
+ * "New website/MEM Rebuild Press Release Aug 2026.docx" - if one
+ * changes, change both.
  *
  * The dateline uses the page's PUBLISH date, so it is correct
  * automatically on launch day — keep the page as a DRAFT until
@@ -52,38 +54,46 @@ function gprs_render_mem_announcement_content() {
 	     SECTION 1 — THE ANNOUNCEMENT
 	     ═══════════════════════════════════════════════════ -->
 	<section class="gprs-annc__section" id="announcement">
-		<h2 class="gprs-annc__heading gprs-gradient-heading">Rebuilding Officially Begins at Margaret Edgson Manor</h2>
+		<h2 class="gprs-annc__heading gprs-gradient-heading">Margaret Edgson Manor Stripped to Bare Board as Rebuild Advances</h2>
 
 		<div class="gprs-annc__body">
-			<p><strong>The Grande Prairie Residential Society (GPRS) is proud to announce
-			that the rebuilding of Margaret Edgson Manor is officially underway.</strong>
-			Just over a year after the devastating fire of June 9, 2025 &mdash; which
-			displaced our residents but, thankfully, took no lives &mdash; construction
-			crews are on site and reconstruction is moving forward.</p>
+			<p><strong>The Grande Prairie Residential Society (GPRS) reports that
+			reconstruction at Margaret Edgson Manor has reached its most visible stage
+			yet.</strong> Crews from Terrace Construction Development Inc. are removing
+			the building&rsquo;s original vinyl siding &mdash; all four storeys of it
+			&mdash; along with sheathing damaged by moisture, leaving the exterior fully
+			exposed and ready for a new envelope.</p>
 
-			<p>Progress is already visible and will accelerate in the weeks ahead:
-			<strong>new siding is scheduled for delivery soon, along with new windows and
-			doors.</strong> Each delivery brings us one step closer to welcoming residents
-			back home. GPRS is proud to continue this work with our construction partner,
-			<strong>Terrace Construction Development Inc.</strong></p>
+			<p>To passers-by on 107A&nbsp;Avenue the building now looks worse than it has
+			in months: bare board and patches of black wrap. That appearance is the work,
+			not a setback. A new building envelope is the difference between a structure
+			that has been patched and one that has been genuinely rebuilt &mdash; warmer,
+			tighter and cheaper to heat than the Manor that stood here before.</p>
+
+			<p>Much of the past year&rsquo;s work has been invisible from outside:
+			controlled demolition, mould mitigation, a new roof built to updated codes,
+			the reframing of the fourth floor, and a boiler run through the winter to keep
+			the foundation from heaving. Work underway inside the building now includes
+			treatment for smoke odour throughout, new sprinkler risers, and alterations to
+			bulkheads.</p>
 		</div>
 
 		<blockquote class="gprs-annc__quote gprs-blockquote">
-			<p>&ldquo;This is the milestone our residents and our community have been
-			waiting for. Margaret Edgson Manor has always been more than a building
-			&mdash; it is a home, and a promise that accessible, affordable housing
-			belongs in Grande Prairie. Seeing materials arrive and walls take shape again
-			means that promise is being kept.&rdquo;</p>
+			<p>&ldquo;This is the stage our residents and our community have been waiting
+			to see. Margaret Edgson Manor has always been more than a building &mdash; it
+			is a home, and a promise that accessible, affordable housing belongs in Grande
+			Prairie. Taking the old walls off is how that promise gets kept.&rdquo;</p>
 			<cite>&mdash; GPRS Board of Directors</cite>
 		</blockquote>
 
 		<div class="gprs-annc__body">
 			<p>The rebuilt <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor/' ) ); ?>">Margaret
-			Edgson Manor</a> will once again offer barrier-free and standard apartments,
-			restoring a vital supply of accessible and affordable housing for people with
-			physical disabilities, seniors, and families in our community. The
-			reconstruction meets modern building codes and improves accessibility, safety,
-			and energy efficiency throughout the building.</p>
+			Edgson Manor</a> will again provide <strong>70 homes &mdash; 20 of them
+			wheelchair-accessible, all of them two-bedroom</strong> &mdash; restoring a
+			vital supply of accessible and affordable housing for people with physical
+			disabilities, seniors, and families. Architectural drawings are nearly final;
+			among the last details being confirmed are new roll-in showers for the
+			modified accessible suites.</p>
 
 			<p>GPRS extends its continued gratitude to the first responders who kept
 			everyone safe on the night of the fire, to the Grande Spirit Foundation and
@@ -108,7 +118,7 @@ function gprs_render_mem_announcement_content() {
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">What</span>
-				<span class="gprs-annc__fact-text">Official commencement of the rebuilding of Margaret Edgson Manor</span>
+				<span class="gprs-annc__fact-text">The Manor&rsquo;s exterior comes off, clearing the way for a new building envelope</span>
 			</div>
 
 			<div class="gprs-annc__fact gprs-glass-card">
@@ -123,12 +133,12 @@ function gprs_render_mem_announcement_content() {
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">Completed</span>
-				<span class="gprs-annc__fact-text">Selective demolition, mold mitigation, permanent roof to updated codes, fourth-floor reframing</span>
+				<span class="gprs-annc__fact-text">Controlled demolition, mould mitigation, permanent roof to updated codes, fourth-floor reframing, winter protection of the foundation</span>
 			</div>
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">Happening Now</span>
-				<span class="gprs-annc__fact-text">Crews on site &mdash; siding, new windows, and doors arriving</span>
+				<span class="gprs-annc__fact-text">Original vinyl siding and moisture-damaged sheathing coming off; smoke-odour treatment, new sprinkler risers and bulkhead changes inside</span>
 			</div>
 
 			<div class="gprs-annc__fact gprs-glass-card">
@@ -168,7 +178,7 @@ function gprs_render_mem_announcement_content() {
 		<ul class="gprs-annc__media-list">
 			<!-- Verify this URL after uploading the final PDF to the
 			     Media Library on launch day. -->
-			<li><a href="<?php echo esc_url( $uploads . '/2026/07/MEM-Rebuild-Press-Release-July-2026.pdf' ); ?>">Download the press release (PDF)</a></li>
+			<li><a href="<?php echo esc_url( $uploads . '/2026/08/MEM-Rebuild-Press-Release-Aug-2026.pdf' ); ?>">Download the press release (PDF)</a></li>
 			<li><a href="<?php echo esc_url( $uploads . '/2025/11/cropped-new-logo.jpg' ); ?>">Download the GPRS logo (JPG)</a></li>
 			<li>Background: <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor/' ) ); ?>">About Margaret Edgson Manor</a> &middot; <a href="<?php echo esc_url( home_url( '/accessible-housing/' ) ); ?>">Our Accessible Housing</a></li>
 		</ul>
