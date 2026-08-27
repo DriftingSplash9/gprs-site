@@ -32,6 +32,7 @@ function gprs_render_fire_rebuild_content() {
 <nav class="gprs-quicklinks" aria-label="Page sections">
 	<ul class="gprs-quicklinks-list">
 		<li><span class="gprs-ql-label">Jump to:</span></li>
+		<li><a href="#updates">Latest Updates</a></li>
 		<li><a href="#the-fire">The Fire</a></li>
 		<li><a href="#about-mem">About the Manor</a></li>
 		<li><a href="#rebuild-progress">Rebuild Progress</a></li>
@@ -42,6 +43,102 @@ function gprs_render_fire_rebuild_content() {
 </nav>
 
 <article class="gprs-fire gprs-tinted-text" aria-label="Margaret Edgson Manor fire and rebuild updates">
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 0 — LATEST REBUILD UPDATES
+	     Newest entry first. To post a new update, copy the
+	     <article> block marked TEMPLATE below, paste it directly
+	     under the "NEWEST UPDATE GOES HERE" comment, and remove
+	     the gprs-fire__update--latest modifier from the entry
+	     that is no longer the newest.
+	     ═══════════════════════════════════════════════════ -->
+	<section class="gprs-fire__section" id="updates">
+		<h2 class="gprs-fire__heading gprs-gradient-heading">Latest Rebuild Updates</h2>
+
+		<div class="gprs-fire__body">
+			<p>Short updates from the job site at 11010&nbsp;107A&nbsp;Avenue, newest
+			first. For the full story of the fire and the road back, keep reading
+			below &mdash; or see our
+			<a href="<?php echo esc_url( home_url( '/mem-rebuild-announcement/' ) ); ?>">official
+			rebuild announcement</a>.</p>
+		</div>
+
+		<div class="gprs-fire__updates">
+
+			<!-- ── NEWEST UPDATE GOES HERE ── -->
+
+			<article class="gprs-fire__update gprs-fire__update--latest">
+				<div class="gprs-fire__update-meta">
+					<time class="gprs-fire__update-date" datetime="2026-08">August 2026</time>
+					<span class="gprs-fire__update-badge">Latest</span>
+				</div>
+				<h3 class="gprs-fire__update-title">The Manor looks like a building again</h3>
+				<div class="gprs-fire__update-body">
+					<p>Crews are on site and the exterior is going back on. Windows and
+					doors are being set and the building envelope is being closed in
+					&mdash; the most visible change at Margaret Edgson Manor since the
+					night of the fire. If you drive past 107A&nbsp;Avenue now, you see a
+					building rather than a shell.</p>
+
+					<p>This work continues with our construction partner,
+					<strong>Terrace Construction Development Inc.</strong> We will keep
+					posting progress here and on our
+					<a href="https://www.facebook.com/Gpresidential/" rel="noopener">Facebook
+					page</a> as each stage is finished.</p>
+				</div>
+			</article>
+
+			<article class="gprs-fire__update">
+				<div class="gprs-fire__update-meta">
+					<time class="gprs-fire__update-date" datetime="2026-05">Spring 2026</time>
+				</div>
+				<h3 class="gprs-fire__update-title">Weather-tight, and waiting on materials</h3>
+				<div class="gprs-fire__update-body">
+					<p>With the new permanent roof installed to updated building codes and
+					the fourth-floor walls reframed, the structure was closed to the
+					weather. The project then moved into its materials phase &mdash;
+					siding, windows and doors on order &mdash; which is the quiet stretch
+					that made the site look still from the street even as the work carried
+					on.</p>
+				</div>
+			</article>
+
+			<article class="gprs-fire__update">
+				<div class="gprs-fire__update-meta">
+					<time class="gprs-fire__update-date" datetime="2026-01">Winter 2025&ndash;26</time>
+				</div>
+				<h3 class="gprs-fire__update-title">Protecting the building through the cold</h3>
+				<div class="gprs-fire__update-body">
+					<p>Selective demolition and mold mitigation were completed and the
+					structure stripped to bare studs. Through the winter the boiler was
+					run to keep the foundation from heaving, and on-site safety measures
+					&mdash; lighting, security cameras, thermal monitoring, and fencing to
+					Alberta Safety Code standards &mdash; kept the site secure.</p>
+				</div>
+			</article>
+
+			<!-- ────────────────────────────────────────────
+			     TEMPLATE — copy this block for the next update.
+			     Add gprs-fire__update--latest and the "Latest"
+			     badge to whichever entry is newest.
+
+			     <article class="gprs-fire__update">
+			         <div class="gprs-fire__update-meta">
+			             <time class="gprs-fire__update-date" datetime="2026-MM">Month 2026</time>
+			         </div>
+			         <h3 class="gprs-fire__update-title">Headline</h3>
+			         <div class="gprs-fire__update-body">
+			             <p>What changed on site, in plain language.</p>
+			         </div>
+			     </article>
+			     ──────────────────────────────────────────── -->
+
+		</div>
+	</section>
+
+
+	<hr class="gprs-fire__divider" aria-hidden="true">
 
 
 	<!-- ═══════════════════════════════════════════════════
@@ -129,7 +226,7 @@ function gprs_render_fire_rebuild_content() {
 			conditions.</p>
 		</div>
 
-		<h3 class="gprs-fire__subheading gprs-gradient-subheading">Key Milestones (as of early 2026)</h3>
+		<h3 class="gprs-fire__subheading gprs-gradient-subheading">Key Milestones (as of August 2026)</h3>
 
 		<div class="gprs-fire__milestones">
 
@@ -174,6 +271,14 @@ function gprs_render_fire_rebuild_content() {
 				<span class="gprs-fire__milestone-text">
 					<strong>Construction advancing steadily</strong> through challenging
 					winter conditions, with some framing and structural work underway.
+				</span>
+			</div>
+
+			<div class="gprs-fire__milestone">
+				<span class="gprs-fire__milestone-icon" aria-hidden="true">✓</span>
+				<span class="gprs-fire__milestone-text">
+					<strong>Building envelope underway</strong> &mdash; crews back on
+					site with windows and doors being set and the exterior closed in.
 				</span>
 			</div>
 

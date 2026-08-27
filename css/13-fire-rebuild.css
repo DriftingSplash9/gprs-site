@@ -43,6 +43,7 @@
      6.  Blockquotes — structure/background only
      7.  Section Dividers
      8.  Milestone Cards (progress timeline)
+     8B. Rebuild Update Feed (dated entries, newest first)
      9.  Feature / Vision Cards
      10. Image Tiles (with hover lift)
      11. CTA Cards (Donate / Volunteer / In-Kind)
@@ -254,6 +255,105 @@
 	font-size: 0.95rem;
 	line-height: 1.55;
 	color: var(--clr-text-body, #111827);
+}
+
+
+/* ============================================================
+   8B. REBUILD UPDATE FEED
+   ============================================================
+   Dated short updates at the top of the page (#updates).
+   Stacked, newest first, each with an accent rail on the left.
+   The newest entry adds --latest for a brighter rail + pill.
+   Markup: inc/fire-rebuild-content.php, SECTION 0.
+============================================================ */
+
+.gprs-fire__updates {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	margin: 1.5rem 0 0;
+}
+
+.gprs-fire__update {
+	--fire-update-bg:      #ffffff;
+	--fire-update-border:  rgba(0, 102, 204, 0.12);
+	--fire-update-rail:    rgba(0, 102, 204, 0.30);
+	--fire-update-shadow:  0 2px 12px rgba(0, 0, 0, 0.06);
+	--fire-update-shadow-hover:
+		0 12px 32px rgba(0, 102, 204, 0.18),
+		0 2px 8px rgba(0, 0, 0, 0.08);
+	--fire-update-blur:    none;
+
+	background: var(--fire-update-bg);
+	border: 1px solid var(--fire-update-border);
+	border-left: 4px solid var(--fire-update-rail);
+	border-radius: var(--radius-md, 14px);
+	padding: 1.15rem 1.35rem;
+
+	box-shadow: var(--fire-update-shadow);
+	backdrop-filter: var(--fire-update-blur);
+	-webkit-backdrop-filter: var(--fire-update-blur);
+
+	transition:
+		transform    var(--anim-medium, 0.3s ease),
+		box-shadow   var(--anim-medium, 0.3s ease),
+		border-color var(--anim-medium, 0.3s ease);
+}
+
+.gprs-fire__update:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--fire-update-shadow-hover);
+}
+
+.gprs-fire__update--latest {
+	--fire-update-rail: #0a6bff;
+}
+
+.gprs-fire__update-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin-bottom: 0.45rem;
+}
+
+.gprs-fire__update-date {
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--clr-accent, #0066CC);
+}
+
+.gprs-fire__update-badge {
+	display: inline-block;
+	padding: 0.15rem 0.6rem;
+	border-radius: var(--radius-pill, 999px);
+	background: linear-gradient(135deg, #0a6bff, #004a9f);
+	color: #ffffff;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.gprs-fire__update-title {
+	margin: 0 0 0.4rem;
+	font-size: 1.12rem;
+	line-height: 1.35;
+	color: var(--clr-text-heading, #000000);
+}
+
+.gprs-fire__update-body p {
+	margin: 0 0 0.6rem;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: var(--clr-text-body, #111827);
+}
+
+.gprs-fire__update-body p:last-child {
+	margin-bottom: 0;
 }
 
 
@@ -546,6 +646,31 @@ html.gprs-dark .gprs-fire__milestone {
 
 html.gprs-dark .gprs-fire__milestone:hover {
 	border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Rebuild Update Feed ── */
+html.gprs-dark .gprs-fire__update {
+	--fire-update-bg:      rgba(255, 255, 255, 0.08);
+	--fire-update-border:  rgba(255, 255, 255, 0.15);
+	--fire-update-rail:    rgba(255, 255, 255, 0.28);
+	--fire-update-shadow:  0 2px 12px rgba(0, 0, 0, 0.25);
+	--fire-update-shadow-hover:
+		0 12px 32px rgba(0, 102, 204, 0.30),
+		0 0 18px rgba(0, 102, 204, 0.12),
+		0 2px 8px rgba(0, 0, 0, 0.30);
+	--fire-update-blur:    blur(12px);
+}
+
+html.gprs-dark .gprs-fire__update--latest {
+	--fire-update-rail: #4d9bff;
+}
+
+html.gprs-dark .gprs-fire__update-date {
+	color: #7fb8ff;
+}
+
+html.gprs-dark .gprs-fire__update-title {
+	color: #ffffff;
 }
 
 /* ── Feature / Vision Cards ── */
