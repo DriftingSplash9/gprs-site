@@ -159,11 +159,11 @@ elseif ($page_id == 2418 || is_page('donate')):
 // ===============================
 elseif (is_page('margaret-edgson-manor-rebuild-efforts')):
 ?>
-<?php $hero_img = $uploads . '/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg'; ?>
+<?php $hero_img = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg'; ?>
 <section class="hero hero--fire-rebuild" id="content">
 	<img class="gprs-img-hero"
 	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-	     alt="Aerial view of Margaret Edgson Manor under reconstruction, winter 2026"
+	     alt="Margaret Edgson Manor in August 2026, its old siding stripped away to bare sheathing across all four storeys, with a boom lift parked out front"
 	     loading="eager"
 	     fetchpriority="high"
 	     decoding="async">
@@ -370,11 +370,11 @@ elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 // ===============================
 elseif (is_page('mem-rebuild-announcement')):
 ?>
-<?php $hero_img = $uploads . '/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg'; ?>
+<?php $hero_img = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg'; ?>
 <section class="hero hero--annc" id="content">
     <img class="gprs-img-hero"
          src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-         alt="Aerial view of Margaret Edgson Manor under reconstruction"
+         alt="Margaret Edgson Manor in August 2026, its old siding stripped away to bare sheathing across all four storeys"
          loading="eager"
          fetchpriority="high"
          decoding="async">

@@ -133,7 +133,7 @@ function gprs_render_mem_announcement_content() {
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">The Building</span>
-				<span class="gprs-annc__fact-text">70 homes &mdash; 16 wheelchair-accessible units and 54 standard suites, all two-bedroom</span>
+				<span class="gprs-annc__fact-text">70 homes &mdash; 20 wheelchair-accessible units and 50 standard suites, all two-bedroom</span>
 			</div>
 
 		</div>

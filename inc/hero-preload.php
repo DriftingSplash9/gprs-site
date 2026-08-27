@@ -94,7 +94,7 @@ function gprs_preload_hero_image() {
 
 		// Fire Rebuild page (slug 'margaret-edgson-manor-rebuild-efforts')
 		} elseif ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {
-			$image = $uploads . '/2026/03/DJI_20260110142827_0056_D-scaled-e1774515617787.jpg';
+			$image = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg';
 
 		// Homepage + all other pages (default hero)
 		} else {

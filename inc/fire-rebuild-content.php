@@ -73,17 +73,17 @@ function gprs_render_fire_rebuild_content() {
 					<time class="gprs-fire__update-date" datetime="2026-08">August 2026</time>
 					<span class="gprs-fire__update-badge">Latest</span>
 				</div>
-				<h3 class="gprs-fire__update-title">Down to bare board: the old skin is coming off</h3>
+				<h3 class="gprs-fire__update-title">The old siding is coming off &mdash; all four storeys of it</h3>
 				<div class="gprs-fire__update-body">
-					<p>Crews have begun removing the old siding, stucco and
-					mould-damaged sheathing from Margaret Edgson Manor. The west end and
-					the front are already down to bare board; the rest of the building
-					still carries its original siding, and that is coming off too.</p>
+					<p>The old vinyl siding is coming off Margaret Edgson Manor, all four
+					storeys of it, and the exterior is being completely exposed and
+					prepared for a new envelope.</p>
 
-					<p>It looks stark from 107A&nbsp;Avenue right now. But taking the
-					building back to bare board is exactly what has to happen before
-					anything new can go on it, and it is the first change in a year that
-					you can see from the street.</p>
+					<p>We know how that reads from 107A&nbsp;Avenue: bare boards and
+					patches of black wrap. But this is the good part. A new envelope is
+					the difference between a building that got patched and a building
+					that got rebuilt &mdash; warmer, tighter, and cheaper to heat than
+					the Manor that stood here before.</p>
 
 					<p>Out of sight, the same crews are treating the building for smoke
 					odour, installing new sprinkler risers, and reworking bulkheads. The
@@ -286,7 +286,7 @@ function gprs_render_fire_rebuild_content() {
 			<div class="gprs-fire__milestone">
 				<span class="gprs-fire__milestone-icon" aria-hidden="true">✓</span>
 				<span class="gprs-fire__milestone-text">
-					<strong>Strip-out underway</strong> &mdash; old siding, stucco and
+					<strong>Strip-out underway</strong> &mdash; the old vinyl siding and
 					mould-damaged sheathing coming off, alongside smoke-odour abatement,
 					new sprinkler risers and bulkhead changes.
 				</span>
@@ -300,14 +300,14 @@ function gprs_render_fire_rebuild_content() {
 		<div class="gprs-fire__images">
 			<figure class="gprs-fire__image-tile">
 				<img src="<?php echo esc_url( $uploads ); ?>/2026/08/mem-rebuild-2026-08-southwest-corner.jpg"
-				     alt="Margaret Edgson Manor from the southwest in August 2026, with the old siding and stucco stripped from this elevation down to bare sheathing, balconies in place, behind construction fencing"
+				     alt="Margaret Edgson Manor from the southwest in August 2026, with the old siding stripped away to bare sheathing, balconies in place, behind construction fencing"
 				     loading="lazy"
 				     decoding="async"
 				     width="1600"
 				     height="1200">
 				<figcaption class="gprs-fire__image-caption">
-					The west end, down to bare board as the old siding and stucco come
-					off. August 18, 2026.
+					The west end, down to bare board as the old siding comes off.
+					August 18, 2026.
 				</figcaption>
 			</figure>
 
