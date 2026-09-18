@@ -81,10 +81,10 @@ function gprs_render_fire_rebuild_content() {
 					back to good bone is a building ready to be rebuilt, and that is the
 					stage Margaret Edgson Manor has now reached.</p>
 
-					<p>What goes back on is not what came off. The Society has approved
-					<strong>James Hardie composite siding</strong> for the exterior and new
-					<strong>vinyl decking</strong> for the balconies &mdash; a tougher,
-					longer-lasting envelope than the Manor carried before the fire.</p>
+					<p>What goes back on will not be what came off. The next stage is a
+					new exterior &mdash; a tougher, longer-lasting envelope than the Manor
+					carried before the fire, with the materials and the crews for it being
+					lined up now.</p>
 
 					<p>Work continues with our construction partner,
 					<strong>Terrace Construction Development Inc.</strong>, toward
