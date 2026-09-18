@@ -47,9 +47,13 @@ first; Claude cannot type the password.
 
 ## ⭐ Commit rule (cross-site — important)
 
-**On GPRS, commit-and-push is NOT pre-authorized.** Propose the change and **wait for the
-user's go-ahead** before committing/pushing. (Auto commit-and-push is authorized only on the
-TC / thomascheesman.ca project.) When you do commit: **stage explicit paths, never `git add .`**.
+**Commit-and-push is pre-authorized on GPRS** (changed 2026-08-04 — propose-and-wait was
+slowing work down without having caught a real problem across ~50 hours of site work). Commit
+and push a finished, reviewed unit of work without asking first, with a clear message. Still:
+**stage explicit paths, never `git add .`**; don't push half-finished or unreviewed-risky work
+— finish the unit first. This repo has no CI, so also remind the user the theme still needs a
+manual deploy to the live server (see "How to edit" above) — a push here does not go live by
+itself, unlike TC.
 
 ## Gotchas
 
