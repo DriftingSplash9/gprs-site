@@ -11,7 +11,7 @@ not assume conventions from other sites carry over except where noted.
 
 - **Live URL:** https://gpresidentialsociety.com
 - **This repo is the source of truth.** Remote `github.com/DriftingSplash9/gprs-site`,
-  branch `main`. **No CI — the user deploys the theme manually.** Keep repo and live in sync.
+  branch `main`. **Pushing to `main` AUTO-DEPLOYS to the live site** — see "Deploying" below.
 - **Stack:** WordPress, **Astra** parent theme + this hand-coded child theme (slug `astra-child`).
 
 ## How the pages are built (important, non-obvious)
@@ -37,41 +37,40 @@ nothing — look in `inc/*.php` here instead.
 **Preferred (keeps history + survives deploys):**
 1. Edit the file in this repo (`inc/…` or `css/…`).
 2. Commit and push to `main`.
-3. The user deploys the theme to the live server (see below).
+3. That's it — the push is the deploy. See the warning below before you push.
 
-### Deploying (Hostinger + self-hosted WordPress.org)
+### Deploying — ⚠️ A PUSH TO `main` GOES LIVE BY ITSELF
 
-The site runs on **Hostinger** shared hosting (LiteSpeed, PHP 8.3) with **self-hosted
-WordPress.org** — same as BYR. There is **no CI here**: a push to `main` does nothing on its
-own, and nothing is live until the changed files are physically copied to the server.
+**This repo auto-deploys.** Pushing to `main` puts the change on
+https://gpresidentialsociety.com within a minute or two. There is no manual upload step and
+no approval gate in between. Verified 2026-09-18 by curling the live pages straight after a
+push; earlier versions of this file, and the user's own notes, wrongly said "no CI, manual
+deploy" — they were wrong, and that error caused unapproved copy to be published.
 
+The site is **Hostinger** shared hosting (LiteSpeed, PHP 8.3) with self-hosted
+**WordPress.org**. There are no GitHub Actions in this repo, so the deploy is server-side:
+Hostinger's Git auto-deployment (hPanel → Advanced → GIT) pulling `main` on a webhook.
 Theme path on the server:
 
 ```
 domains/gpresidentialsociety.com/public_html/wp-content/themes/astra-child/
 ```
 
-Upload the changed files, preserving their paths, by either route:
+**What this means before you commit:**
 
-- **hPanel File Manager** — hPanel → Websites → Dashboard (gpresidentialsociety.com) →
-  File Manager, then navigate to the theme path above.
-- **SFTP** — credentials under hPanel → Files → FTP Accounts.
+- **Treat every push as publishing.** Copy that is awaiting board or marketing approval, or
+  that depends on a motion not yet declared carried, must NOT be pushed to `main`. Hold it on
+  a branch, or keep it in a draft file outside the repo, until the gate clears.
+- Run `php -l` on every changed file first. A syntax error in `functions.php` white-screens the
+  live site the moment it lands — there is no staging copy to catch it.
+- If any file in `css/` changed, bump `Version:` in `style.css` so the enqueue cache-busts.
+- If a change does not appear, purge cache in both places: hPanel → Advanced → Cache Manager,
+  and the LiteSpeed Cache plugin in wp-admin (Toolbox → Purge All).
 
-Then **purge the cache**, or the old HTML keeps being served: hPanel → Advanced → Cache
-Manager → Purge All, and the LiteSpeed Cache plugin in wp-admin (Toolbox → Purge All).
-
-Two things worth checking before and after:
-
-- If any file in `css/` changed, **bump `Version:` in `style.css`** first — the enqueues are
-  version-stamped, so browsers keep the old CSS otherwise. PHP-only changes need no bump.
-- Upload `functions.php` first when it is in the set, and confirm the site still loads before
-  doing the rest. A syntax error there white-screens the whole site. Run `php -l` on every
-  changed file before deploying.
-
-To list exactly what needs uploading since the last deploy:
+To pull something back off the live site, revert and push — that deploys too:
 
 ```bash
-git diff --name-only <last-deployed-commit> HEAD
+git revert --no-edit <sha> && git push origin main
 ```
 
 **Live hotfix via wp-admin Theme File Editor** (Appearance → Theme File Editor, theme
@@ -86,9 +85,9 @@ first; Claude cannot type the password.
 slowing work down without having caught a real problem across ~50 hours of site work). Commit
 and push a finished, reviewed unit of work without asking first, with a clear message. Still:
 **stage explicit paths, never `git add .`**; don't push half-finished or unreviewed-risky work
-— finish the unit first. This repo has no CI, so also remind the user the theme still needs a
-manual deploy to the live server (see "How to edit" above) — a push here does not go live by
-itself, unlike TC.
+— finish the unit first. ⚠️ **And remember a push here IS a publish** (see "Deploying"):
+there is no manual deploy standing between a commit and the public site, so anything gated on
+board or marketing approval must not be pushed to `main` at all.
 
 ## Gotchas
 
