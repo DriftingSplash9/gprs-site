@@ -37,7 +37,42 @@ nothing — look in `inc/*.php` here instead.
 **Preferred (keeps history + survives deploys):**
 1. Edit the file in this repo (`inc/…` or `css/…`).
 2. Commit and push to `main`.
-3. The user deploys the theme to the live server.
+3. The user deploys the theme to the live server (see below).
+
+### Deploying (Hostinger + self-hosted WordPress.org)
+
+The site runs on **Hostinger** shared hosting (LiteSpeed, PHP 8.3) with **self-hosted
+WordPress.org** — same as BYR. There is **no CI here**: a push to `main` does nothing on its
+own, and nothing is live until the changed files are physically copied to the server.
+
+Theme path on the server:
+
+```
+domains/gpresidentialsociety.com/public_html/wp-content/themes/astra-child/
+```
+
+Upload the changed files, preserving their paths, by either route:
+
+- **hPanel File Manager** — hPanel → Websites → Dashboard (gpresidentialsociety.com) →
+  File Manager, then navigate to the theme path above.
+- **SFTP** — credentials under hPanel → Files → FTP Accounts.
+
+Then **purge the cache**, or the old HTML keeps being served: hPanel → Advanced → Cache
+Manager → Purge All, and the LiteSpeed Cache plugin in wp-admin (Toolbox → Purge All).
+
+Two things worth checking before and after:
+
+- If any file in `css/` changed, **bump `Version:` in `style.css`** first — the enqueues are
+  version-stamped, so browsers keep the old CSS otherwise. PHP-only changes need no bump.
+- Upload `functions.php` first when it is in the set, and confirm the site still loads before
+  doing the rest. A syntax error there white-screens the whole site. Run `php -l` on every
+  changed file before deploying.
+
+To list exactly what needs uploading since the last deploy:
+
+```bash
+git diff --name-only <last-deployed-commit> HEAD
+```
 
 **Live hotfix via wp-admin Theme File Editor** (Appearance → Theme File Editor, theme
 `astra-child`) edits the live server directly and takes effect immediately — but **does NOT
