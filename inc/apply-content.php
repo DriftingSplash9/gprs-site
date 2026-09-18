@@ -225,7 +225,7 @@ function gprs_render_apply_content() {
             <details class="apply-faq">
                 <summary>What types of units are available?</summary>
                 <div class="apply-faq__body">
-                    <p>GPRS operates 87 units across three phases: Phase I has 10 duplex units (six 2-bedroom, four 3-bedroom), Phase II has 7 apartments, and Phase III (Margaret Edgson Manor) has 70 units including 16 fully barrier-free suites. <a href="<?php echo esc_url( home_url( '/accessible-housing/' ) ); ?>">View all our housing.</a></p>
+                    <p>GPRS operates 87 units across three phases: Phase I has 10 duplex units (six 2-bedroom, four 3-bedroom), Phase II has 7 apartments, and Phase III (Margaret Edgson Manor) has 70 units including 20 fully barrier-free suites. <a href="<?php echo esc_url( home_url( '/accessible-housing/' ) ); ?>">View all our housing.</a></p>
                 </div>
             </details>
         </section>

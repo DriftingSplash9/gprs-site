@@ -654,10 +654,9 @@ add_action( 'wp_head', function() {
         "@type": "ResidentialComplex",
         "name": "Margaret Edgson Manor",
         "alternateName": "GPRS Phase III",
-        "description": "A 70-unit four-storey affordable housing complex with 16 fully wheelchair-accessible units and 54 standard suites. All units have two bedrooms. Named for Margaret Edgson, a strong advocate for accessible transportation and housing. Self-sustaining with no government operating support. Damaged by fire in June 2025 and currently being rebuilt to updated building codes.",
+        "description": "A 70-unit four-storey affordable housing complex with 20 fully wheelchair-accessible units and 50 standard suites. Named for Margaret Edgson, a strong advocate for accessible transportation and housing. Self-sustaining with no government operating support. Damaged by fire in June 2025 and currently being rebuilt to updated building codes.",
         "url": "https://gpresidentialsociety.com/accessible-housing/#phase-3",
         "dateBuilt": "2005",
-        "numberOfBedrooms": "2",
         "numberOfAvailableAccommodationUnits": {
           "@type": "QuantitativeValue",
           "value": 70,

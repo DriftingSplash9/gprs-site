@@ -88,8 +88,7 @@ function gprs_render_fire_rebuild_content() {
 
 					<p>Work continues with our construction partner,
 					<strong>Terrace Construction Development Inc.</strong>, toward
-					70&nbsp;homes &mdash; 20 wheelchair-accessible and 50 standard, all
-					two-bedroom.</p>
+					70&nbsp;homes &mdash; 20 wheelchair-accessible and 50 standard.</p>
 				</div>
 			</article>
 

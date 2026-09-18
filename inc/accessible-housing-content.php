@@ -378,7 +378,7 @@ function gprs_render_accessible_housing_content() {
                     <dl class="gprs-housing-facts">
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Units</dt>
-                            <dd class="gprs-housing-facts__value">70 total: 16 fully wheelchair-accessible + 54 affordable housing</dd>
+                            <dd class="gprs-housing-facts__value">70 total: 20 fully wheelchair-accessible + 50 affordable housing</dd>
                         </div>
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Address</dt>

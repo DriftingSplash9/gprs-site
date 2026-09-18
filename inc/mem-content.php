@@ -161,7 +161,7 @@ function gprs_render_mem_content() {
             <h2 id="features-heading" class="mem-heading">What the Manor Offers</h2>
             <div class="mem-features-layout">
                 <div class="mem-features-card">
-                    <h3>16 Barrier-Free Suites</h3>
+                    <h3>20 Barrier-Free Suites</h3>
                     <p>Purpose-built for wheelchair users and residents with mobility impairments:</p>
                     <ul class="mem-features-list">
                         <li>Zero-threshold entries</li>
@@ -174,8 +174,8 @@ function gprs_render_mem_content() {
                     </ul>
                 </div>
                 <div class="mem-features-card">
-                    <h3>54 Affordable Units</h3>
-                    <p>Two-bedroom suites for families and individuals who need relief from high market rents — the revenue that keeps the building self-sustaining without government operating support.</p>
+                    <h3>50 Affordable Units</h3>
+                    <p>Suites for families and individuals who need relief from high market rents — the revenue that keeps the building self-sustaining without government operating support.</p>
                 </div>
                 <div class="mem-features-card">
                     <h3>Community Room</h3>
