@@ -70,8 +70,32 @@ function gprs_render_fire_rebuild_content() {
 
 			<article class="gprs-fire__update gprs-fire__update--latest">
 				<div class="gprs-fire__update-meta">
-					<time class="gprs-fire__update-date" datetime="2026-08">August 2026</time>
+					<time class="gprs-fire__update-date" datetime="2026-09">September 2026</time>
 					<span class="gprs-fire__update-badge">Latest</span>
+				</div>
+				<h3 class="gprs-fire__update-title">Stripped to bare studs &mdash; and ready to build back</h3>
+				<div class="gprs-fire__update-body">
+					<p>The strip-out is finished. The old vinyl siding is off all four
+					storeys, and inside, the Manor is down to bare studs. From
+					107A&nbsp;Avenue it reads as a shell &mdash; but a building cleared
+					back to good bone is a building ready to be rebuilt, and that is the
+					stage Margaret Edgson Manor has now reached.</p>
+
+					<p>What goes back on is not what came off. The Society has approved
+					<strong>James Hardie composite siding</strong> for the exterior and new
+					<strong>vinyl decking</strong> for the balconies &mdash; a tougher,
+					longer-lasting envelope than the Manor carried before the fire.</p>
+
+					<p>Work continues with our construction partner,
+					<strong>Terrace Construction Development Inc.</strong>, toward
+					70&nbsp;homes &mdash; 20 wheelchair-accessible and 50 standard, all
+					two-bedroom.</p>
+				</div>
+			</article>
+
+			<article class="gprs-fire__update">
+				<div class="gprs-fire__update-meta">
+					<time class="gprs-fire__update-date" datetime="2026-08">August 2026</time>
 				</div>
 				<h3 class="gprs-fire__update-title">The old siding is coming off &mdash; all four storeys of it</h3>
 				<div class="gprs-fire__update-body">
@@ -107,7 +131,7 @@ function gprs_render_fire_rebuild_content() {
 					<p>With the new permanent roof installed to updated building codes and
 					the fourth-floor walls reframed, the structure was closed to the
 					weather. The project then moved into its materials phase &mdash;
-					siding, windows and doors on order &mdash; which is the quiet stretch
+					exterior materials priced and tendered &mdash; which is the quiet stretch
 					that made the site look still from the street even as the work carried
 					on.</p>
 				</div>
