@@ -124,7 +124,7 @@ function gprs_render_mem_announcement_content() {
 
 			<div class="gprs-annc__fact gprs-glass-card">
 				<span class="gprs-annc__fact-label">Where</span>
-				<span class="gprs-annc__fact-text">11010 107A Avenue, Grande Prairie, Alberta</span>
+				<span class="gprs-annc__fact-text">10706 110 Street, Grande Prairie, Alberta</span>
 			</div>
 
 			<div class="gprs-annc__fact gprs-glass-card">

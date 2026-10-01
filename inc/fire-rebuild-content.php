@@ -57,7 +57,7 @@ function gprs_render_fire_rebuild_content() {
 		<h2 class="gprs-fire__heading gprs-gradient-heading">Latest Rebuild Updates</h2>
 
 		<div class="gprs-fire__body">
-			<p>Short updates from the job site at 11010&nbsp;107A&nbsp;Avenue, newest
+			<p>Short updates from the job site at 10706&nbsp;110&nbsp;Street, newest
 			first. For the full story of the fire and the road back, keep reading
 			below &mdash; or see our
 			<a href="<?php echo esc_url( home_url( '/mem-rebuild-announcement/' ) ); ?>">official
@@ -181,7 +181,7 @@ function gprs_render_fire_rebuild_content() {
 
 		<div class="gprs-fire__body">
 			<p>On June 9, 2025, a significant structure fire broke out at Margaret Edgson
-			Manor (11010 107A Avenue, Grande Prairie, Alberta) shortly after midnight.
+			Manor (then 11010 107A Avenue; now 10706 110 Street, Grande Prairie, Alberta) shortly after midnight.
 			The Grande Prairie Fire Department responded quickly, along with EMS, RCMP, Staff from the Grande Spirit Foundation,
 			and other first responders. Thanks to their heroic efforts &mdash; including
 			assisting residents with mobility needs during active fire conditions &mdash;

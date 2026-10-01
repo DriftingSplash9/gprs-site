@@ -382,7 +382,7 @@ function gprs_render_accessible_housing_content() {
                         </div>
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Address</dt>
-                            <dd class="gprs-housing-facts__value">11010 107A Avenue, Grande Prairie, Alberta</dd>
+                            <dd class="gprs-housing-facts__value">10706 110 Street, Grande Prairie, Alberta</dd>
                         </div>
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Opened</dt>

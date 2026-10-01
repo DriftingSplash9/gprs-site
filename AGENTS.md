@@ -95,7 +95,8 @@ board or marketing approval must not be pushed to `main` at all.
   user's portfolio, `bareyourrare` = a different site). No MCP connector is wired to GPRS —
   edits go through this repo or the wp-admin Theme File Editor.
 - Keep the em-dash as the `&mdash;` HTML entity to match existing markup.
-- MEM (Margaret Edgson Manor) physical address is **11010 107A Avenue**; 10120 Hillside Drive
+- MEM (Margaret Edgson Manor) physical address is **10706 110 Street** (City changed it from
+  11010 107A Avenue, notice of 2026-09-20; postal code pending Canada Post); 10120 Hillside Drive
   is a mailing address. GPRS mail goes c/o Grande Spirit Foundation, 9503 102 Ave.
 - Cross-site agent diary lives at `C:\Users\thoma\Desktop\My Files\Claude-Diary\diary.csv`
   (covers BYR / GPRS / TC).

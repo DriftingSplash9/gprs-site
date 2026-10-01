@@ -119,7 +119,7 @@ function gprs_render_mem_content() {
             <dl class="mem-facts">
                 <div class="mem-facts__item">
                     <dt class="mem-facts__label">Address</dt>
-                    <dd class="mem-facts__value">11010 107A Avenue, Grande Prairie, Alberta</dd>
+                    <dd class="mem-facts__value">10706 110 Street, Grande Prairie, Alberta</dd>
                 </div>
                 <div class="mem-facts__item">
                     <dt class="mem-facts__label">Land</dt>
