@@ -77,7 +77,7 @@ function gprs_render_fire_rebuild_content() {
 				<div class="gprs-fire__update-body">
 					<p>The strip-out is finished. The old vinyl siding is off all four
 					storeys, and inside, the Manor is down to bare studs. From
-					107A&nbsp;Avenue it reads as a shell &mdash; but a building cleared
+					the street it reads as a shell &mdash; but a building cleared
 					back to good bone is a building ready to be rebuilt, and that is the
 					stage Margaret Edgson Manor has now reached.</p>
 
@@ -102,7 +102,7 @@ function gprs_render_fire_rebuild_content() {
 					storeys of it, and the exterior is being completely exposed and
 					prepared for a new envelope.</p>
 
-					<p>We know how that reads from 107A&nbsp;Avenue: bare boards and
+					<p>We know how that reads from the street: bare boards and
 					patches of black wrap. But this is the good part. A new envelope is
 					the difference between a building that got patched and a building
 					that got rebuilt &mdash; warmer, tighter, and cheaper to heat than

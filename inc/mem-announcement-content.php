@@ -64,7 +64,7 @@ function gprs_render_mem_announcement_content() {
 			&mdash; along with sheathing damaged by moisture, leaving the exterior fully
 			exposed and ready for a new envelope.</p>
 
-			<p>To passers-by on 107A&nbsp;Avenue the building now looks worse than it has
+			<p>To passers-by on the street the building now looks worse than it has
 			in months: bare board and patches of black wrap. That appearance is the work,
 			not a setback. A new building envelope is the difference between a structure
 			that has been patched and one that has been genuinely rebuilt &mdash; warmer,
