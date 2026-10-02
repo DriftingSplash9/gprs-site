@@ -37,7 +37,8 @@ nothing — look in `inc/*.php` here instead.
 **Preferred (keeps history + survives deploys):**
 1. Edit the file in this repo (`inc/…` or `css/…`).
 2. Commit and push to `main`.
-3. That's it — the push is the deploy. See the warning below before you push.
+3. The push is the deploy. See the warning below before you push.
+4. Have the page cache purged, then check the plain URL (see "After every push" below).
 
 ### Deploying — ⚠️ A PUSH TO `main` GOES LIVE BY ITSELF
 
@@ -64,8 +65,24 @@ domains/gpresidentialsociety.com/public_html/wp-content/themes/astra-child/
 - Run `php -l` on every changed file first. A syntax error in `functions.php` white-screens the
   live site the moment it lands — there is no staging copy to catch it.
 - If any file in `css/` changed, bump `Version:` in `style.css` so the enqueue cache-busts.
-- If a change does not appear, purge cache in both places: hPanel → Advanced → Cache Manager,
-  and the LiteSpeed Cache plugin in wp-admin (Toolbox → Purge All).
+
+**After every push that changes page content: purge the page cache, then verify.**
+
+The deploy updates the theme files but does **not** purge LiteSpeed's page cache. Pages are
+cached for up to 7 days (`X-LiteSpeed-Cache-Control: public,max-age=604800`), so visitors keep
+getting the old page until the cache is purged or expires. Found 2026-10-01: the MEM address
+change (c377356) was deployed, but every normal visit still showed 11010 107A Avenue.
+
+1. Purge in both places: wp-admin → **LiteSpeed Cache → Toolbox → Purge All** (or the
+   LiteSpeed icon in the admin bar), and hPanel → Advanced → **Cache Manager**. The user does
+   this; Claude has no wp-admin or hPanel access.
+2. Verify with a **plain** request, the way a visitor gets the page, with no query string:
+   ```bash
+   curl -s -D - https://gpresidentialsociety.com/<slug>/ -o page.html | grep -i x-litespeed-cache
+   grep -c '<new text>' page.html
+   ```
+   A request with `?nocache=…` or any other query string skips the cache. It proves the deploy
+   landed, **not** what visitors see. A `hit` that has the new text is the real proof.
 
 To pull something back off the live site, revert and push — that deploys too:
 
