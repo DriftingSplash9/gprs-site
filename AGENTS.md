@@ -111,6 +111,10 @@ board or marketing approval must not be pushed to `main` at all.
 - The two connected WordPress MCP connectors are **not** this site (`thomascheesman` = the
   user's portfolio, `bareyourrare` = a different site). No MCP connector is wired to GPRS —
   edits go through this repo or the wp-admin Theme File Editor.
+- This theme folder is web-served. `.htaccess` (one line, added 2026-10-01) returns 404 for any
+  `*.md` file, so these notes aren't public. `.git/` was already 403. Even so, never put
+  passwords or private details in repo notes. If `.htaccess` ever breaks, every theme asset
+  (CSS, JS, images) fails with it, so test `style.css` after any change to it.
 - Keep the em-dash as the `&mdash;` HTML entity to match existing markup.
 - MEM (Margaret Edgson Manor) physical address is **10706 110 Street** (City changed it from
   11010 107A Avenue, notice of 2026-09-20; postal code pending Canada Post); 10120 Hillside Drive
