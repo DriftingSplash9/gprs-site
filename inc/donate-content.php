@@ -107,7 +107,7 @@ function gprs_render_donate_content() {
                     <blockquote class="donate-quote">
                         <p class="donate-quote__text">"Get a second chance to do it right."</p>
                         <footer class="donate-quote__footer">
-                            <cite>— Travis McNally, GPRS Board President</cite>
+                            <cite>— Dale Williams, GPRS Treasurer</cite>
                         </footer>
                     </blockquote>
                     <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>" class="donate-btn donate-btn--outline">
