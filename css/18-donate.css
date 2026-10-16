@@ -692,3 +692,32 @@ html.gprs-dark .donate-btn--outline:hover {
         transform: none;
     }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TWO-CARD METHODS GRID — online (ATB Cares) + cheque, added 2026-10-16
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-methods__grid--two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 880px;
+    margin-inline: auto;
+}
+
+/* Undo the 3-card "centre the last card" rule at mid widths */
+.donate-methods__grid--two .donate-methods__card:last-child {
+    grid-column: auto;
+    max-width: none;
+    justify-self: auto;
+}
+
+.donate-methods__action {
+    margin-top: auto !important;
+    padding-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .donate-methods__grid--two {
+        grid-template-columns: 1fr;
+    }
+}
