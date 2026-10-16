@@ -374,7 +374,7 @@ function gprs_render_volunteer_content() {
 
             <!-- Prominent donate/apply CTAs -->
             <div class="gprs-vol-cta__buttons">
-                <a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="gprs-vol-btn gprs-vol-btn--primary">
+                <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="gprs-vol-btn gprs-vol-btn--primary">
                     Donate to the Rebuild
                     <svg class="gprs-vol-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                         <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

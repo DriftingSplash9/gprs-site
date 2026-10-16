@@ -214,7 +214,7 @@ function gprs_render_our_story_content() {
 		</div>
 
 		<div class="gprs-story__cta-row">
-			<a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="btn btn-primary">Support the Rebuild</a>
+			<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="btn btn-primary">Support the Rebuild</a>
 			<a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>" class="btn btn-outline">Rebuild Updates</a>
 		</div>
 	</section>

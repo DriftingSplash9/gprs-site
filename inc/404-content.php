@@ -188,7 +188,7 @@ function gprs_404_render_body() {
 					<span class="gprs-404__card-desc">Join a committee, become a Society member, or help with outreach</span>
 				</a>
 
-				<a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="gprs-404__card">
+				<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="gprs-404__card">
 					<span class="gprs-404__card-icon" aria-hidden="true">💙</span>
 					<span class="gprs-404__card-title">Support the Rebuild</span>
 					<span class="gprs-404__card-desc">Every contribution helps restore accessible homes</span>

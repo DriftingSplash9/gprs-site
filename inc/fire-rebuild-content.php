@@ -511,7 +511,7 @@ function gprs_render_fire_rebuild_content() {
 					Donation&rdquo;), or by cheque. Tax receipts are issued.
 				</p>
 				<a class="gprs-fire__cta-link"
-				   href="<?php echo esc_url( home_url( '/donate/' ) ); ?>">
+				   href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">
 					Donate now
 				</a>
 			</div>

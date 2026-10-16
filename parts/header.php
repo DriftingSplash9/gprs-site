@@ -135,7 +135,7 @@
 		<div class="header-controls">
 
 			<!-- DONATE CTA — hidden on mobile, shown in mobile menu -->
-			<a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>"
+			<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>"
 			   class="nav-cta-donate">Donate</a>
 
 			<!-- FIRE UPDATES — mobile only (replaces donate position) -->
@@ -236,7 +236,7 @@
 			<li class="mobile-menu-divider" role="separator"></li>
 
 			<!-- Donate CTA — prominent at top -->
-			<li><a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="mobile-donate">Donate</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="mobile-donate">Donate</a></li>
 
 			<li class="mobile-menu-divider" role="separator"></li>
 

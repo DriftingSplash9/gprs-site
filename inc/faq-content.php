@@ -241,7 +241,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>Every donation goes directly toward reconstruction. You can <a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>">donate online</a> through the Grande Spirit Foundation&rsquo;s Benevity platform on behalf of GPRS, send an Interac e-transfer, or mail a cheque. Volunteering your time also makes a real difference &mdash; visit our <a href="<?php echo esc_url( home_url( '/volunteer/' ) ); ?>">volunteer page</a> to learn how.</p>
+                <p>Every donation goes directly toward reconstruction. You can <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate online</a> through ATB Cares, our secure online giving partner, send an Interac e-transfer, or mail a cheque. Volunteering your time also makes a real difference &mdash; visit our <a href="<?php echo esc_url( home_url( '/volunteer/' ) ); ?>">volunteer page</a> to learn how.</p>
             </div>
         </div>
 
@@ -266,7 +266,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>There are several ways to give. You can <a href="https://atb.benevity.org/community/cause/124-102169158RR0001" target="_blank" rel="noopener noreferrer">donate online</a> through ATB Benevity, send an Interac e-transfer to the Grande Spirit Foundation <strong>(note &ldquo;GPRS Donation&rdquo; in the message)</strong>, or mail a cheque payable to Grande Spirit Foundation with &ldquo;GPRS Donation&rdquo; in the memo. Full details are on our <a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>">donate page</a>.</p>
+                <p>There are several ways to give. You can <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate online</a> through ATB Cares, send an Interac e-transfer to the Grande Spirit Foundation <strong>(note &ldquo;GPRS Donation&rdquo; in the message)</strong>, or mail a cheque payable to Grande Spirit Foundation with &ldquo;GPRS Donation&rdquo; in the memo. Full details are on our <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate page</a>.</p>
             </div>
         </div>
 

@@ -122,7 +122,7 @@ function gprs_render_contact_content() {
                                     <path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
-                            <a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="gprs-contact-btn gprs-contact-btn--secondary">
+                            <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="gprs-contact-btn gprs-contact-btn--secondary">
                                 Donate to the Rebuild
                                 <svg class="gprs-contact-btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                     <path d="M3 8h10m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

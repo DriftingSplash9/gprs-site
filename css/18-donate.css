@@ -721,3 +721,6 @@ html.gprs-dark .donate-btn--outline:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* Ways to Donate sits first; site-wide Donate links land on #ways-to-donate */
+#ways-to-donate { scroll-margin-top: 145px; }

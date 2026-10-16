@@ -71,7 +71,7 @@
 			</p>
 			<div class="footer-buttons">
 				<a href="<?php echo esc_url( home_url( '/apply/' ) ); ?>" class="footer-btn">Apply for Housing</a>
-				<a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>" class="footer-btn">Donate</a>
+				<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>" class="footer-btn">Donate</a>
 				<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="footer-btn">Contact Us</a>
 			</div>
 			<a class="footer-link-plain" href="<?php echo esc_url( home_url( '/newsletter/' ) ); ?>">

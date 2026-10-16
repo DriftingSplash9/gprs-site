@@ -77,7 +77,7 @@ if ($page_id == 1427 || is_page('volunteer')):
 				</p>
 			</div>
 			<div class="hero-buttons">
-				<a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-primary">Donate</a>
+				<a href="<?php echo esc_url(home_url('/donate/#ways-to-donate')); ?>" class="btn btn-primary">Donate</a>
 			</div>
 		</div>
 	</div>
@@ -181,7 +181,7 @@ elseif (is_page('margaret-edgson-manor-rebuild-efforts')):
 			</p>
 
 			<div class="hero-buttons">
-				<a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-primary">Donate</a>
+				<a href="<?php echo esc_url(home_url('/donate/#ways-to-donate')); ?>" class="btn btn-primary">Donate</a>
 				<a href="<?php echo esc_url(home_url('/volunteer/')); ?>" class="btn btn-outline">Volunteer</a>
 			</div>
 
@@ -270,7 +270,7 @@ elseif ($page_id == 182 || is_page('accessible-housing')):
 
 			<div class="hero-buttons">
 				<a href="<?php echo esc_url(home_url('/apply/')); ?>" class="btn btn-primary">Apply for Housing</a>
-				<a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-outline">Support the Rebuild</a>
+				<a href="<?php echo esc_url(home_url('/donate/#ways-to-donate')); ?>" class="btn btn-outline">Support the Rebuild</a>
 			</div>
 
 			<p class="hero-quote">
@@ -352,7 +352,7 @@ elseif ($page_id == 1433 || is_page('margaret-edgson-manor')):
 
             <div class="hero-buttons">
                 <a href="<?php echo esc_url(home_url('/apply/')); ?>" class="btn btn-primary">Apply for Housing</a>
-                <a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-outline">Support the Rebuild</a>
+                <a href="<?php echo esc_url(home_url('/donate/#ways-to-donate')); ?>" class="btn btn-outline">Support the Rebuild</a>
             </div>
 
             <p class="hero-quote">
@@ -392,7 +392,7 @@ elseif (is_page('mem-rebuild-announcement')):
             </p>
 
             <div class="hero-buttons">
-                <a href="<?php echo esc_url(home_url('/donate/')); ?>" class="btn btn-primary">Donate</a>
+                <a href="<?php echo esc_url(home_url('/donate/#ways-to-donate')); ?>" class="btn btn-primary">Donate</a>
                 <a href="<?php echo esc_url(home_url('/margaret-edgson-manor-rebuild-efforts/')); ?>" class="btn btn-outline">Rebuild Progress</a>
             </div>
         </div>

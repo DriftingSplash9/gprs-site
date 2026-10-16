@@ -31,6 +31,47 @@ function gprs_render_donate_content() {
     <div class="donate-page">
 
         <!-- ════════════════════════════════════════════════════════════════
+             HOW TO DONATE
+             ════════════════════════════════════════════════════════════════ -->
+        <section id="ways-to-donate" class="donate-methods" aria-labelledby="methods-heading">
+            <h2 id="methods-heading" class="donate-heading">Ways to Donate</h2>
+            <p class="donate-lead">All donations are directed toward the Margaret Edgson Manor rebuild.</p>
+
+            <div class="donate-methods__grid donate-methods__grid--two">
+                <div class="donate-methods__card donate-methods__card--featured">
+                    <h3>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="2" y1="9" x2="20" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="13.5" x2="9" y2="13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Donate Online
+                    </h3>
+                    <p>Give by credit card or PayPal through <strong>ATB Cares</strong>, our secure online giving partner, powered by Benevity.</p>
+                    <p class="donate-methods__detail">Online gifts are receipted automatically by email from the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation.</p>
+                    <p class="donate-methods__action">
+                        <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-btn--primary" target="_blank" rel="noopener">
+                            Donate to the Rebuild
+                            <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
+                            <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </p>
+                </div>
+                <div class="donate-methods__card">
+                    <h3>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="7" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="13" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Cheque by Mail
+                    </h3>
+                    <p>Make payable to <strong>Grande Prairie Residential Society</strong> with <strong>"GPRS Donation"</strong> in the memo line.</p>
+                    <address class="donate-methods__address">
+                        <strong>GPRS</strong><br>
+                        c/o Grande Spirit Foundation<br>
+                        9503 102 Avenue<br>
+                        Grande Prairie, AB T8V 7G9
+                    </address>
+                    <p class="donate-methods__detail">Tax receipts for cheques are issued through the Grande Spirit Foundation (Registered Charity #102169158RR0001).</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ════════════════════════════════════════════════════════════════
              INTRO — THE STORY
              ════════════════════════════════════════════════════════════════ -->
         <section class="donate-intro" aria-label="Why your donation matters">
@@ -114,47 +155,6 @@ function gprs_render_donate_content() {
                         Full Rebuild Update
                         <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ════════════════════════════════════════════════════════════════
-             HOW TO DONATE
-             ════════════════════════════════════════════════════════════════ -->
-        <section class="donate-methods" aria-labelledby="methods-heading">
-            <h2 id="methods-heading" class="donate-heading">Ways to Donate</h2>
-            <p class="donate-lead">All donations are directed toward the Margaret Edgson Manor rebuild.</p>
-
-            <div class="donate-methods__grid donate-methods__grid--two">
-                <div class="donate-methods__card donate-methods__card--featured">
-                    <h3>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="2" y1="9" x2="20" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="5" y1="13.5" x2="9" y2="13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        Donate Online
-                    </h3>
-                    <p>Give by credit card or PayPal through <strong>ATB Cares</strong>, our secure online giving partner, powered by Benevity.</p>
-                    <p class="donate-methods__detail">Online gifts are receipted automatically by email from the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation.</p>
-                    <p class="donate-methods__action">
-                        <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-btn--primary" target="_blank" rel="noopener">
-                            Donate to the Rebuild
-                            <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
-                            <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-                    </p>
-                </div>
-                <div class="donate-methods__card">
-                    <h3>
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="7" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="13" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        Cheque by Mail
-                    </h3>
-                    <p>Make payable to <strong>Grande Prairie Residential Society</strong> with <strong>"GPRS Donation"</strong> in the memo line.</p>
-                    <address class="donate-methods__address">
-                        <strong>GPRS</strong><br>
-                        c/o Grande Spirit Foundation<br>
-                        9503 102 Avenue<br>
-                        Grande Prairie, AB T8V 7G9
-                    </address>
-                    <p class="donate-methods__detail">Tax receipts for cheques are issued through the Grande Spirit Foundation (Registered Charity #102169158RR0001).</p>
                 </div>
             </div>
         </section>

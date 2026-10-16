@@ -197,7 +197,7 @@ function gprs_render_mem_announcement_content() {
 
 		<div class="gprs-annc__body">
 			<p>Every donation goes directly toward the rebuild, and tax receipts are
-			issued. Visit our <a href="<?php echo esc_url( home_url( '/donate/' ) ); ?>">donation
+			issued. Visit our <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donation
 			page</a> to give online, by e-Transfer, or by cheque &mdash; or learn about
 			<a href="<?php echo esc_url( home_url( '/volunteer/' ) ); ?>">volunteering
 			with GPRS</a>.</p>
