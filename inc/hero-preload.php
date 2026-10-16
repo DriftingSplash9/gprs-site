@@ -27,6 +27,14 @@
  * @return array{srcset:string,sizes:string}
  */
 function gprs_hero_srcset_data( $image_url ) {
+	// Theme-hosted hero (Donate page): two sizes shipped in /images/.
+	if ( false !== strpos( $image_url, '/images/mem-fire-2025-06-09-2000.jpg' ) ) {
+		$small = str_replace( '-2000.jpg', '-1000.jpg', $image_url );
+		return array(
+			'srcset' => $small . ' 1000w, ' . $image_url . ' 2000w',
+			'sizes'  => '100vw',
+		);
+	}
 	$attachment_id = attachment_url_to_postid( $image_url );
 	if ( ! $attachment_id ) {
 		return array( 'srcset' => '', 'sizes' => '' );
@@ -89,8 +97,7 @@ function gprs_preload_hero_image() {
 
 		// Donate page (ID 2418, slug 'donate')
 		} elseif ( $page_id === 2418 || is_page( 'donate' ) ) {
-			$image = $uploads . '/2026/01/mem-cleaned-up.png';
-			$type  = 'image/png';
+			$image = get_stylesheet_directory_uri() . '/images/mem-fire-2025-06-09-2000.jpg';
 
 		// Fire Rebuild page (slug 'margaret-edgson-manor-rebuild-efforts')
 		} elseif ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {

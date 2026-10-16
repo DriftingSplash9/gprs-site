@@ -125,11 +125,13 @@ elseif ($page_id == 1429 || is_page('our-story')):
 // ===============================
 elseif ($page_id == 2418 || is_page('donate')):
 ?>
-<?php $hero_img = $uploads . '/2026/01/mem-cleaned-up.png'; ?>
+<?php $hero_dir = get_stylesheet_directory_uri() . '/images/'; ?>
 <section class="hero hero--donate" id="content">
 	<img class="gprs-img-hero"
-	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-	     alt="Margaret Edgson Manor under construction during winter"
+	     src="<?php echo esc_url( $hero_dir . 'mem-fire-2025-06-09-2000.jpg' ); ?>"
+	     srcset="<?php echo esc_url( $hero_dir . 'mem-fire-2025-06-09-1000.jpg' ); ?> 1000w, <?php echo esc_url( $hero_dir . 'mem-fire-2025-06-09-2000.jpg' ); ?> 2000w"
+	     sizes="100vw"
+	     alt="Margaret Edgson Manor on June 9, 2025, its upper floors charred by the fire"
 	     loading="eager"
 	     fetchpriority="high"
 	     decoding="async">

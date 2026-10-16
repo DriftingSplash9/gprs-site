@@ -408,7 +408,7 @@ function gprs_render_fire_rebuild_content() {
 		<h2 class="gprs-fire__heading gprs-gradient-heading">Our Vision for the Renewed Manor</h2>
 
 		<div class="gprs-fire__body">
-			<p>This rebuild will restore approximately 70 accessible, affordable units
+			<p>This rebuild will restore 70 affordable homes, 20 of them barrier-free,
 			while strengthening what has always made the Manor special: a place where
 			residents feel independent, safe, and at home.</p>
 		</div>

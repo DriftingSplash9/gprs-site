@@ -77,7 +77,13 @@ function gprs_render_donate_content() {
         <section class="donate-intro" aria-label="Why your donation matters">
             <h2 class="donate-heading">Why Your Support Matters</h2>
             <p class="donate-text--large">On June 9, 2025, fire severely damaged Margaret Edgson Manor — 70 units of accessible and affordable housing that took nearly 20 years to build. Thanks to first responders, no lives were lost. But more than 70 residents were displaced from the homes that gave them independence.</p>
-            <p>The GPRS board — entirely volunteer, no paid staff — chose to rebuild. Construction is underway to 2023 National Building Code standards with improved safety features, better insulation, and fully restored accessible units. Your donation goes directly to this rebuild.</p>
+            <p>The GPRS board — entirely volunteer, no paid staff — chose to rebuild. Construction is underway to 2023 National Building Code standards with improved safety features and better insulation. The rebuilt Manor will again have 70 homes, 20 of them barrier-free. Your donation goes directly to this rebuild.</p>
+            <blockquote class="donate-quote">
+                <p class="donate-quote__text">"Before the '80s, anybody hurt that needed care, you basically had to move to Edmonton. There was nothing here."</p>
+                <footer class="donate-quote__footer">
+                    <cite>— Travis McNally, GPRS President</cite>
+                </footer>
+            </blockquote>
         </section>
 
 
