@@ -35,7 +35,7 @@ function gprs_render_donate_content() {
              ════════════════════════════════════════════════════════════════ -->
         <section id="ways-to-donate" class="donate-methods" aria-labelledby="methods-heading">
             <h2 id="methods-heading" class="donate-heading">Ways to Donate</h2>
-            <p class="donate-lead">All donations are directed toward the Margaret Edgson Manor rebuild.</p>
+            <p class="donate-lead">Your gift helps build the Manor&rsquo;s 20 barrier-free homes, with features like roll-in showers. That&rsquo;s four more barrier-free homes than before the fire.</p>
 
             <div class="donate-methods__grid donate-methods__grid--two">
                 <div class="donate-methods__card donate-methods__card--featured">
