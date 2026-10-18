@@ -56,9 +56,9 @@ function gprs_render_donate_content() {
                 <div class="donate-methods__card">
                     <h3>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="4" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="7" y1="9" x2="15" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="13" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        Cheque by Mail
+                        Cheque
                     </h3>
-                    <p>Make payable to <strong>Grande Prairie Residential Society</strong> with <strong>"GPRS Donation"</strong> in the memo line.</p>
+                    <p>Make payable to <strong>Grande Prairie Residential Society</strong> with <strong>"GPRS Donation"</strong> in the memo line. Mail it, or drop it off at the Grande Spirit Foundation office:</p>
                     <address class="donate-methods__address">
                         <strong>GPRS</strong><br>
                         c/o Grande Spirit Foundation<br>

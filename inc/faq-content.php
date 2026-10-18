@@ -266,7 +266,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>There are several ways to give. You can <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate online</a> through ATB Cares, send an Interac e-transfer to the Grande Spirit Foundation <strong>(note &ldquo;GPRS Donation&rdquo; in the message)</strong>, or mail a cheque payable to Grande Spirit Foundation with &ldquo;GPRS Donation&rdquo; in the memo. Full details are on our <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate page</a>.</p>
+                <p>There are several ways to give. You can <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate online</a> through ATB Cares, send an Interac e-transfer to the Grande Spirit Foundation <strong>(note &ldquo;GPRS Donation&rdquo; in the message)</strong>, or give a cheque payable to Grande Prairie Residential Society with &ldquo;GPRS Donation&rdquo; in the memo, mailed or dropped off at the Grande Spirit Foundation office (9503 102 Avenue). Full details are on our <a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>">donate page</a>.</p>
             </div>
         </div>
 
@@ -276,7 +276,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>Yes. All donations to GPRS are tax-deductible. Tax receipts are issued by the Grande Spirit Foundation (Registered Charity #102169158RR0001). For e-transfer and cheque donations, be sure to include &ldquo;GPRS Donation&rdquo; so your receipt is issued correctly.</p>
+                <p>Yes. All donations to GPRS are tax-deductible. Online gifts through ATB Cares are receipted automatically by email by the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation. Receipts for cheque and e-transfer donations are issued by the Grande Spirit Foundation (Registered Charity #102169158RR0001). For e-transfer and cheque donations, be sure to include &ldquo;GPRS Donation&rdquo; so your receipt is issued correctly.</p>
             </div>
         </div>
 

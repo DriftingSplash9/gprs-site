@@ -506,7 +506,7 @@ function gprs_render_fire_rebuild_content() {
 				<h3 class="gprs-fire__cta-title">Donate</h3>
 				<p class="gprs-fire__cta-text">
 					All current donations go directly toward the rebuild. Donate online
-					via the Grande Spirit Foundation, Interac e-Transfer to
+					through ATB Cares, Interac e-Transfer to
 					<strong>info@grandespirit.org</strong> (note &ldquo;GPRS
 					Donation&rdquo;), or by cheque. Tax receipts are issued.
 				</p>
