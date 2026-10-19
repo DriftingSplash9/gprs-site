@@ -1050,7 +1050,11 @@ html.gprs-dark .donate-btn.donate-give__cta:focus-visible {
    root font size on small screens */
 @media (max-width: 600px) {
     .donate-give__band {
-        margin-inline: calc(50% - 50vw);
+        width: 100vw;
+        max-width: none;
+        margin-left: calc(50% - 50vw);
+        margin-right: 0;
+        box-sizing: border-box;
         border-radius: 0;
         padding: 28px 16px;
     }
