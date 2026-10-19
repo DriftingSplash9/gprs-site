@@ -55,9 +55,9 @@ function gprs_render_donate_content() {
                         <div class="donate-give__body">
                             <h3>Give online</h3>
                             <ul class="donate-give__checks">
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Credit card or PayPal</li>
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Secure checkout with <strong>ATB Cares</strong>, powered by Benevity</li>
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Your tax receipt arrives by email</li>
+                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Credit card or PayPal</span></li>
+                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Secure checkout with <strong>ATB Cares</strong>, powered by Benevity</span></li>
+                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your tax receipt arrives by email</span></li>
                             </ul>
                             <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-give__cta" target="_blank" rel="noopener">
                                 Donate to the Rebuild
