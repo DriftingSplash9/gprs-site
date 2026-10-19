@@ -86,7 +86,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>The Grande Spirit Foundation (GSF) manages our housing properties and processes donations on our behalf. GSF is a long-established housing foundation serving Northern Alberta since 1960. When you donate to GPRS, your contribution flows through GSF (Registered Charity #102169158RR0001), which issues your tax receipt. GPRS maintains full governance over its housing and mission through its own volunteer board of directors.</p>
+                <p>The Grande Spirit Foundation (GSF) manages our housing properties on our behalf. GSF is a long-established housing foundation serving Northern Alberta since 1960. Cheques for GPRS can be mailed or dropped off at the GSF office. GPRS maintains full governance over its housing and mission through its own volunteer board of directors.</p>
             </div>
         </div>
 
@@ -276,7 +276,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>Yes. All donations to GPRS are tax-deductible. Online gifts through ATB Cares are receipted automatically by email by the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation. Receipts for cheque and e-transfer donations are issued by the Grande Spirit Foundation (Registered Charity #102169158RR0001). For e-transfer and cheque donations, be sure to include &ldquo;GPRS Donation&rdquo; so your receipt is issued correctly.</p>
+                <p>Yes. All donations to GPRS are tax-deductible. Online gifts through ATB Cares are receipted automatically by email by the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation. Cheque donations also receive an official tax receipt. For e-transfer and cheque donations, be sure to include &ldquo;GPRS Donation&rdquo; so your receipt is issued correctly.</p>
             </div>
         </div>
 
