@@ -715,7 +715,7 @@ add_action( 'wp_head', function() {
           "name": "Is GPRS a registered charity?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. GPRS is a CRA-registered non-profit charitable organization (BN 891431264RR0001). Tax receipts for donations are issued through the Grande Spirit Foundation (Registered Charity #102169158RR0001)."
+            "text": "Yes. GPRS is a CRA-registered non-profit charitable organization (BN 891431264RR0001). Online gifts through ATB Cares are receipted by email by the Canadian Online Giving Foundation, ATB Cares' partner foundation. Cheque donations also receive an official tax receipt."
           }
         },
         {
@@ -755,7 +755,7 @@ add_action( 'wp_head', function() {
           "name": "How can I donate to GPRS?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can donate online through ATB Benevity, send an Interac e-transfer to the Grande Spirit Foundation (note 'GPRS Donation'), or mail a cheque payable to Grande Spirit Foundation with 'GPRS Donation' in the memo. Visit gpresidentialsociety.com/donate/ for full details."
+            "text": "You can donate online through ATB Cares by credit card or PayPal, send an Interac e-transfer to the Grande Spirit Foundation (note 'GPRS Donation'), or give a cheque payable to Grande Prairie Residential Society with 'GPRS Donation' in the memo, mailed or dropped off at the Grande Spirit Foundation office (9503 102 Avenue). Visit gpresidentialsociety.com/donate/ for full details."
           }
         },
         {
@@ -771,7 +771,7 @@ add_action( 'wp_head', function() {
           "name": "What is the Grande Spirit Foundation's role?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Grande Spirit Foundation manages GPRS housing properties and processes donations on behalf of GPRS. GSF is a registered Canadian charity (Registration #102169158RR0001) that has been providing housing support in Northern Alberta since 1960. Tax receipts for GPRS donations are issued through GSF."
+            "text": "The Grande Spirit Foundation manages GPRS housing properties on behalf of GPRS, and cheques for GPRS can be mailed or dropped off at its office. GSF is a registered Canadian charity (Registration #102169158RR0001) that has been providing housing support in Northern Alberta since 1960."
           }
         },
         {
