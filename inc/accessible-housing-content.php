@@ -41,29 +41,29 @@ function gprs_render_accessible_housing_content() {
          ════════════════════════════════════════════════════════════════ -->
     <section class="gprs-housing-glance" aria-label="At a glance">
         <div class="gprs-housing-glance__inner">
-            <h2 class="gprs-housing-glance__heading">At a Glance</h2>
+            <h2 class="gprs-housing-glance__heading gprs-gradient-heading gprs-gradient-heading--center">At a Glance</h2>
             <div class="gprs-housing-glance__grid">
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Founded</span>
                     <span class="gprs-housing-glance__value">1986</span>
                 </div>
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Total Units</span>
                     <span class="gprs-housing-glance__value">87 across 3 phases</span>
                 </div>
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Location</span>
                     <span class="gprs-housing-glance__value">Grande Prairie, Alberta</span>
                 </div>
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Managed by</span>
                     <span class="gprs-housing-glance__value">Grande Spirit Foundation</span>
                 </div>
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Board</span>
                     <span class="gprs-housing-glance__value">Volunteer-led since 1986</span>
                 </div>
-                <div class="gprs-housing-glance__card">
+                <div class="gprs-housing-glance__card gprs-glass-card gprs-glow-hover">
                     <span class="gprs-housing-glance__label">Registered Charity</span>
                     <span class="gprs-housing-glance__value">BN 891431264RR0001</span>
                 </div>
@@ -77,10 +77,10 @@ function gprs_render_accessible_housing_content() {
          ════════════════════════════════════════════════════════════════ -->
     <section class="gprs-housing-eligibility" aria-label="Eligibility criteria">
         <div class="gprs-housing-eligibility__inner">
-            <h2 class="gprs-housing-eligibility__heading">Who Can Apply</h2>
+            <h2 class="gprs-housing-eligibility__heading gprs-gradient-heading gprs-gradient-heading--center">Who Can Apply</h2>
             <div class="gprs-housing-eligibility__grid">
 
-                <div class="gprs-housing-eligibility__card">
+                <div class="gprs-housing-eligibility__card gprs-glass-card gprs-glow-hover">
                     <div class="gprs-housing-eligibility__icon" aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="24" cy="10" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
@@ -93,7 +93,7 @@ function gprs_render_accessible_housing_content() {
                     <p class="gprs-housing-eligibility__text">Physical disability affecting mobility. Priority given to wheelchair users.</p>
                 </div>
 
-                <div class="gprs-housing-eligibility__card">
+                <div class="gprs-housing-eligibility__card gprs-glass-card gprs-glow-hover">
                     <div class="gprs-housing-eligibility__icon" aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="6" y="8" width="36" height="32" rx="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
@@ -107,7 +107,7 @@ function gprs_render_accessible_housing_content() {
                     <p class="gprs-housing-eligibility__text">Support services plan assessed and in place if personal support is needed.</p>
                 </div>
 
-                <div class="gprs-housing-eligibility__card">
+                <div class="gprs-housing-eligibility__card gprs-glass-card gprs-glow-hover">
                     <div class="gprs-housing-eligibility__icon" aria-hidden="true">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="8" y="6" width="32" height="36" rx="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
@@ -141,7 +141,7 @@ function gprs_render_accessible_housing_content() {
         <div class="gprs-housing-phase__inner">
             <header class="gprs-housing-phase__header">
                 <span class="gprs-housing-phase__badge">Phase I</span>
-                <h2 class="gprs-housing-phase__title">Crystal Ridge Duplexes</h2>
+                <h2 class="gprs-housing-phase__title gprs-gradient-heading">Crystal Ridge Duplexes</h2>
                 <p class="gprs-housing-phase__subtitle">1987 — The first wheelchair-accessible housing north of Edmonton</p>
             </header>
 
@@ -241,7 +241,7 @@ function gprs_render_accessible_housing_content() {
         <div class="gprs-housing-phase__inner">
             <header class="gprs-housing-phase__header">
                 <span class="gprs-housing-phase__badge">Phase II</span>
-                <h2 class="gprs-housing-phase__title">Crystal Ridge 7-Plex</h2>
+                <h2 class="gprs-housing-phase__title gprs-gradient-heading">Crystal Ridge 7-Plex</h2>
                 <p class="gprs-housing-phase__subtitle">1994 — Expanding to meet growing demand</p>
             </header>
 
@@ -328,7 +328,7 @@ function gprs_render_accessible_housing_content() {
         <div class="gprs-housing-phase__inner">
             <header class="gprs-housing-phase__header">
                 <span class="gprs-housing-phase__badge">Phase III</span>
-                <h2 class="gprs-housing-phase__title">Margaret Edgson Manor</h2>
+                <h2 class="gprs-housing-phase__title gprs-gradient-heading">Margaret Edgson Manor</h2>
                 <p class="gprs-housing-phase__subtitle">2005 — Accessible and affordable housing, together</p>
             </header>
 
@@ -469,7 +469,7 @@ function gprs_render_accessible_housing_content() {
          ════════════════════════════════════════════════════════════════ -->
     <section id="gallery" class="gprs-housing-galleries" aria-label="Photo galleries">
         <div class="gprs-housing-galleries__inner">
-            <h2 class="gprs-housing-galleries__heading">Photo Galleries</h2>
+            <h2 class="gprs-housing-galleries__heading gprs-gradient-heading gprs-gradient-heading--center">Photo Galleries</h2>
 
             <!-- ── Gallery 1: Exterior Photos ── -->
             <div class="gprs-housing-gallery" data-gallery="exterior">

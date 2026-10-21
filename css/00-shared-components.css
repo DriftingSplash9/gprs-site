@@ -248,6 +248,21 @@ html.gprs-dark {
     display: none;
 }
 
+/* Centred variant: the heading shrinks to its text and sits centred,
+   and the underline is centred under it.
+   Usage: <h2 class="gprs-gradient-heading gprs-gradient-heading--center"> */
+/* Two classes so a page's own margin rule can't undo the centring */
+.gprs-gradient-heading.gprs-gradient-heading--center {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.gprs-gradient-heading.gprs-gradient-heading--center::after {
+    left: 7.5%;
+}
+
 
 /* ============================================================
    10. .gprs-gradient-subheading

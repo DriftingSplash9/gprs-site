@@ -103,9 +103,7 @@ html.gprs-dark .gprs-housing-quicklinks {
 
 .gprs-housing-glance__heading {
     font-size: 1.5rem;
-    color: var(--clr-text-heading);
     margin: 0 0 1.25rem;
-    text-align: center;
 }
 
 .gprs-housing-glance__grid {
@@ -115,24 +113,9 @@ html.gprs-dark .gprs-housing-quicklinks {
 }
 
 .gprs-housing-glance__card {
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: var(--radius-md);
     padding: 1.25rem 1rem;
     text-align: center;
-    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
-}
-
-html.gprs-dark .gprs-housing-glance__card {
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-}
-
-.gprs-housing-glance__card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
 }
 
 .gprs-housing-glance__label {
@@ -169,9 +152,7 @@ html.gprs-dark .gprs-housing-glance__card {
 
 .gprs-housing-eligibility__heading {
     font-size: 1.5rem;
-    color: var(--clr-text-heading);
     margin: 0 0 1.5rem;
-    text-align: center;
 }
 
 .gprs-housing-eligibility__grid {
@@ -182,24 +163,9 @@ html.gprs-dark .gprs-housing-glance__card {
 }
 
 .gprs-housing-eligibility__card {
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: var(--radius-md);
     padding: 1.75rem 1.5rem;
     text-align: center;
-    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
-}
-
-html.gprs-dark .gprs-housing-eligibility__card {
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-}
-
-.gprs-housing-eligibility__card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
 }
 
 .gprs-housing-eligibility__icon {
@@ -271,7 +237,6 @@ html.gprs-dark .gprs-housing-eligibility__icon {
 
 .gprs-housing-phase__title {
     font-size: 2rem;
-    color: var(--clr-text-heading);
     margin: 0 0 0.5rem;
     line-height: 1.2;
 }
@@ -582,8 +547,6 @@ html.gprs-dark .gprs-housing-rebuild-banner {
 
 .gprs-housing-galleries__heading {
     font-size: 2rem;
-    color: var(--clr-text-heading);
-    text-align: center;
     margin: 0 0 2.5rem;
 }
 
