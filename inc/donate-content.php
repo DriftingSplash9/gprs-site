@@ -26,6 +26,7 @@ function gprs_render_donate_content() {
 
     $uploads = wp_get_upload_dir()['baseurl'];
     $home    = home_url( '/' );
+    $theme   = get_stylesheet_directory_uri();
     ?>
 
     <div class="donate-page">
@@ -121,6 +122,24 @@ function gprs_render_donate_content() {
                 <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
                 <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
+
+            <div class="donate-share">
+                <div class="donate-share__card donate-share__card--qr">
+                    <img src="<?php echo esc_url( $theme . '/images/qr-donate.svg' ); ?>" alt="QR code that opens this Donate page" width="132" height="132" loading="lazy" decoding="async">
+                    <div>
+                        <h3>Give from your phone</h3>
+                        <p>On a computer? Point your phone&rsquo;s camera at this code to open this page and give from there.</p>
+                    </div>
+                </div>
+                <div class="donate-share__card">
+                    <span class="donate-share__icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v4h4M9 13h6M9 16.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+                    <div>
+                        <h3>Prefer paper?</h3>
+                        <p>Print our pamphlet, or pass it to a friend. It has the gift steps, both ways to give and a QR code.</p>
+                        <a href="<?php echo esc_url( $theme . '/images/gprs-rebuild-pamphlet.pdf' ); ?>" class="donate-share__link" download>Download the pamphlet (PDF, 410 KB)</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
 

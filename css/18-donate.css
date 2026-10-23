@@ -1209,3 +1209,76 @@ html.gprs-dark .donate-page .donate-ladder__amount {
         transform: none;
     }
 }
+
+/* Give from your phone (QR) + pamphlet download, under the gift ladder */
+.donate-share {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+}
+
+.donate-share__card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.1rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: var(--donate-card-bg);
+    border: 1px solid var(--donate-card-border);
+}
+
+html.gprs-dark .donate-share__card {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.donate-share__card img {
+    flex: 0 0 auto;
+    width: 132px;
+    height: 132px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+.donate-share__icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(0, 102, 204, 0.08);
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .donate-share__icon {
+    background: rgba(0, 102, 204, 0.15);
+    color: var(--donate-text-accent);
+}
+
+.donate-share__card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+}
+
+.donate-page .donate-share__card p {
+    font-size: 0.92rem;
+    margin: 0 0 0.4rem;
+}
+
+.donate-page a.donate-share__link {
+    font-weight: 700;
+}
+
+@media (max-width: 860px) {
+    .donate-share { grid-template-columns: 1fr; }
+}
+
+/* A phone can't scan its own screen, so the QR card is for computers only */
+@media (max-width: 600px) {
+    .donate-share__card--qr { display: none; }
+}
