@@ -1103,3 +1103,109 @@ html.gprs-dark .donate-btn.donate-give__cta:focus-visible {
         font-size: 12.5px;
     }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   GIFT LADDER — what a gift can help build (Oct 2026)
+   Four steps, smallest gift to largest; the top step gets the gold edge.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.donate-ladder {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--donate-section-border);
+}
+
+.donate-ladder__list {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    align-items: end;
+}
+
+.donate-ladder__item {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: var(--donate-card-bg);
+    border: 1px solid var(--donate-card-border);
+    border-top: 4px solid var(--clr-accent);
+    transition: transform var(--anim-fast), box-shadow var(--anim-fast);
+}
+
+/* Each step sits a little higher than the one before */
+.donate-ladder__item:nth-child(2) { min-height: 13rem; }
+.donate-ladder__item:nth-child(3) { min-height: 15rem; }
+.donate-ladder__item:nth-child(4) { min-height: 17rem; }
+
+.donate-ladder__item--top {
+    border-top-color: #f4c430;
+}
+
+html.gprs-dark .donate-ladder__item {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.donate-ladder__item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.12);
+}
+
+html.gprs-dark .donate-ladder__item:hover {
+    box-shadow: 0 0 22px var(--donate-glow-accent), 0 0 6px rgba(0, 102, 204, 0.12);
+}
+
+.donate-page .donate-ladder__amount {
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    color: var(--clr-accent);
+}
+
+html.gprs-dark .donate-page .donate-ladder__amount {
+    color: var(--donate-text-accent);
+}
+
+.donate-ladder__item h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+}
+
+.donate-page .donate-ladder__item p:not(.donate-ladder__amount) {
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.donate-page .donate-ladder__fine {
+    font-size: 0.85rem;
+    margin: 0 0 1.25rem;
+    max-width: 760px;
+}
+
+@media (max-width: 860px) {
+    .donate-ladder__list {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+    }
+    .donate-ladder__item:nth-child(n) { min-height: 0; }
+}
+
+@media (max-width: 480px) {
+    .donate-ladder__list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .donate-ladder__item,
+    .donate-ladder__item:hover {
+        transition: none;
+        transform: none;
+    }
+}

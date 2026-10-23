@@ -87,6 +87,44 @@ function gprs_render_donate_content() {
 
 
         <!-- ════════════════════════════════════════════════════════════════
+             GIFT LADDER — what a gift can help build
+             Amounts are estimates per home (costed list, Oct 2026).
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="donate-ladder" aria-labelledby="ladder-heading">
+            <h2 id="ladder-heading" class="donate-heading">What Your Gift Can Help Build</h2>
+            <p class="donate-lead">Inside each barrier-free home are pieces that make a real difference to the person living there. Here is what gifts of different sizes can help build.</p>
+            <ol class="donate-ladder__list">
+                <li class="donate-ladder__item">
+                    <p class="donate-ladder__amount">About $50</p>
+                    <h3>A ramp onto the balcony</h3>
+                    <p>A small threshold ramp, so a wheelchair rolls straight out the patio door without a bump.</p>
+                </li>
+                <li class="donate-ladder__item">
+                    <p class="donate-ladder__amount">About $400</p>
+                    <h3>A sliding door</h3>
+                    <p>A sliding door opens easily from a wheelchair, with no door swinging into the way.</p>
+                </li>
+                <li class="donate-ladder__item">
+                    <p class="donate-ladder__amount">About $2,000 to $6,000</p>
+                    <h3>An adjustable kitchen counter</h3>
+                    <p>A counter that moves up or down, so someone can cook at the right height, seated or standing.</p>
+                </li>
+                <li class="donate-ladder__item donate-ladder__item--top">
+                    <p class="donate-ladder__amount">About $6,400</p>
+                    <h3>A ceiling track</h3>
+                    <p>A track across the ceiling for a lift to run on, so a person can move from bed to wheelchair safely without being lifted by hand.</p>
+                </li>
+            </ol>
+            <p class="donate-ladder__fine">Amounts are estimates for one home and will change once contractor quotes are in. Every gift goes to the Margaret Edgson Manor rebuild; these show what a gift of that size can help build.</p>
+            <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-btn--primary donate-ladder__cta" target="_blank" rel="noopener">
+                Give to the Rebuild
+                <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
+                <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </section>
+
+
+        <!-- ════════════════════════════════════════════════════════════════
              INTRO — THE STORY
              ════════════════════════════════════════════════════════════════ -->
         <section class="donate-intro" aria-label="Why your donation matters">
