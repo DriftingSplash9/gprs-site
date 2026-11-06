@@ -1103,3 +1103,29 @@ html.gprs-dark .donate-btn.donate-give__cta:focus-visible {
         font-size: 12.5px;
     }
 }
+
+/* Phones: the Give online card is the first thing a visitor sees.
+   Most traffic lands here on a phone, so the fire-photo hero and the
+   "Ways to Donate" intro are taken out of view. Both headings stay in
+   the page for screen readers and search (visually hidden, not removed),
+   and #content stays the skip-link target. Desktop is unchanged. */
+@media (max-width: 600px) {
+    .hero.hero--donate,
+    .donate-give__intro {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        clip-path: inset(50%) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+    /* The hero used to clear the fixed header; now the panel has to */
+    .donate-page {
+        padding-top: var(--header-height, 60px);
+    }
+}
