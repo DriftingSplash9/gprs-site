@@ -10,7 +10,7 @@
  * Updated: 2026-05-15 — Added AGM/BBQ announcement banner (inc/agm-banner.php, CSS module 23)
  */
 
-define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.2.2' );
+define( 'CHILD_THEME_ASTRA_CHILD_VERSION', '2.3.0' );
 
 
 /* ============================================================
@@ -827,8 +827,8 @@ function gprs_append_newsletter_to_pages( $content ) {
 
     if ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {
         $show    = true;
-        $heading = 'Stay Updated on the Rebuild';
-        $subtext = 'Construction milestones, community news, and ways to support — straight to your inbox.';
+        $heading = 'Get the next update by email';
+        $subtext = 'We write when there is rebuild news worth your time.';
     }
 
     if ( is_page( 'volunteer' ) ) {
@@ -875,7 +875,7 @@ function gprs_append_newsletter_to_pages( $content ) {
         return $content;
     }
 
-    $newsletter  = '<div class="donate-newsletter-wrap">';
+    $newsletter  = '<div class="donate-newsletter-wrap" id="newsletter">';
     $newsletter .= '  <div class="donate-section-head">';
     $newsletter .= '    <h2>' . esc_html( $heading ) . '</h2>';
     $newsletter .= '    <p>' . esc_html( $subtext ) . '</p>';

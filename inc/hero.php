@@ -161,11 +161,11 @@ elseif ($page_id == 2418 || is_page('donate')):
 // ===============================
 elseif (is_page('margaret-edgson-manor-rebuild-efforts')):
 ?>
-<?php $hero_img = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg'; ?>
+<?php $hero_img = get_stylesheet_directory_uri() . '/images/mem-wrap-2026-10-23-hero-2000.jpg'; ?>
 <section class="hero hero--fire-rebuild" id="content">
 	<img class="gprs-img-hero"
 	     src="<?php echo esc_url( $hero_img ); ?>"<?php echo gprs_hero_srcset_attrs( $hero_img ); ?>
-	     alt="Margaret Edgson Manor in August 2026, its old siding stripped away to bare sheathing across all four storeys, with a boom lift parked out front"
+	     alt="Margaret Edgson Manor in October 2026, with wide strips of yellow weather wrap going on over its bare board walls, behind construction fencing"
 	     loading="eager"
 	     fetchpriority="high"
 	     decoding="async">

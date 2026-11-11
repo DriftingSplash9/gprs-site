@@ -27,8 +27,9 @@
  * @return array{srcset:string,sizes:string}
  */
 function gprs_hero_srcset_data( $image_url ) {
-	// Theme-hosted hero (Donate page): two sizes shipped in /images/.
-	if ( false !== strpos( $image_url, '/images/mem-fire-2025-06-09-2000.jpg' ) ) {
+	// Theme-hosted heroes (Donate, Rebuild Efforts): two sizes shipped in /images/,
+	// named -1000.jpg and -2000.jpg.
+	if ( false !== strpos( $image_url, '/astra-child/images/' ) && '-2000.jpg' === substr( $image_url, -9 ) ) {
 		$small = str_replace( '-2000.jpg', '-1000.jpg', $image_url );
 		return array(
 			'srcset' => $small . ' 1000w, ' . $image_url . ' 2000w',
@@ -101,7 +102,7 @@ function gprs_preload_hero_image() {
 
 		// Fire Rebuild page (slug 'margaret-edgson-manor-rebuild-efforts')
 		} elseif ( is_page( 'margaret-edgson-manor-rebuild-efforts' ) ) {
-			$image = $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg';
+			$image = get_stylesheet_directory_uri() . '/images/mem-wrap-2026-10-23-hero-2000.jpg';
 
 		// MEM announcement page (slug 'mem-rebuild-announcement')
 		} elseif ( is_page( 'mem-rebuild-announcement' ) ) {
