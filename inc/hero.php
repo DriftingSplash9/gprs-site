@@ -140,7 +140,7 @@ elseif ($page_id == 2418 || is_page('donate')):
 		<div class="hero-stack">
 			<div class="hero-title-box">
 				<h1 class="hero-title">
-					Help Build Accessible Homes That Last
+					Help Rebuild Accessible Homes That Last
 				</h1>
 			</div>
 			<div class="hero-buttons">

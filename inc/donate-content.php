@@ -34,43 +34,53 @@ function gprs_render_donate_content() {
              HOW TO DONATE
              ════════════════════════════════════════════════════════════════ -->
         <section id="ways-to-donate" class="donate-methods donate-give" aria-labelledby="methods-heading">
-            <div class="donate-give__band">
-                <div class="donate-give__intro">
+
+            <!-- Intro sits on the page, not in a panel, so the two cards
+                 below it fit on screen when the nav's Donate link lands here -->
+            <div class="donate-give__intro">
+                <div class="donate-give__title">
                     <p class="donate-give__eyebrow">Support the rebuild</p>
                     <h2 id="methods-heading" class="donate-give__heading">Ways to Donate</h2>
-                    <p class="donate-lead donate-give__lead">Your gift helps build the Manor&rsquo;s 20 barrier-free homes, with features like roll-in showers. That&rsquo;s four more barrier-free homes than before the fire.</p>
-                    <ul class="donate-give__stats" aria-label="The rebuilt Manor">
-                        <li><span class="donate-give__stat">70</span> homes</li>
-                        <li><span class="donate-give__stat donate-give__stat--gold">20</span> barrier-free</li>
-                        <li><span class="donate-give__stat">+4</span> more than before the fire</li>
-                    </ul>
                 </div>
+                <div class="donate-give__summary">
+                <p class="donate-lead donate-give__lead">Your gift helps build the Manor&rsquo;s 20 barrier-free homes, with features like roll-in showers. That&rsquo;s four more barrier-free homes than before the fire.</p>
+                <ul class="donate-give__stats" aria-label="The rebuilt Manor">
+                    <li><span class="donate-give__stat">70</span> homes</li>
+                    <li><span class="donate-give__stat donate-give__stat--gold">20</span> barrier-free</li>
+                    <li><span class="donate-give__stat">+4</span> more than before the fire</li>
+                </ul>
+                </div>
+            </div>
 
-                <div class="donate-give__grid">
-                    <div class="donate-give__card donate-give__card--online">
-                        <div class="donate-give__photo">
-                            <img src="<?php echo esc_url( $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg' ); ?>" alt="Margaret Edgson Manor in August 2026, stripped to the sheathing and ready to rebuild" loading="lazy" decoding="async">
-                            <span class="donate-give__badge">Quickest way to give</span>
-                        </div>
-                        <div class="donate-give__body">
-                            <h3>Give online</h3>
-                            <ul class="donate-give__checks">
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Credit card or PayPal</span></li>
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Secure checkout with <strong>ATB Cares</strong>, powered by Benevity</span></li>
-                                <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your tax receipt arrives by email</span></li>
-                            </ul>
-                            <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-give__cta" target="_blank" rel="noopener">
-                                Donate to the Rebuild
-                                <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
-                                <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </a>
-                            <p class="donate-give__fine">Receipts for online gifts are issued by the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation.</p>
-                        </div>
+            <div class="donate-give__grid">
+
+                <article class="donate-give__card donate-give__card--online" aria-labelledby="give-online-heading">
+                    <div class="donate-give__photo">
+                        <img src="<?php echo esc_url( $uploads . '/2026/08/mem-rebuild-2026-08-hero.jpg' ); ?>" alt="Margaret Edgson Manor in August 2026, stripped to the sheathing and ready to rebuild" loading="lazy" decoding="async">
+                        <span class="donate-give__badge">Quickest way to give</span>
                     </div>
+                    <div class="donate-give__body">
+                        <h3 id="give-online-heading">Give online</h3>
+                        <ul class="donate-give__checks">
+                            <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Credit card or PayPal</span></li>
+                            <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Secure checkout with <strong>ATB Cares</strong>, powered by Benevity</span></li>
+                            <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your tax receipt arrives by email</span></li>
+                        </ul>
+                        <a href="<?php echo esc_url( 'https://atb.benevity.org/community/cause/124-891431264RR0001/project/73YRWF67L7/donate' ); ?>" class="donate-btn donate-give__cta" target="_blank" rel="noopener">
+                            Donate to the Rebuild
+                            <span class="screen-reader-text">(opens ATB Cares in a new tab)</span>
+                            <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <p class="donate-give__fine">Receipts for online gifts are issued by the Canadian Online Giving Foundation, ATB Cares&rsquo; partner foundation.</p>
+                    </div>
+                </article>
 
-                    <div class="donate-give__card donate-give__card--cheque">
+                <article class="donate-give__card donate-give__card--cheque" aria-labelledby="give-cheque-heading">
+                    <div class="donate-give__cheque-top">
                         <span class="donate-give__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 22 22" fill="none"><rect x="2.5" y="5" width="17" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="6" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="6" y1="13.5" x2="11" y2="13.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-                        <h3>Give by cheque</h3>
+                        <h3 id="give-cheque-heading">Give by cheque</h3>
+                    </div>
+                    <div class="donate-give__body">
                         <p>Make it payable to <strong>Grande Prairie Residential Society</strong>, with <strong>&ldquo;GPRS Donation&rdquo;</strong> in the memo line.</p>
                         <p>Mail it, or drop it off at the Grande Spirit Foundation office:</p>
                         <address class="donate-give__address">
@@ -81,7 +91,8 @@ function gprs_render_donate_content() {
                         </address>
                         <p class="donate-give__fine">Cheque donations receive an official tax receipt.</p>
                     </div>
-                </div>
+                </article>
+
             </div>
         </section>
 

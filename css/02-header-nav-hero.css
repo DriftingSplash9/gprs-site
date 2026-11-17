@@ -288,6 +288,66 @@ header.site-header {
 }
 
 /* ============================================================
+   8b. DONATE — NAV ITEM WITH A PERIODIC SHINE (Nov 2026)
+   Same size and type as the other menu items (base link rules
+   above apply). A soft band of light sweeps across it every
+   7 seconds so the eye finds it. ::before is the shine;
+   ::after stays the shared hover/current underline.
+   The old right-edge .nav-cta-donate button was removed from
+   parts/header.php; its rules in section 8 are now unused.
+============================================================ */
+.nav-desktop a.nav-link-donate {
+	overflow: hidden;
+	isolation: isolate;
+	font-weight: 700;
+}
+
+.nav-desktop a.nav-link-donate::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: linear-gradient(
+		105deg,
+		transparent 30%,
+		rgba(255, 236, 160, 0.10) 40%,
+		rgba(255, 255, 255, 0.55) 50%,
+		rgba(255, 236, 160, 0.10) 60%,
+		transparent 70%
+	);
+	background-size: 250% 100%;
+	background-position: 150% 0;
+	animation: gprs-donate-shine 7s ease-in-out 1.5s infinite;
+}
+
+@keyframes gprs-donate-shine {
+	0%   { background-position: 150% 0; }
+	18%  { background-position: -50% 0; }
+	100% { background-position: -50% 0; }
+}
+
+/* Gold underline peeks in so it reads as the one to click */
+.nav-desktop a.nav-link-donate::after {
+	background: #FFD700;
+	transform: scaleX(0.35);
+	transform-origin: center center;
+}
+
+.nav-desktop a.nav-link-donate:hover::after,
+.nav-desktop a.nav-link-donate:focus-visible::after,
+.nav-desktop a.nav-link-donate[aria-current="page"]::after {
+	transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nav-desktop a.nav-link-donate::before {
+		animation: none;
+		background: none;
+	}
+}
+
+/* ============================================================
    9. SUBMENU DROPDOWNS — FROSTED GLASS PANELS
    Used by: About, Housing (and any future dropdown groups)
 ============================================================ */

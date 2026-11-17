@@ -124,19 +124,19 @@
 				<!-- VOLUNTEER — standalone link -->
 				<a href="<?php echo esc_url( home_url( '/volunteer/' ) ); ?>">Volunteer</a>
 
+				<!-- DONATE — a menu item like the others, with a periodic shine -->
+				<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>"
+				   class="nav-link-donate">Donate</a>
+
 			</nav>
 		</div>
 
 		<!-- ==============================
 		     HEADER CONTROLS
-		     Desktop: Donate → Accessibility → Search (right edge)
+		     Desktop: Accessibility → Search (right edge); Donate is in the nav
 		     Mobile:  Fire Updates → Accessibility → Hamburger
 		     ============================== -->
 		<div class="header-controls">
-
-			<!-- DONATE CTA — hidden on mobile, shown in mobile menu -->
-			<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>"
-			   class="nav-cta-donate">Donate</a>
 
 			<!-- FIRE UPDATES — mobile only (replaces donate position) -->
 			<a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>"
