@@ -295,7 +295,7 @@ function gprs_render_volunteer_content() {
 
                 <div class="gprs-vol-legacy__card">
                     <h3 class="gprs-vol-legacy__name">Travis McNally</h3>
-                    <p class="gprs-vol-legacy__role">Board President since 1986</p>
+                    <p class="gprs-vol-legacy__role">President, multiple terms since 1986</p>
                     <p class="gprs-vol-legacy__text">A former professional jockey left quadriplegic by a riding accident, Travis has served as president across multiple terms since 1986. He was among the first duplex residents and continues to lead the Society through the Margaret Edgson Manor rebuild.</p>
                 </div>
 

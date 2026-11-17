@@ -68,8 +68,8 @@ function gprs_render_our_story_content() {
 
 		<div class="gprs-story__body">
 			<p>On January 15, 1986, the Grande Prairie Residential Society was officially
-			incorporated. Travis McNally became the first president of the board, joined
-			by Kay McNally, Ethel Oman, Irene Kriaski, and Colleen Kriaski.</p>
+			incorporated. Travis McNally became its president, and the first board
+			included Kay McNally, Ethel Oman, Irene Kriaski, and Colleen Kriaski.</p>
 
 			<p>Travis brought something to the role that no one else could. In 1983, a
 			horse-racing accident in Regina left him quadriplegic. He knew firsthand what

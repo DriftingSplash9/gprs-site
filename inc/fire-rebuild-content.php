@@ -617,7 +617,7 @@ function gprs_render_fire_rebuild_content() {
 		<blockquote class="gprs-fire__quote gprs-blockquote">
 			<p>&ldquo;Having a home of your own gives you a piece of independence.
 			You have your own home.&rdquo;</p>
-			<cite>&mdash; Travis McNally, Founding President (2004)</cite>
+			<cite>&mdash; Travis McNally, GPRS President (2004)</cite>
 		</blockquote>
 	</section>
 

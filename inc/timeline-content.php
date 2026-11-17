@@ -105,7 +105,7 @@ function gprs_render_timeline_content() {
 		array(
 			'period' => '2005',
 			'title'  => 'Margaret Edgson Manor Opens',
-			'text'   => 'In 2005, the doors opened to 70 beautiful two-bedroom homes — 16 of them fully wheelchair accessible. The building quickly became a cornerstone of the community, offering dignity, independence, and a true sense of belonging.',
+			'text'   => 'In 2005, the doors opened to 70 affordable homes — 16 of them fully wheelchair accessible. The building quickly became a cornerstone of the community, offering dignity, independence, and a true sense of belonging.',
 			'images' => array(
 				$uploads . '/2025/11/mem-3-e1763785598927.jpg',
 			),
