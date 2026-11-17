@@ -101,7 +101,7 @@ function gprs_render_volunteer_content() {
                 <div class="gprs-vol-why__content">
                     <h2 id="why-volunteer-heading" class="gprs-vol-section-title">Why Volunteer with GPRS</h2>
 
-                    <p>The Grande Prairie Residential Society has been entirely volunteer-run since it was incorporated in 1986. There has never been paid staff. Every one of our 87 housing units — from the 1987 Crystal Ridge duplexes to Margaret Edgson Manor — was planned, funded, built, and maintained through the work of people who showed up because they believed in the mission.</p>
+                    <p>The Grande Prairie Residential Society has been governed by an all-volunteer board since it was incorporated in 1986. Every one of our 87 housing units — from the 1987 Crystal Ridge duplexes to Margaret Edgson Manor — was planned, funded, built, and maintained through the work of people who showed up because they believed in the mission.</p>
 
                     <p>That started with Rose Pike, who lobbied politicians for 18 years to get accessible housing built in Grande Prairie. It started with Ernie and Ethel Oman, whose daughter Penny became quadriplegic in the mid-1970s and had to move to Edmonton because nothing existed here. It started with Pat Adams, who donated his architectural expertise as an unpaid consultant to design the first barrier-free homes north of Edmonton.</p>
 

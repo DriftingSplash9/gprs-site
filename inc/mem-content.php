@@ -34,7 +34,7 @@ function gprs_render_mem_content() {
              AT A GLANCE
              ════════════════════════════════════════════════════════════════ -->
         <section class="mem-glance" aria-label="At a glance">
-            <h2 class="mem-heading">At a Glance</h2>
+            <h2 class="mem-heading">At a Glance: 2005&ndash;2025</h2>
             <div class="mem-glance__grid">
                 <div class="mem-glance__card">
                     <span class="mem-glance__value">70</span>
@@ -161,7 +161,7 @@ function gprs_render_mem_content() {
             <h2 id="features-heading" class="mem-heading">What the Manor Offers</h2>
             <div class="mem-features-layout">
                 <div class="mem-features-card">
-                    <h3>20 Barrier-Free Suites</h3>
+                    <h3>20 Barrier-Free Suites After the Rebuild</h3>
                     <p>Purpose-built for wheelchair users and residents with mobility impairments:</p>
                     <ul class="mem-features-list">
                         <li>Zero-threshold entries</li>
@@ -174,7 +174,7 @@ function gprs_render_mem_content() {
                     </ul>
                 </div>
                 <div class="mem-features-card">
-                    <h3>50 Affordable Units</h3>
+                    <h3>50 Affordable Units After the Rebuild</h3>
                     <p>Suites for families and individuals who need relief from high market rents — the revenue that keeps the building self-sustaining without government operating support.</p>
                 </div>
                 <div class="mem-features-card">

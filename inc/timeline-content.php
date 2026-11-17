@@ -154,9 +154,18 @@ function gprs_render_timeline_content() {
 		array(
 			'period' => 'Jan–Mar 2026',
 			'title'  => 'Winter Pause and Spring Hope',
-			'text'   => 'The building now rests safely under its new roof while the team prepares for the next phase. Full interior restoration is scheduled to begin once spring inspections are complete. The entire community continues to rally with donations, volunteer hours, and encouragement.',
+			'text'   => 'The building rested safely under its new permanent roof through the winter. The boiler ran to keep the foundation from heaving, the site was secured, and the fourth-floor walls were reframed. The entire community continued to rally with donations, volunteer hours, and encouragement.',
 			'images' => array(
 				$uploads . '/2026/03/DJI_20260110143024_0071_D-scaled.jpg',
+			),
+		),
+
+		array(
+			'period' => 'Apr–Nov 2026',
+			'title'  => 'A New Exterior Takes Shape',
+			'text'   => 'With the structure weather-tight, exterior materials were priced and tendered. Through the summer the old vinyl siding came off all four storeys, and the board approved fibre cement siding and new balconies with vinyl decking. By late October weather wrap was going on, the old balconies were coming off, and new sprinkler risers were in. Interior work is waiting on a permit. When finished, the Manor will again hold 70 homes, 20 of them barrier-free.',
+			'images' => array(
+				$uploads . '/2026/08/mem-rebuild-2026-08-southwest-corner.jpg',
 			),
 		),
 

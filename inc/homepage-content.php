@@ -200,7 +200,7 @@ function gprs_render_homepage_content() {
 
 				<div class="hp-rebuild__text">
 					<h2 class="hp-rebuild__heading">Margaret Edgson Manor Rebuild Update</h2>
-					<p>Selective demolition is complete. The new roof is finished and construction continues to updated building codes&nbsp;&mdash; fourth-floor framing is now underway. The GPRS Board proudly supports local by working with Terrace Construction toward a safe, lasting rebuild.</p>
+					<p>The new permanent roof is on and the fourth floor has been reframed to updated building codes. The exterior is now being rebuilt&nbsp;&mdash; weather wrap is going on, and new windows, siding and balconies are next. Interior work is waiting on a permit. The GPRS Board proudly supports local by working with Terrace Construction toward a safe, lasting rebuild.</p>
 					<a href="<?php echo esc_url( $home . 'margaret-edgson-manor-rebuild-efforts/' ); ?>" class="btn btn-primary">Read the full update &rarr;</a>
 				</div>
 

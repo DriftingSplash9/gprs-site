@@ -204,8 +204,9 @@ function gprs_render_our_story_content() {
 
 			<p>The rebuild began quickly. By early 2026, selective demolition was complete
 			and a new roof was finished to updated building codes &mdash; all in
-			partnership with Terrace Construction. The GPRS Board continues to work toward
-			a safe, lasting rebuild.</p>
+			partnership with Terrace Construction. By the fall of 2026 the fourth floor had
+			been reframed and the exterior was being rebuilt, with interior work waiting on
+			a permit. The GPRS Board continues to work toward a safe, lasting rebuild.</p>
 
 			<p>It would have been easy to see the fire as the end of something. Instead,
 			it became the next chapter. The same community that came together in

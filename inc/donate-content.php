@@ -92,7 +92,7 @@ function gprs_render_donate_content() {
         <section class="donate-intro" aria-label="Why your donation matters">
             <h2 class="donate-heading">Why Your Support Matters</h2>
             <p class="donate-text--large">On June 9, 2025, fire severely damaged Margaret Edgson Manor — 70 units of accessible and affordable housing that took nearly 20 years to build. Thanks to first responders, no lives were lost. But more than 70 residents were displaced from the homes that gave them independence.</p>
-            <p>The GPRS board — entirely volunteer, no paid staff — chose to rebuild. Construction is underway to 2023 National Building Code standards with improved safety features and better insulation. The rebuilt Manor will again have 70 homes, 20 of them barrier-free. Your donation goes directly to this rebuild.</p>
+            <p>The GPRS board — all volunteers — chose to rebuild. Construction is underway to 2023 National Building Code standards with improved safety features and better insulation. The rebuilt Manor will again have 70 homes, 20 of them barrier-free. Your donation goes directly to this rebuild.</p>
             <blockquote class="donate-quote">
                 <p class="donate-quote__text">"Before the '80s, anybody hurt that needed care, you basically had to move to Edmonton. There was nothing here."</p>
                 <footer class="donate-quote__footer">
@@ -127,7 +127,7 @@ function gprs_render_donate_content() {
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="2.5" fill="none"/><path d="M20 14v8l5 3" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <h3>Long-Term Stability</h3>
-                    <p>Margaret Edgson Manor operates sustainably with no government funding. Your gift helps keep rents affordable for decades to come.</p>
+                    <p>Margaret Edgson Manor operates sustainably with no government operating funding. Your gift helps keep rents affordable for decades to come.</p>
                 </div>
             </div>
         </section>
@@ -164,7 +164,7 @@ function gprs_render_donate_content() {
                     </figure>
                 </div>
                 <div class="donate-rebuild__content">
-                    <p>Selective demolition is complete. The building has been stripped to studs, mold mitigated, and the damaged roof removed. The new roof is finished and fourth-floor framing is underway — all to updated 2023 National Building Code standards.</p>
+                    <p>The building has been stripped to studs and mold mitigated. The new roof is on and the fourth floor has been reframed — all to updated 2023 National Building Code standards. The exterior is now being rebuilt, with weather wrap going on and new windows, siding and balconies next. Interior work is waiting on a permit.</p>
                     <p>GPRS is proud to support local: Terrace Construction, a Grande Prairie company, is leading the rebuild.</p>
                     <blockquote class="donate-quote">
                         <p class="donate-quote__text">"Get a second chance to do it right."</p>
@@ -189,7 +189,7 @@ function gprs_render_donate_content() {
             <div class="donate-other__grid">
                 <div class="donate-other__card">
                     <h3>Volunteer</h3>
-                    <p>GPRS has been entirely volunteer-run since 1986. Join a committee, help with outreach, or contribute professional skills.</p>
+                    <p>GPRS has been led by volunteers since 1986. Join a committee, help with outreach, or contribute professional skills.</p>
                     <a href="<?php echo esc_url( home_url( '/volunteer/' ) ); ?>" class="donate-btn donate-btn--outline">
                         Volunteer With Us
                         <svg class="donate-btn__arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>

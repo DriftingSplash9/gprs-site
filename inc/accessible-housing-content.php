@@ -378,7 +378,7 @@ function gprs_render_accessible_housing_content() {
                     <dl class="gprs-housing-facts">
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Units</dt>
-                            <dd class="gprs-housing-facts__value">70 total: 20 fully wheelchair-accessible + 50 affordable housing</dd>
+                            <dd class="gprs-housing-facts__value">70 total. Before the fire: 16 barrier-free + 54 affordable. After the rebuild: 20 barrier-free + 50 affordable</dd>
                         </div>
                         <div class="gprs-housing-facts__item">
                             <dt class="gprs-housing-facts__label">Address</dt>
@@ -427,7 +427,7 @@ function gprs_render_accessible_housing_content() {
                     <!-- Narrative -->
                     <div class="gprs-housing-phase__narrative">
                         <p>Margaret Edgson was a Grande Prairie advocate who believed people with disabilities should live as part of the community — not apart from it. Her estate contributed $150,000 to what would become the Society's largest project.</p>
-                        <p>In 2005, Margaret Edgson Manor opened as a 70-unit complex: 16 fully barrier-free, wheelchair-accessible suites and 54 affordable housing units. It was developed in partnership with the City of Grande Prairie's Global Housing Initiative — a unique model that brought accessible and affordable housing together under one roof. The building operates sustainably, without ongoing government operational funding.</p>
+                        <p>In 2005, Margaret Edgson Manor opened as a 70-unit complex: 16 fully barrier-free, wheelchair-accessible suites and 54 affordable housing units (the rebuild will bring that to 20 barrier-free and 50 affordable). It was developed in partnership with the City of Grande Prairie's Global Housing Initiative — a unique model that brought accessible and affordable housing together under one roof. The building operates sustainably, without ongoing government operational funding.</p>
                         <p>On June 9, 2025, a fire severely damaged the building, displacing over 70 residents. Thanks to first responders, no lives were lost. The building is now being rebuilt to updated building codes.</p>
                     </div>
 

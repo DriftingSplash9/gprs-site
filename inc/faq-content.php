@@ -76,7 +76,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>Yes. GPRS is a CRA-registered non-profit charitable organization (BN&nbsp;891431264RR0001). Tax receipts for donations are issued through our partner, the <a href="https://www.grandespirit.org/" target="_blank" rel="noopener noreferrer">Grande Spirit Foundation</a>. When donating, please note <strong>&ldquo;GPRS Donation&rdquo;</strong> so your contribution is properly directed and your receipt is accurate.</p>
+                <p>Yes. GPRS is a CRA-registered non-profit charitable organization (BN&nbsp;891431264RR0001). Online donations through ATB Cares are receipted by email through ATB Cares. Cheque and e-transfer donations are receipted through our partner, the <a href="https://www.grandespirit.org/" target="_blank" rel="noopener noreferrer">Grande Spirit Foundation</a>. When donating by cheque or e-transfer, please note <strong>&ldquo;GPRS Donation&rdquo;</strong> so your contribution is properly directed and your receipt is accurate.</p>
             </div>
         </div>
 
@@ -231,7 +231,7 @@ function gprs_render_faq_content() {
                 <span class="faq-item__chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
             </button>
             <div class="faq-item__answer" role="region">
-                <p>Selective demolition is complete. A new roof has been constructed to updated building codes, and fourth-floor framing is underway. The GPRS Board continues to work with Terrace Construction toward a safe, lasting rebuild. Follow our progress on the <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>">rebuild updates page</a>.</p>
+                <p>The new permanent roof is on and the fourth floor has been reframed to updated building codes. The exterior is now being rebuilt &mdash; weather wrap is going on, and new windows, siding and balconies are next. Interior work is waiting on a permit. The GPRS Board continues to work with Terrace Construction toward a safe, lasting rebuild. Follow our progress on the <a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>">rebuild updates page</a>.</p>
             </div>
         </div>
 
