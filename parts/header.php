@@ -7,7 +7,7 @@
  *   1. "More" catch-all dropdown replaced with semantic dropdown groups
  *   2. Full search bar added (desktop + mobile)
  *   3. SEO-friendly nav labels aligned with new page titles
- *   4. Mobile layout: Logo → Fire Updates → Accessibility → Hamburger
+ *   4. Mobile layout: Logo → Donate → Accessibility → Hamburger
  *   5. Accessibility toggle replaces theme toggle (dark mode now in a11y panel)
  *   6. Privacy & Accessibility removed from nav (footer + mobile only)
  *   7. Mobile menu uses section headings with dividers (no nested menus)
@@ -21,7 +21,7 @@
  *   Logo | About ▾ | Housing ▾ | News & FAQ ▾ | Volunteer | Donate | [♿] | [Search]
  *
  * Mobile header:
- *   Logo | [Fire Updates] | [♿] | [Hamburger]
+ *   Logo | [Donate] | [♿] | [Hamburger]
  *
  * Mobile menu (top to bottom):
  *   [Search] → Donate → Home → About → Housing → News & FAQ → Volunteer → Legal
@@ -134,13 +134,14 @@
 		<!-- ==============================
 		     HEADER CONTROLS
 		     Desktop: Accessibility → Search (right edge); Donate is in the nav
-		     Mobile:  Fire Updates → Accessibility → Hamburger
+		     Mobile:  Donate → Accessibility → Hamburger
 		     ============================== -->
 		<div class="header-controls">
 
-			<!-- FIRE UPDATES — mobile only (replaces donate position) -->
-			<a href="<?php echo esc_url( home_url( '/margaret-edgson-manor-rebuild-efforts/' ) ); ?>"
-			   class="mobile-fire-updates">Fire Updates</a>
+			<!-- DONATE — mobile/tablet header button (Nov 2026; was Fire Updates,
+			     which is still in the menu under News & FAQ) -->
+			<a href="<?php echo esc_url( home_url( '/donate/#ways-to-donate' ) ); ?>"
+			   class="mobile-header-donate">Donate</a>
 
 			<!-- ACCESSIBILITY TOGGLE — visible at ALL breakpoints -->
 			<button id="gprs-a11y-toggle"

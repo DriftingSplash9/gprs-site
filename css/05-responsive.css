@@ -209,55 +209,81 @@
 		display: none !important;
 	}
 
-	/* Show the Fire Updates link on mobile (replaces search bar spot) */
-	.mobile-fire-updates {
+	/* Show the Donate button on mobile (replaces search bar spot) */
+	.mobile-header-donate {
 		display: inline-flex !important;
 	}
 }
 
 /* ============================================================
-   4e. FIRE UPDATES LINK — MOBILE HEADER
-   Hidden on desktop, shown at ≤1024px in header controls row
-   (replaces the search bar position).
+   4e. DONATE BUTTON — MOBILE HEADER (Nov 2026)
+   Hidden on desktop (Donate is in the nav there), shown at
+   ≤1024px in the header controls row. Replaced the orange
+   Fire Updates link, which is still in the menu. Gold, with
+   the same periodic shine as the desktop nav item (keyframes
+   gprs-donate-shine live in 02-header-nav-hero.css).
 ============================================================ */
-.mobile-fire-updates {
+.mobile-header-donate {
 	display: none;
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
 	align-items: center;
 	justify-content: center;
-	padding: 0.35rem 0.7rem;
+	padding: 0.35rem 0.9rem;
 	border-radius: var(--radius-sm, 8px);
-	background: rgba(235, 90, 20, 0.70);
-	border: 1.5px solid rgba(255, 140, 60, 0.80);
-	color: #ffffff !important;
-	font-size: 0.78rem;
-	font-weight: 700;
+	background: #f4c430;
+	border: 1.5px solid #f4c430;
+	color: #0b2545 !important;
+	font-size: 0.82rem;
+	font-weight: 800;
 	letter-spacing: 0.02em;
 	white-space: nowrap;
 	text-decoration: none !important;
 	height: 36px;
 	flex-shrink: 0;
+	box-shadow: 0 4px 12px rgba(244, 196, 48, 0.30);
 	transition:
 		background 0.15s ease,
 		border-color 0.15s ease;
 }
 
-.mobile-fire-updates:hover,
-.mobile-fire-updates:active {
-	background: rgba(235, 90, 20, 0.85);
-	border-color: rgba(255, 160, 80, 0.90);
-	color: #ffffff !important;
+.mobile-header-donate::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background: linear-gradient(
+		105deg,
+		transparent 30%,
+		rgba(255, 255, 255, 0.15) 40%,
+		rgba(255, 255, 255, 0.75) 50%,
+		rgba(255, 255, 255, 0.15) 60%,
+		transparent 70%
+	);
+	background-size: 250% 100%;
+	background-position: 150% 0;
+	animation: gprs-donate-shine 7s ease-in-out 1.5s infinite;
 }
 
-/* Light-mode variant */
-html:not(.gprs-dark) .mobile-fire-updates {
-	background: rgba(200, 60, 10, 0.80);
-	border-color: rgba(200, 60, 10, 0.90);
-	color: #ffffff !important;
+.mobile-header-donate:hover,
+.mobile-header-donate:active {
+	background: #ffd75a;
+	border-color: #ffd75a;
+	color: #0b2545 !important;
 }
 
-html:not(.gprs-dark) .mobile-fire-updates:hover {
-	background: rgba(200, 60, 10, 0.95);
-	border-color: rgba(220, 80, 20, 1);
+.mobile-header-donate:focus-visible {
+	outline: 3px solid #ffffff;
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mobile-header-donate::before {
+		animation: none;
+		background: none;
+	}
 }
 
 
@@ -428,7 +454,7 @@ html:not(.gprs-dark) .mobile-fire-updates:hover {
 		height: 52px;
 	}
 
-	.mobile-fire-updates {
+	.mobile-header-donate {
 		font-size: 0.74rem;
 		padding: 0.3rem 0.6rem;
 		height: 34px;
@@ -476,7 +502,7 @@ html:not(.gprs-dark) .mobile-fire-updates:hover {
 		gap: 0.4rem;
 	}
 
-	.mobile-fire-updates {
+	.mobile-header-donate {
 		font-size: 0.70rem;
 		padding: 0.25rem 0.5rem;
 		height: 32px;
@@ -617,5 +643,31 @@ html {
 
 	img {
 		height: auto;
+	}
+}
+/* ============================================================
+   SMALL PHONES (≤380px) — keep the header row on screen
+   (Nov 2026). At 360px the logo + Donate + accessibility +
+   hamburger needed ~368px, so the hamburger was clipped at
+   the right edge. px sizes: the theme raises the root font
+   size on small screens.
+============================================================ */
+@media (max-width: 380px) {
+	.header-inner {
+		padding: 0 10px;
+		gap: 6px;
+	}
+
+	.header-controls {
+		gap: 6px;
+	}
+
+	.logo img {
+		height: 42px;
+	}
+
+	.mobile-header-donate {
+		padding: 0 10px;
+		font-size: 12px;
 	}
 }

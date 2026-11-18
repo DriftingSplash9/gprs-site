@@ -216,17 +216,68 @@
 			}
 		});
 
+		function closeMenu() {
+			menu.classList.remove('open');
+			toggle.setAttribute('aria-expanded', 'false');
+			toggle.setAttribute('aria-label', 'Open menu');
+			menu.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('menu-open');
+		}
+
 		/* Close on Escape */
 		menu.addEventListener('keydown', function (e) {
 			if (e.key === 'Escape') {
-				menu.classList.remove('open');
-				toggle.setAttribute('aria-expanded', 'false');
-				toggle.setAttribute('aria-label', 'Open menu');
-				menu.setAttribute('aria-hidden', 'true');
-				document.body.classList.remove('menu-open');
+				closeMenu();
 				toggle.focus();
 			}
 		});
+
+		/* Close when a link is tapped. Without this, a link to a spot on
+		   the same page (Donate on /donate/ → #ways-to-donate) did
+		   nothing visible: the menu stayed open over the page and
+		   body.menu-open blocked the scroll. Same-page jumps are then
+		   done by initHeaderJumps() (section 2b). */
+		menu.addEventListener('click', function (e) {
+			if (e.target.closest('a')) closeMenu();
+		}, true);
+	}
+
+
+	/* ============================================================
+	   2b. SAME-PAGE JUMPS FOR THE HEADER LINKS (Nov 2026)
+	   Another script on the page (not identified; likely the parent theme) catches
+	   clicks on #links and scrolls by its own offset, which ignores
+	   scroll-margin-top and parks the target under our fixed header
+	   (measured: 60px off on a phone). For links in the header and
+	   mobile menu we take the click first (window, capture phase)
+	   and scroll the target into view ourselves, so the section's
+	   scroll-margin-top is honoured on every browser.
+	   ============================================================ */
+	function initHeaderJumps() {
+		window.addEventListener('click', function (e) {
+			if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+			var link = e.target.closest && e.target.closest('#gprs-header a[href*="#"]');
+			if (!link) return;
+
+			var url;
+			try { url = new URL(link.href, window.location.href); } catch (err) { return; }
+			if (!url.hash || url.origin !== window.location.origin || url.pathname !== window.location.pathname) return;
+
+			var target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+			if (!target) return;
+
+			e.preventDefault();
+			e.stopPropagation(); /* so the menu's own close listener won't run: close it here */
+
+			var menu = document.getElementById('mobile-menu');
+			var toggle = document.getElementById('mobile-menu-toggle');
+			if (menu && toggle && menu.classList.contains('open')) toggle.click();
+
+			if (window.location.hash !== url.hash) history.pushState(null, '', url.hash);
+			target.scrollIntoView({ block: 'start' });
+			if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+			target.focus({ preventScroll: true });
+		}, true);
 	}
 
 
@@ -276,6 +327,7 @@
 	function init() {
 		initSubmenus();
 		initMobileMenu();
+		initHeaderJumps();
 		markActivePages();
 	}
 
